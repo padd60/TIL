@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- html5로 만든 문서다 -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>웹문서 제목</title>
+  </head>
+  <body>
+    <h1>안녕하세요!</h1>
+    <h2>안녕하세요!</h2>
+    <h3>안녕하세요!</h3>
+    <h4>안녕하세요!</h4>
+    <h5>안녕하세요!</h5>
+    <h6>안녕하세요!</h6>
+
+    <p>
+      <strong>반갑</strong>습니다.
+      <br />
+      <br />
+      다음에 또 &nbsp;&nbsp;&nbsp;&nbsp; 만나요 ~
+    </p>
+    <!-- &nbsp;는 공백을 표현하는 특수문자이다. -->
+
+    <pre>동해물과 백두산이 <del>마르고</del>          닳도록</pre>
+    <!-- <pre>는 코딩상 내가 필요에 의한 
+      엔터와 스페이스키 입력을 출력하면 않되기 때문에 
+      자주 사용하지 않는다
+      그래서 <p>를 많이 사용한다.  -->
+
+    <!-- 순서가 없는 목록 -->
+    <ul>
+      <li>수박</li>
+      <li>멜론</li>
+      <li>참외</li>
+    </ul>
+
+    <!-- 순서가 있는 목록 -->
+    <ol>
+      <li>치킨</li>
+      <li>피자</li>
+      <li>떡볶이</li>
+    </ol>
+
+    <!-- 제목이 있는 목록 -->
+    <dl>
+      <dt>계절</dt>
+      <dd>봄</dd>
+      <dd>여름</dd>
+      <dd>가을</dd>
+      <dd>겨울</dd>
+    </dl>
+
+    <a href="https://www.naver.com/" target="_blank">네이버 바로가기</a>
+    <img src="./test.jpeg" alt="이미지에 대한 대체 설명 속성" width="300" />
+    <!-- ./는 같은 폴더 내 -->
+    <hr />
+    <!-- hr 구분선 -->
+    <a href="https://www.naver.com/" target="_blank">
+      <img src="../test2.jpeg" height="200" />
+    </a>
+    <!-- ../는 폴더 밖 -->
+
+    <hr />
+
+    <div style="background-color: yellow">A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>D</div>
+    <div>E</div>
+    <!-- div는 위에서 아래로 쌓임 / 콘텐츠나 담을 것이 클때 사용 -->
+    <!-- box 레벨은 위에서 아래로  -->
+
+    <hr />
+
+    <span style="background-color: red">안</span>
+    <span>녕</span>
+    <span>하</span>
+    <span>세</span>
+    <span>요</span>
+    <!-- span은 왼쪽에서 오른쪽로 쌓임 / 글씨에 자주 사용 -->
+    <!-- inline 레벨은 위에서 아래로  -->
+
+    <!-- 이게 html에 주석표시이다. -->
+    <br /><br /><br /><br />
+    <!-- https://www.google.co.kr/maps -->
+    <iframe
+      src="https://www.truefriend.com/"
+      width="100%"
+      height="300"
+    ></iframe>
+
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d791.0591457526548!2d126.89654!3d37.525920000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f2d46646f43%3A0xaa13dab27e6dcddb!2z7JiB65Ox7Y-s6rWs7LKt7JetMuuyiOy2nOq1rA!5e0!3m2!1sko!2skr!4v1626749718160!5m2!1sko!2skr"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+  </body>
+</html>
