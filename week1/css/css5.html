@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>selector</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #wrap {
+        border: 2px solid blue;
+        width: 400px;
+        margin: 0 auto;
+        /* block 레벨의 중앙정렬 코드 */
+      }
+      .list {
+        list-style-position: inside;
+        padding-left: 10px;
+      }
+      h1 {
+        border: 1px solid red;
+      }
+      /* .list li ul li {
+        color: red;
+      } */
+      .list > li {
+        border: 2px solid skyblue;
+      }
+      /* > 이건 자식선택자 = 바로 아래 단계에 있는 자식만 선택함 */
+    </style>
+  </head>
+  <body>
+    <!-- #wrap>h1+ul>li*3>a -->
+    <div id="wrap">
+      <h1>자주 사용하는 포털사이트</h1>
+      <ul class="list">
+        <li>
+          <a href="#">네이버</a>추천
+          <ul>
+            <li>블로그</li>
+            <li>카페</li>
+          </ul>
+        </li>
+        <li><a href="#">다음</a>추천</li>
+        <li><a href="#">구글</a>추천</li>
+      </ul>
+    </div>
+  </body>
+</html>

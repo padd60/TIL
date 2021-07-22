@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>css parallax</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        color: #777;
+      }
+      .bg01,
+      .bg02,
+      .bg03 {
+        background-color: #333;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+        opacity: 0.7;
+      }
+      .bg01 {
+        background-image: url(images/bg01.jpg);
+        min-height: 100%;
+      }
+      .bg02 {
+        background-image: url(images/bg02.jpg);
+        min-height: 400px;
+      }
+      .bg03 {
+        background-image: url(images/bg03.jpg);
+        min-height: 400px;
+      }
+      .caption {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 20px;
+        font-size: 24px;
+        letter-spacing: 10px;
+        transform: translate(-50%, -50%);
+      }
+      .txt01,
+      .txt02,
+      .txt03 {
+        background-color: #fff;
+        color: #777;
+        padding: 50px 100px;
+        text-align: justify;
+        line-height: 1.8;
+      }
+      .txt03 {
+        background-color: #282e34;
+        color: #ddd;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg01">
+      <span class="caption">SCROLL start</span>
+    </div>
+    <div class="txt01">
+      <h2>HAPPY HAPPY HAPPY</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
+        reiciendis impedit perspiciatis dolore alias facere placeat dolorem
+        voluptas eum unde veritatis quaerat, deleniti beatae excepturi iste
+        nulla aliquam, enim qui?
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
+        reiciendis impedit perspiciatis dolore alias facere placeat dolorem
+        voluptas eum unde veritatis quaerat, deleniti beatae excepturi iste
+        nulla aliquam, enim qui?
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
+        reiciendis impedit perspiciatis dolore alias facere placeat dolorem
+        voluptas eum unde veritatis quaerat, deleniti beatae excepturi iste
+        nulla aliquam, enim qui?
+      </p>
+    </div>
+    <div class="bg02">
+      <span class="caption">Test Demo1</span>
+    </div>
+    <div class="txt02">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+        consectetur, maiores deserunt autem fuga tempora corporis facere
+        asperiores ea doloribus repudiandae velit, aut consequatur odio neque,
+        ipsa ratione sint inventore!
+      </p>
+    </div>
+    <div class="bg03">
+      <span class="caption">Test Demo2</span>
+    </div>
+    <div class="txt03">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore sequi
+        sed earum maxime id, pariatur eligendi numquam? Quae optio quas
+        cupiditate velit sequi impedit pariatur possimus deleniti non! Modi,
+        rem!
+      </p>
+    </div>
+    <div class="bg01">
+      <span class="caption">SCROLL end</span>
+    </div>
+  </body>
+</html>

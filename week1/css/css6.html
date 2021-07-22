@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>block & inline</title>
+    <style>
+      span {
+        background-color: tomato;
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        display: inline-block;
+      }
+      .btn {
+        width: 120px;
+        height: 50px;
+        background-color: burlywood;
+        color: #fff;
+        display: block;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 50px;
+        text-decoration: none;
+      }
+      .btn:hover,
+      .btn:active {
+        background-color: coral;
+      }
+      /* .btn:active {
+        background-color: crimson;
+      } */
+      .menu {
+        list-style: none;
+        padding: 0;
+      }
+      .menu li {
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background-color: rgb(36, 160, 160);
+        color: #fff;
+        display: inline-block;
+      }
+      a:link {
+        color: orange;
+      }
+      a:visited {
+        color: fuchsia;
+      }
+      .menu li:hover {
+        background-color: cyan;
+        cursor: pointer;
+      }
+      .menu li:first-child {
+        border: 1px solid hotpink;
+      }
+      .menu li:last-child {
+        border: 1px solid blue;
+      }
+      .menu li:nth-child(2) {
+        border: 1px solid gold;
+        visibility: hidden;
+      }
+      .menu li:nth-child(3) {
+        border: 1px solid green;
+        display: none;
+      }
+      /* body div:nth-child(1) {
+        border: 3px solid red;
+      } */
+      #box {
+        border: 5px solid red;
+        margin-bottom: 300px;
+      }
+      #box div {
+        background-color: yellowgreen;
+        width: 200px;
+        height: 200px;
+      }
+      #box div:nth-child(1) {
+        display: block;
+      }
+      #box div:nth-child(2) {
+        padding: 50px;
+      }
+      #box div:nth-child(3) {
+        border: 50px solid orange;
+      }
+      #box div:nth-child(4) {
+        padding: 50px;
+        border: 50px solid orange;
+      }
+      #box div:nth-child(5) {
+        padding: 50px;
+        border: 50px solid orange;
+        box-sizing: border-box;
+        /* width -> padding + border */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+      <div>D</div>
+      <div>E</div>
+      <div>F</div>
+    </div>
+    <hr />
+    <span>A</span><span>B</span><span>C</span>
+    <span>D</span>
+    <span>I</span>
+
+    <a href="#" class="btn">바로가기</a>
+    <a href="#" class="btn">바로가기</a>
+
+    <hr />
+
+    <ul class="menu">
+      <li>menu1</li>
+      <li>menu2</li>
+      <li>menu3</li>
+      <li>menu4</li>
+    </ul>
+    <hr />
+    <a href="https://www.naver.com/">네이버</a>
+    <a href="www.brain-study.co.kr">뇌새김</a>
+    <a href="#">바로가기</a>
+  </body>
+</html>

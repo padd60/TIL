@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>배경속성</title>
+    <style>
+      body {
+        background-image: url(bg5.png), linear-gradient(225deg, white, navy);
+        background-repeat: no-repeat;
+        background-size: 100px, cover;
+        background-position: right center;
+        background-attachment: fixed, scroll;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        background-color: white;
+        width: 350px;
+        border: 3px solid gray;
+        margin: 20px auto;
+        padding: 50px 40px;
+        line-height: 1.5;
+      }
+      .box1 {
+        background-image: url(bg2.jpeg);
+        background-size: 70px;
+        background-repeat: repeat-x;
+      }
+      .box1 p {
+        text-transform: uppercase;
+      }
+      .box2 {
+        background-image: url(bg2.jpeg);
+        background-size: 70px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .box2 p {
+        text-transform: lowercase;
+      }
+      .box3 {
+        color: #fff;
+        background-image: url(plants.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right;
+      }
+      .box3 p {
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- .box$*3 -->
+    <div class="box1">
+      <h1>초콜릿01</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium
+        non illo saepe dolorum nam dignissimos at voluptate amet optio. Ad
+        error, asperiores ducimus iste omnis aliquid ipsa consequatur vel.
+        Eaque.
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium
+        non illo saepe dolorum nam dignissimos at voluptate amet optio. Ad
+        error, asperiores ducimus iste omnis aliquid ipsa consequatur vel.
+        Eaque.
+      </p>
+    </div>
+    <div class="box2">
+      <h1>초콜릿02</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium
+        non illo saepe dolorum nam dignissimos at voluptate amet optio. Ad
+        error, asperiores ducimus iste omnis aliquid ipsa consequatur vel.
+        Eaque.
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium
+        non illo saepe dolorum nam dignissimos at voluptate amet optio. Ad
+        error, asperiores ducimus iste omnis aliquid ipsa consequatur vel.
+        Eaque.
+      </p>
+    </div>
+    <div class="box3">
+      <h1>초콜릿03</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium
+        non illo saepe dolorum nam dignissimos at voluptate amet optio. Ad
+        error, asperiores ducimus iste omnis aliquid ipsa consequatur vel.
+        Eaque.
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium
+        non illo saepe dolorum nam dignissimos at voluptate amet optio. Ad
+        error, asperiores ducimus iste omnis aliquid ipsa consequatur vel.
+        Eaque.
+      </p>
+    </div>
+  </body>
+</html>
