@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>레이아웃</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #wrap {
+        width: 700px;
+        margin: 0 auto;
+        border: 1px solid red;
+      }
+      #header {
+        background-color: coral;
+      }
+      #header .menu {
+        list-style: none;
+        width: 424px;
+        margin: 0 auto;
+      }
+      /* #header .menu::before {
+        content: "오늘..";
+      }
+      #header .menu::after {
+        content: "안녕하세요";
+      } */
+      #header .menu::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      #header .menu li {
+        padding: 10px 30px;
+        background-color: rgba(200, 0, 0, 0.3);
+        color: #fff;
+        float: left;
+      }
+      #content {
+        background-color: skyblue;
+      }
+      #content::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      .left {
+        width: 250px;
+        float: left;
+        height: 300px;
+        background-color: darkgreen;
+      }
+      .right {
+        width: 400px;
+        float: right;
+        height: 300px;
+        background-color: orange;
+      }
+      #footer {
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- #wrap>#header+#content+#footer -->
+    <div id="wrap">
+      <div id="header">
+        <ul class="menu">
+          <!-- .menu::before -> 가상공간 -->
+          <!-- <span>오늘은....</span> -->
+          <li>menu1</li>
+          <li>menu2</li>
+          <li>menu3</li>
+          <li>menu4</li>
+          <!-- <span style="clear:both"> clear:both </span> -->
+          <!-- .menu::after -> 가상공간 -->
+        </ul>
+      </div>
+      <div id="content">
+        <div class="left">좌측메뉴</div>
+        <div class="right">본문</div>
+      </div>
+      <div id="footer">copyright</div>
+    </div>
+  </body>
+</html>

@@ -36,12 +36,50 @@
       .ul2 {
         list-style-type: square;
         padding-bottom: 20px;
-        border-bottom: 2px dotted #333;
+        border-bottom: 2px dashed #333;
       }
       .ul3 {
         list-style-type: none;
         padding-top: 10px;
         line-height: 2;
+      }
+      .clear::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      #box2 {
+        margin-top: 20px;
+        border: 1px solid lightgray;
+        padding: 0 20px;
+      }
+      #wrap #box2 .book {
+        float: left;
+      }
+      #wrap .textbox {
+        float: right;
+        text-align: center;
+        width: 50%;
+      }
+      .inform {
+        color: red;
+        border-style: none;
+        padding-left: 20px;
+      }
+      .inform2 {
+        color: blue;
+        border-style: none;
+      }
+      .down {
+        width: 100px;
+        height: 40px;
+        color: white;
+        background-color: red;
+        border-style: none;
+        border-radius: 5px;
+      }
+      .down:hover {
+        background-color: hotpink;
       }
     </style>
   </head>
@@ -75,6 +113,17 @@
           <li>《바빠 중학도형》을 사면, 고급 컴퍼스가 따라와요~</li>
           <li>《된다! 엑셀 능력자》_교보문고 6주 연속 베스트 1위!</li>
         </ul>
+      </div>
+      <div id="box2" class="clear">
+        <h1 class="inform">공지사항</h1>
+        <img src="newBook.png" alt="책" class="book clear" />
+        <div class="textbox clear">
+          <h1 class="inform2">[본문 PDF 무료 배포]</h1>
+          <p>책에서도 볼 수 없는</p>
+          <p>Xcode 폰트 변경 방법</p>
+          <p>무료로 공개</p>
+          <button class="down">다운받기</button>
+        </div>
       </div>
     </div>
   </body>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>position2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #wrap {
+        width: 500px;
+        margin: 0 auto;
+      }
+      #content {
+        border: 4px solid blue;
+        height: 400px;
+        margin-bottom: 20px;
+        position: relative;
+      }
+      #content div {
+        position: absolute;
+      }
+      #content .box1 {
+        background-color: green;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 45px;
+        left: 10px;
+        top: 10px;
+        font-size: 20px;
+        border: none;
+      }
+      #content .box2 {
+        background-color: green;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 45px;
+        right: 10px;
+        top: 10px;
+        font-size: 20px;
+        border: none;
+      }
+      #content .box3 {
+        background-color: green;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 20px;
+        left: 10px;
+        bottom: 10px;
+        border: none;
+      }
+      #content .box4 {
+        background-color: green;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 20px;
+        right: 10px;
+        bottom: 10px;
+        border: none;
+      }
+      #content .topcenter {
+        background-color: gray;
+        color: #fff;
+        font-size: 15px;
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        left: 50%;
+        top: 10px;
+        margin-left: -100px;
+        text-align: center;
+      }
+      #content .center {
+        background-color: crimson;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 20px;
+        left: 50%;
+        top: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+      }
+      #content .quick {
+        width: 100px;
+        height: 300px;
+        background-color: crimson;
+        left: -120px;
+        top: -4px;
+      }
+      #footer {
+        height: 100px;
+        border: 4px solid blue;
+        position: relative;
+      }
+      #footer span {
+        position: absolute;
+        color: #fff;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 25px;
+        top: 50%;
+        margin-top: -25px;
+        line-height: 55px;
+      }
+      #footer span:nth-child(1) {
+        background-color: blueviolet;
+        right: 100px;
+      }
+      #footer span:nth-child(2) {
+        background-color: orange;
+        right: 60px;
+        z-index: 1;
+      }
+      #footer span:nth-child(3) {
+        right: 20px;
+        background-color: aqua;
+      }
+      #footer .test {
+        position: absolute;
+        background-color: skyblue;
+        border: 4px solid blue;
+        color: #fff;
+        width: 92px;
+        height: 100px;
+        font-size: 30px;
+        line-height: 100px;
+        text-align: center;
+        top: -4px;
+        left: -120px;
+      }
+      #wrap .top {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        background-color: crimson;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        line-height: 65px;
+      }
+      #wrap .top:link {
+        color: #fff;
+      }
+      body {
+        height: 2000px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="content" class="clear">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+        <div class="box4">4</div>
+        <div class="topcenter">TOP/CENTER</div>
+        <div class="center">중앙배치</div>
+        <div class="quick"></div>
+      </div>
+      <div id="footer">
+        <span>S</span>
+        <span>N</span>
+        <span>S</span>
+        <div class="test">TEST</div>
+      </div>
+      <a href="#wrap" class="top">TOP</a>
+    </div>
+  </body>
+</html>

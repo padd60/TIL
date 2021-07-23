@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>position</title>
+    <style>
+      #wrap {
+        width: 600px;
+        height: 600px;
+        margin: 0 auto;
+        border: 3px solid blue;
+        position: relative;
+        /* position: relative 
+        현재 위치되어있는 영역 기준으로 좌표를 잡아줌 */
+      }
+      #wrap div {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        font-size: 22px;
+        position: absolute;
+        /* position: absolute는 부모에 포지션 지정이 안되어있으면 
+        브라우저 전체를 기준으로 잡는다 */
+      }
+      .box1 {
+        left: 0;
+        top: 0;
+      }
+      .box2 {
+        right: 0;
+        top: 0;
+      }
+      .box3 {
+        left: 0;
+        bottom: 0;
+      }
+      .box4 {
+        right: 0;
+        bottom: 0;
+      }
+      .box5 {
+        left: 50%;
+        top: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+        z-index: 1;
+        /* 꼭지점 기준으로 정렬되었기 때문에(여기선 좌측 상단 꼭지점)
+        해당 영역의 50씩 반대로 떙겨주어야한다.
+        1. box width의 반만큼 margine 값을 감소시켜준다 (여기서는 -50px)
+        2. transform:translate를 이용해 -50%씩 땡겨준다. */
+      }
+      .box6 {
+        left: 50%;
+        top: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+        background-color: slateblue !important;
+        z-index: 2;
+      }
+      .box7 {
+        left: 50%;
+        top: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+        background-color: tomato !important;
+        z-index: 0;
+      }
+      #wrap .quick {
+        width: 100px;
+        height: 300px;
+        background-color: red;
+        right: -120px;
+        top: 0%;
+      }
+      #wrap .top {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        border-radius: 50%;
+        right: 10px;
+        bottom: 50px;
+        position: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- #wrap>.box$*5>{box$} -->
+    <div id="wrap">
+      <div class="box1">box1</div>
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+      <div class="box4">box4</div>
+      <div class="box5">box5</div>
+      <div class="box6">box6</div>
+      <div class="box7">box7</div>
+      <div class="quick">quick</div>
+      <div class="top">top</div>
+    </div>
+  </body>
+</html>

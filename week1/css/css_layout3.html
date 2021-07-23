@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>layout3</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #wrap {
+        width: 800px;
+        margin: 0 auto;
+      }
+      #header {
+        background-color: skyblue;
+        padding: 20px 0;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      #header ul {
+        list-style: none;
+        width: 496px;
+        margin: 0 auto;
+      }
+      #header ul li {
+        float: left;
+        width: 120px;
+        height: 40px;
+        border: 1px solid blue;
+        margin: 0 2px;
+        line-height: 40px;
+        box-sizing: border-box;
+      }
+      #header ul li:hover {
+        background-color: blue;
+        color: #fff;
+        cursor: pointer;
+      }
+      #content {
+        margin-bottom: 10px;
+        background-color: orange;
+      }
+      .left {
+        float: left;
+        height: 300px;
+        border: 1px solid red;
+        width: 33.3333%;
+        box-sizing: border-box;
+      }
+      .center {
+        float: left;
+        height: 300px;
+        border: 1px solid red;
+        width: 33.3333%;
+        box-sizing: border-box;
+      }
+      .right {
+        float: right;
+        height: 300px;
+        border: 1px solid red;
+        width: 33.3333%;
+        box-sizing: border-box;
+      }
+
+      #footer {
+        background-color: #ccc;
+        text-align: center;
+        padding: 15px 0;
+      }
+      .clear::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1>LOGO</h1>
+        <ul class="clear">
+          <li>menu1</li>
+          <li>menu2</li>
+          <li>menu3</li>
+          <li>menu4</li>
+        </ul>
+      </div>
+      <div id="content" class="clear">
+        <div class="left">본문1</div>
+        <div class="center">본문2</div>
+        <div class="right">본문3</div>
+      </div>
+      <div id="footer">copyright</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Float2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .menu {
+        list-style: none;
+        width: 800px;
+        margin: 0 auto;
+      }
+      .clear::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      /* 재사용을 위한 clear 가상박스 */
+      .menu li {
+        width: 200px;
+        height: 40px;
+        border: 2px solid red;
+        text-align: center;
+        line-height: 40px;
+        float: left;
+        box-sizing: border-box;
+      }
+      #wrap {
+        width: 800px;
+        margin: 0 auto;
+        border: 2px solid blue;
+        background-color: #ddd;
+        box-sizing: border-box;
+        padding: 20px;
+      }
+      #wrap img {
+        float: left;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="menu clear">
+      <!-- class를 여러개를 사용할 때 공백을 주고 이어서 쓰면 사용됨 -->
+      <li>menu1</li>
+      <li>menu2</li>
+      <li>menu3</li>
+      <li>menu4</li>
+    </ul>
+    <div id="wrap">
+      <img src="test.jpeg" alt="베너" width="200px" />
+      <p class="textbox">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse,
+        quibusdam sit! Veniam corporis natus enim et harum suscipit ad, soluta
+        officiis vel consequatur optio, eos id rerum dicta, quod autem. Lorem
+        ipsum dolor sit amet consectetur, adipisicing elit. Esse, quibusdam sit!
+        Veniam corporis natus enim et harum suscipit ad, soluta officiis vel
+        consequatur optio, eos id rerum dicta, quod autem. Lorem ipsum dolor sit
+        amet consectetur, adipisicing elit. Esse, quibusdam sit! Veniam corporis
+        natus enim et harum suscipit ad, soluta officiis vel consequatur optio,
+        eos id rerum dicta, quod autem.
+      </p>
+    </div>
+  </body>
+</html>
