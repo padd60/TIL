@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>layout</title>
+    <style>
+      #wrap {
+        width: 700px;
+        margin: 0 auto;
+      }
+      #header {
+        height: 140px;
+        border: 1px solid red;
+      }
+      #header h1 {
+        text-align: center;
+        text-decoration: overline;
+      }
+      #header .menu {
+        padding: 0;
+        list-style: none;
+        width: 608px;
+        margin: 0 auto;
+      }
+      #header .menu li {
+        border: 1px solid blue;
+        width: 150px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        float: left;
+      }
+      #header .menu li a {
+        text-decoration: none;
+      }
+      #header .menu li:hover {
+        background-color: blue;
+      }
+      #header .menu li a:hover {
+        color: #fff;
+      }
+      #content {
+        position: relative;
+        margin: 10px 0;
+      }
+      #content .left {
+        float: left;
+        width: 200px;
+      }
+      #content .left div {
+        height: 100px;
+      }
+      #content .left .menu {
+        position: relative;
+      }
+      #content .left .spot {
+        width: 20px;
+        height: 20px;
+        background-color: blue;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -10px;
+        margin-top: -10px;
+      }
+      #content .right {
+        float: right;
+        width: 430px;
+      }
+      #content .right div {
+        height: 100px;
+        margin-bottom: 10px;
+      }
+      #content .quick {
+        width: 100px;
+        height: 300px;
+        position: absolute;
+        right: -130px;
+        top: 0;
+      }
+      .line {
+        border: 1px solid red;
+        padding: 10px;
+      }
+      #footer {
+        height: 50px;
+        border: 1px solid red;
+        text-align: center;
+        line-height: 50px;
+      }
+      #footer p {
+        margin: 0;
+        padding: 0;
+      }
+      .clear::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <!-- 
+    height가 없는 곳에서는 float이 겹치는 문제가 발생한다. 
+    width는 부모에서 자식으로 상속되기 때문에 부모에만 width를 주면 된다. 
+    height는 거꾸로 자식으로부터 부모로 상속되어 자식에만 주어준다.
+    추가로 일반적인 사이트 header content footer의 3단 구조에서 header와 footer는 height를 부여해주지만, content는 내부에 들어가는 내용 길이에 따라 달라져야하기에 height를 지정하지 않는다.
+    -->
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1>상단</h1>
+        <ul class="menu clear">
+          <li><a href="#">menu01</a></li>
+          <li><a href="#">menu02</a></li>
+          <li><a href="#">menu03</a></li>
+          <li><a href="#">menu04</a></li>
+        </ul>
+      </div>
+      <div id="content" class="line clear">
+        <div class="left line">
+          <h2>좌측단</h2>
+          <div class="menu line">
+            메뉴단
+            <div class="spot"></div>
+          </div>
+        </div>
+        <div class="right line">
+          <h2>본문단</h2>
+          <div class="con1 line">컨텐츠01</div>
+          <div class="con2 line">컨텐츠02</div>
+        </div>
+        <div class="quick line">바로가기</div>
+      </div>
+      <div id="footer"><p>copy right</p></div>
+    </div>
+  </body>
+</html>

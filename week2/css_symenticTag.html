@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>web site symentic tag</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 1px solid #ddd;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+        border: none;
+      }
+      .clear::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      #wrap {
+        width: 800px;
+        margin: 0 auto;
+      }
+      .line_blue {
+        border: 2px solid blue;
+      }
+      header {
+        height: 140px;
+      }
+      header h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .gnb {
+        list-style: none;
+        width: 400px;
+        margin: 0 auto;
+      }
+      .gnb li {
+        float: left;
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        box-sizing: border-box;
+        background-color: yellow;
+      }
+      .gnb li:hover {
+        background-color: black;
+      }
+      .gnb li a:hover {
+        color: #fff;
+      }
+      #content {
+        margin: 10px 0;
+      }
+      #content aside {
+        float: left;
+        box-sizing: border-box;
+        width: 180px;
+      }
+      #content ul {
+        padding-left: 20px;
+      }
+      #content section {
+        box-sizing: border-box;
+        width: 400px;
+        float: left;
+        margin: 0 19px;
+      }
+      #content section article {
+        margin-bottom: 10px;
+      }
+      footer {
+        height: 100px;
+      }
+      footer h3 {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header class="line_blue">
+        <h1>웹문서 제목</h1>
+        <nav>
+          <ul class="gnb clear">
+            <li><a href="#">menu01</a></li>
+            <li><a href="#">menu02</a></li>
+            <li><a href="#">menu03</a></li>
+            <li><a href="#">menu04</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div id="content" class="clear">
+        <aside id="left" class="line_blue">
+          <h2>사이드바</h2>
+          <ul>
+            <li>항목1</li>
+            <li>항목2</li>
+            <li>항목3</li>
+            <li>항목4</li>
+          </ul>
+        </aside>
+        <section class="line_blue">
+          <h2>본문</h2>
+          <article>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+            facere magni rerum enim fuga? Explicabo et eaque obcaecati soluta
+            reprehenderit accusamus at voluptatibus sit! Aut doloremque
+            laudantium non nihil quas?
+          </article>
+          <article>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
+            accusamus debitis distinctio natus odit aliquam nemo ex, iure nobis
+            provident maiores delectus quibusdam eveniet est, fugit ad
+            cupiditate aliquid! Voluptatibus?
+          </article>
+        </section>
+        <aside id="right" class="line_blue">
+          <h2>사이드바</h2>
+          <ul>
+            <li>항목1</li>
+            <li>항목2</li>
+            <li>항목3</li>
+            <li>항목4</li>
+          </ul>
+        </aside>
+      </div>
+      <footer class="line_blue">
+        <h3>푸터</h3>
+        <p>저작원 정보, copy right</p>
+        <p>연락처 등</p>
+      </footer>
+    </div>
+  </body>
+</html>

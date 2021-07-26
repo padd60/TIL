@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>layout 1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 1px solid #ddd;
+      }
+      a {
+        text-decoration: none;
+        color: #000;
+        border: none;
+      }
+      header,
+      footer,
+      section {
+        border-color: blue;
+      }
+      #wrap {
+        width: 100%;
+        margin: 0 auto;
+      }
+      .inner {
+        width: 900px;
+        margin: 0 auto;
+        padding: 10px 0;
+      }
+      .clear::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      header {
+        background-color: wheat;
+      }
+      header .logo {
+        float: left;
+      }
+      header nav {
+        float: right;
+      }
+      .gnb {
+        list-style: none;
+      }
+      .gnb li {
+        float: left;
+        width: 100px;
+        height: 40px;
+        background-color: skyblue;
+        text-align: center;
+        line-height: 40px;
+        margin-left: 10px;
+      }
+      .gnb li:first-child {
+        margin: 0;
+      }
+      .gnb li:hover {
+        background-color: cornflowerblue;
+      }
+      .gnb li a {
+        color: #fff;
+      }
+      #content {
+        width: 900px;
+        margin: 10px auto;
+        position: relative;
+      }
+      #content section {
+        float: left;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .box1,
+      .box2 {
+        width: 445px;
+        height: 100px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+      .box2 {
+        margin-left: 10px;
+      }
+      .box3,
+      .box4,
+      .box5 {
+        width: 293.3333px;
+        height: 100px;
+        box-sizing: border-box;
+      }
+      .box4,
+      .box5 {
+        margin-left: 10px;
+      }
+      .banner {
+        position: absolute;
+        top: 0;
+        right: -90px;
+        height: 200px;
+        width: 80px;
+        background-color: red;
+        color: #fff;
+        border: none;
+      }
+      footer {
+        background-color: #ddd;
+        text-align: center;
+      }
+      footer .inner {
+        height: 80px;
+        position: relative;
+      }
+      footer p {
+        line-height: 80px;
+      }
+      footer span {
+        background-color: blue;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+        line-height: 55px;
+        text-align: center;
+        top: 50%;
+        margin-top: -25px;
+      }
+      footer span:nth-of-type(1) {
+        right: 120px;
+      }
+      footer span:nth-of-type(2) {
+        right: 60px;
+      }
+      footer span:nth-of-type(3) {
+        right: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <div class="inner clear">
+          <h1 class="logo">LOGO</h1>
+          <nav>
+            <ul class="gnb">
+              <li><a href="#">menu1</a></li>
+              <li><a href="#">menu2</a></li>
+              <li><a href="#">menu3</a></li>
+              <li><a href="#">menu4</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div id="content" class="clear">
+        <section class="box1">box1</section>
+        <section class="box2">box2</section>
+        <section class="box3">box3</section>
+        <section class="box4">box4</section>
+        <section class="box5">box5</section>
+        <section class="banner">banner</section>
+      </div>
+      <footer>
+        <div class="inner">
+          <p>copyright</p>
+          <span>S</span>
+          <span>N</span>
+          <span>S</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
