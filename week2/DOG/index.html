@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>애완견</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .clear::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      #wrap {
+        width: 800px;
+        margin: 0 auto;
+      }
+      header {
+        height: 140px;
+        background-color: #f46075;
+        background-image: url(image/nav2.png);
+        background-repeat: no-repeat;
+        background-position: right;
+      }
+      .gnb {
+        list-style: none;
+        margin-left: 20px;
+      }
+      .gnb li {
+        float: left;
+        padding: 60px 20px;
+      }
+      .gnb li a {
+        text-decoration: none;
+        color: #fff;
+      }
+      .gnb li:hover a {
+        color: orange;
+      }
+      #content {
+        padding-left: 10px;
+        margin-bottom: 50px;
+      }
+      #content section {
+        width: 580px;
+        float: left;
+      }
+      .title {
+        margin: 20px 0;
+        font-size: 30px;
+      }
+      .list {
+        list-style: none;
+      }
+      .list li {
+        float: left;
+        border: 1px solid #ddd;
+        width: 280px;
+        height: 312px;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+      .list li:nth-child(2n) {
+        background-color: #eee;
+      }
+      /* nth-child(even) */
+      .list li:nth-child(2n-1) {
+        margin-right: 20px;
+      }
+      /* nth-child(odd) */
+      .list li:nth-child(1),
+      .list li:nth-child(2) {
+        margin-bottom: 15px;
+      }
+      .list li:nth-child(1) p::first-letter {
+        font-size: 42px;
+        color: red;
+      }
+      .list li:nth-child(2) p::first-line {
+        color: blue;
+      }
+      .list li:nth-child(3) p::selection {
+        background-color: #f46075;
+      }
+      .list li:nth-child(4) h2 + p {
+        text-decoration: line-through;
+      }
+      .list li:not(:last-child) {
+        font-style: italic;
+      }
+      .list li h2 {
+        padding: 10px 0;
+      }
+      .list li p {
+        padding: 10px 0;
+        line-height: 1.6;
+      }
+      [class='title'] {
+        color: coral;
+      }
+      img[alt] {
+        border: 5px solid darkgreen;
+      }
+      /* 속성값 시작 */
+      a[href^='#'] {
+        background-color: skyblue;
+      }
+      /* 값 포함 */
+      a[href*='2'] {
+        border-bottom: 5px solid springgreen;
+      }
+      /* 마지막 값 */
+      a[href$='s'] {
+        border-top: 5px solid yellow;
+      }
+      #content aside {
+        float: right;
+        width: 200px;
+      }
+      #content aside img {
+        margin-top: 75px;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 25px 0 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <nav>
+          <ul class="gnb clear">
+            <li><a href="#a">애완견 종류</a></li>
+            <li><a href="#a123">입양하기</a></li>
+            <li><a href="#2s">건강돌보기</a></li>
+            <li><a href="4563s">더불어살기</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div id="content" class="clear">
+        <section>
+          <h1 class="title">강아지 용품 준비하기</h1>
+          <ul class="list">
+            <li>
+              <h2>강아지 집</h2>
+              <p>
+                강아지가 편히 쉴 수 있는 포근한 집이 필요합니다. 강아지의 집은
+                강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요.집을
+                구입하실 때는 박음질이 잘 되어 있는지, 세탁이 간편한 제품인지 꼭
+                확인하시고 고르시는 것이 좋습니다.
+              </p>
+            </li>
+            <li>
+              <h2>강아지 먹이</h2>
+              <p>
+                강아지의 먹이는 꼭 어린 강아지용으로 나와있는 사료를 선택하세요.
+                강아지들은 사람에 비해 성장속도가 8배정도 빠르답니다. 따라서
+                강아지에게는 성장속도에 맞는 사료를 급여하셔야 합니다. 사람이
+                먹는 음식을 먹게 되면 양념과 향신료에 입맛이 익숙해지고, 비만이
+                될 가능성이 매우 높아집니다. 강아지용 사료는 생후 12개월까지
+                급여하셔야 합니다. ​
+              </p>
+            </li>
+            <li>
+              <h2>밥그릇, 물병</h2>
+              <p>
+                밥그릇은 쉽게 넘어지지 않도록 바닥이 넓은 것이 좋습니다.물병은
+                대롱이 달린 것으로 선택하세요. 밥그릇에 물을 주게 되면 입 주변에
+                털이 모두 젖기 때문에 비위생적이므로 대롱을 통해서 물을 먹을 수
+                있는 물병을 마련하시는 것이 좋습니다.
+              </p>
+            </li>
+            <li>
+              <h2>이름표, 목줄</h2>
+              <p>
+                강아지를 잃어버릴 염려가 있으니 산책할 무렵이 되면 이름표를 꼭
+                목에 걸어주도록 하세요. 그리고 방울이 달린 목걸이를 하고자 하실
+                때는 신중하셔야 합니다. 움직일 때마다 방울이 딸랑 거리면 신경이
+                예민한 강아지들에게는 좋지 않은 영향을 끼칠 수 있기 때문입니다.
+              </p>
+            </li>
+          </ul>
+        </section>
+        <aside>
+          <img src="image/pet.png" alt="강아지" />
+        </aside>
+      </div>
+      <footer>
+        <p>Copyright 2021 funny.com</p>
+      </footer>
+    </div>
+  </body>
+</html>

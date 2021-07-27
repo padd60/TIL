@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>지식공방</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #wrap {
+        margin: 0 auto;
+        width: 1024px;
+        border: 1px solid #220f75;
+      }
+      header {
+        height: 400px;
+        background-image: url(image/banner.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+      header .view {
+        width: 180px;
+        height: 54px;
+        background-color: rebeccapurple;
+        color: #fff;
+        text-decoration: none;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        margin-left: -90px;
+        text-align: center;
+        line-height: 58px;
+        border-radius: 5px;
+      }
+      header .view:hover {
+        background-color: blueviolet;
+      }
+      .clear::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      nav {
+        background-color: rebeccapurple;
+        height: 60px;
+      }
+      .gnb {
+        width: 600px;
+        margin: 0 auto;
+      }
+      .gnb li {
+        float: left;
+        list-style: none;
+        line-height: 64px;
+        text-align: center;
+        margin-right: 20px;
+        width: 100px;
+      }
+      .gnb li a {
+        text-decoration: none;
+        color: #fff;
+      }
+      .gnb li:hover a {
+        color: pink;
+      }
+
+      #content h2 {
+        text-align: center;
+        color: rebeccapurple;
+        border-bottom: 1px solid rebeccapurple;
+        width: 180px;
+        margin: 50px auto 30px;
+        padding-bottom: 5px;
+        font-size: 32px;
+      }
+      .diy_list {
+        list-style: none;
+        width: 900px;
+        margin: 0 auto;
+      }
+      .diy_list li {
+        float: left;
+        margin: 10px 20px;
+      }
+      .diy_list li .imgbox {
+        border: 1px solid rebeccapurple;
+        width: 260px;
+        height: 300px;
+        box-sizing: border-box;
+        position: relative;
+      }
+      .diy_list li:nth-child(1) .imgbox {
+        background: url(image/pro2.jpg) no-repeat center / cover;
+      }
+      .diy_list li:nth-child(2) .imgbox {
+        background: url(image/pro3.jpg) no-repeat center / cover;
+      }
+      .diy_list li:nth-child(3) .imgbox {
+        background: url(image/pro4.jpg) no-repeat center / cover;
+      }
+      .diy_list li .imgbox span {
+        background-color: rebeccapurple;
+        width: 60px;
+        height: 30px;
+        color: #fff;
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: center;
+        line-height: 30px;
+      }
+      .diy_list li button {
+        width: 260px;
+        height: 50px;
+        background-color: rebeccapurple;
+        color: #fff;
+        margin-top: 10px;
+        border: none;
+      }
+      .sub_copy {
+        text-align: center;
+        font-size: 22px;
+        color: blueviolet;
+        margin: 20px 0;
+      }
+      .btn {
+        display: block;
+        width: 160px;
+        height: 50px;
+        background-color: coral;
+        margin: 30px auto;
+        text-decoration: none;
+        line-height: 53px;
+        text-align: center;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rebeccapurple;
+        margin-bottom: 100px;
+      }
+      footer {
+        background-color: rebeccapurple;
+        padding: 20px 0 15px 0;
+        text-align: center;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <a href="#" class="view">바로가기</a>
+      </header>
+      <nav>
+        <ul class="gnb clear">
+          <li><a href="#">공방안내</a></li>
+          <li><a href="#">강의안내</a></li>
+          <li><a href="#">신청안내</a></li>
+          <li><a href="#">위치안내</a></li>
+          <li><a href="#">문의</a></li>
+        </ul>
+      </nav>
+      <div id="content">
+        <h2>GSEEK DIY</h2>
+        <ul class="diy_list clear">
+          <li>
+            <div class="imgbox">
+              <span>SALE</span>
+            </div>
+            <button>course #1</button>
+          </li>
+          <li>
+            <div class="imgbox">
+              <span>SALE</span>
+            </div>
+            <button>course #2</button>
+          </li>
+          <li>
+            <div class="imgbox">
+              <span>SALE</span>
+            </div>
+            <button>course #3</button>
+          </li>
+        </ul>
+        <p class="sub_copy">Do it self! 나 혼자 만든다!</p>
+        <a href="#" class="btn">신청하기</a>
+      </div>
+      <footer>
+        <p class="copyright">GSEEK DIY.com</p>
+      </footer>
+    </div>
+  </body>
+</html>
