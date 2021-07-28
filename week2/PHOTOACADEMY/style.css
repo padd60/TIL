@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+body,
+h1,
+h2,
+h3,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.inner {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.clear::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+header {
+  height: 100px;
+  position: relative;
+  width: 1140px;
+  margin: 0 auto;
+}
+.logo {
+  float: left;
+}
+.logo img {
+  margin-top: 19px;
+}
+.top_menu {
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+.top_menu ul {
+  font-size: 12px;
+}
+.top_menu li {
+  float: left;
+}
+.top_menu li::after {
+  content: '|';
+  color: #ddd;
+  padding: 0 10px;
+}
+.top_menu li:last-child::after {
+  display: none;
+}
+.main_menu {
+  float: right;
+}
+.main_menu ul {
+  font-size: 18px;
+  margin-top: 60px;
+}
+.main_menu li {
+  float: left;
+  padding: 0 40px;
+}
+.main_menu li:hover a {
+  color: chocolate;
+}
+.main_menu li:last-child {
+  padding-right: 0;
+}
+#visual {
+  height: 280px;
+  background: url(images/main_img.png) no-repeat center / cover;
+}
+#content {
+  width: 1140px;
+  margin: 15px auto;
+}
+#content aside {
+  float: left;
+  width: 234px;
+}
+#content aside dt {
+  background-color: #516e7f;
+  color: #5df0c0;
+  line-height: 3;
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+#content aside dd {
+  line-height: 3;
+  border-bottom: 1px dashed #ddd;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+#content section {
+  float: right;
+  width: 850px;
+}
+#content section h2 {
+  margin: 10px 0 30px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 12px;
+}
+#content section p {
+  line-height: 2;
+  font-size: 14px;
+  color: #333;
+}
+#content section .imgbox {
+  text-align: center;
+  padding: 50px;
+}
+#content section ol {
+  margin-top: 30px;
+  padding-left: 30px;
+  line-height: 2;
+}
+footer {
+  background-color: #2c2a29;
+  height: 140px;
+  position: relative;
+  margin-top: 100px;
+}
+footer .btm_logo {
+  float: left;
+  margin: 40px 0;
+}
+footer ul {
+  float: left;
+  margin: 40px 100px;
+}
+footer ul li {
+  color: #fff;
+}
