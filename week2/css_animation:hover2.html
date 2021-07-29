@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>뒤집기 효과</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 100px auto;
+        background-color: skyblue;
+        transition: 1s 3s;
+        /* 앞은 지속 시간, 뒤는 지연시간 */
+        /* transition-delay: 3s; 지연시간 */
+        /* all ease가 생략된 값 */
+      }
+      .box:hover {
+        background-color: red;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

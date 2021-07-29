@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>transform</title>
+    <style>
+      #origin {
+        border: 1px solid #333;
+        float: left;
+        margin: 50px;
+        perspective: 500px;
+        /* 화면 안으로 들어갈 수 있는 공간 형성 */
+      }
+      #origin div {
+        width: 350px;
+        height: 200px;
+        transition: all 1s ease;
+        /* transition으로 애니메이션 효과 주고
+           각 요소에 transform을 주어 변형을 일으킨다.  */
+      }
+      #origin div img {
+        width: 100%;
+      }
+      /* 좌표이동 */
+      .translate:hover {
+        transform: translate(-50px, -50px);
+        opacity: 0.5;
+      }
+      .translateX:hover {
+        transform: translateX(-50px);
+      }
+      .translateY:hover {
+        transform: translateY(-50px);
+      }
+
+      /* 좌표이동 3D */
+      .translate3d:hover {
+        transform: translate3d(50px, 20px, -300px);
+      }
+      .translateZ:hover {
+        transform: translateZ(-500px);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="origin">
+      <div class="translate">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="translateX">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="translateY">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="translate3d">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="translateZ">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+  </body>
+</html>

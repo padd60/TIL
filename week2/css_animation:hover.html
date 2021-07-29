@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>뒤집기 효과</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #wrap {
+        width: 350px;
+        height: 200px;
+        margin: 100px auto;
+        border: 1px solid #333;
+        perspective: 1000px;
+      }
+      #wrap .inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        /* 부모공간 3d공간 상속 */
+        transition: transform 1s ease;
+        backface-visibility: visible;
+      }
+      #wrap:hover .inner {
+        transform: rotateY(180deg);
+      }
+      .front,
+      .back {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+      }
+      .front img {
+        width: 100%;
+      }
+      .back {
+        background-color: #ddd;
+        text-align: center;
+        padding: 30px;
+        box-sizing: border-box;
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="inner">
+        <div class="front">
+          <img src="image1.jpeg" alt="앞면" />
+        </div>
+        <div class="back">
+          <h2>한정특가</h2>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

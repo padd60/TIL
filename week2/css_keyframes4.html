@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      #wrap {
+        width: 800px;
+        margin: 0 auto;
+      }
+      .menu {
+        list-style: none;
+        font-size: 20px;
+        text-transform: capitalize;
+      }
+      .menu li {
+        float: left;
+        margin: 10px 30px;
+        position: relative;
+      }
+      .menu li::after {
+        content: '';
+        width: 80px;
+        height: 2px;
+        background-color: lime;
+        position: absolute;
+        left: 50%;
+        bottom: -5px;
+        transform: translate(-50%) scaleX(0%);
+        transition: 1s;
+        transform-origin: left;
+      }
+      .menu:hover li::after {
+        transform: translate(-50%) scaleX(100%);
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="wrap">
+      <ul class="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+      </ul>
+    </nav>
+  </body>
+</html>

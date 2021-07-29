@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>transform</title>
+    <style>
+      #origin {
+        border: 1px solid #333;
+        float: left;
+        margin: 50px;
+      }
+      #origin div {
+        width: 350px;
+        height: 200px;
+        transition: all 1s ease;
+        /* transition으로 애니메이션 효과 주고
+           각 요소에 transform을 주어 변형을 일으킨다.  */
+      }
+      #origin div img {
+        width: 100%;
+      }
+      /* 회전 -> 각도 */
+      .skew:hover {
+        transform: skew(30deg, 30deg);
+      }
+      .skewX:hover {
+        transform: skewX(45deg);
+      }
+      .skewY:hover {
+        transform: skewY(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="origin">
+      <div class="skew">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="skewX">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="skewY">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+  </body>
+</html>

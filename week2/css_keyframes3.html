@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: crimson;
+        color: #fff;
+        font-size: 80px;
+        text-align: center;
+        line-height: 110px;
+        border-radius: 50%;
+        position: fixed;
+        top: 35%;
+        left: 0;
+        animation-name: rotate;
+        animation-iteration-count: infinite;
+        animation-duration: 3s;
+      }
+      @keyframes rotate {
+        0% {
+          margin-left: 0;
+          transform: rotate(0deg);
+        }
+        100% {
+          margin-left: 700px;
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">|</div>
+  </body>
+</html>

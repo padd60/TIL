@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>transform</title>
+    <style>
+      #origin {
+        border: 1px solid #333;
+        float: left;
+        margin: 50px;
+        perspective: 500px;
+      }
+      #origin div {
+        width: 350px;
+        height: 200px;
+        /* transition: all 1s ease; */
+        /* transition으로 애니메이션 효과 주고
+           각 요소에 transform을 주어 변형을 일으킨다.*/
+        transition-property: transform;
+        /* 애니메이션 적용 속성 이름 */
+        transition-duration: 0.5s;
+        /* 애니메이션 진행 시간 -> 속도 */
+        transition-timing-function: ease;
+      }
+      #origin div img {
+        width: 100%;
+      }
+      /* 회전 -> 각도 */
+      .rotateA:hover {
+        transform: rotate(180deg);
+        /* 시계방향 */
+      }
+      .rotateB:hover {
+        transform: rotate(-180deg);
+        /* 반시계방향 */
+      }
+      .rotateX:hover {
+        transform: rotateX(80deg);
+      }
+      .rotateY:hover {
+        transform: rotateY(80deg);
+      }
+      .rotateZ:hover {
+        transform: rotateZ(80deg);
+      }
+      .rotate3d:hover {
+        transform: rotate3d(1, 1, 1, 30deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="origin">
+      <div class="rotateA">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="rotateB">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="rotateX">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="rotateY">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="rotateZ">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+    <div id="origin">
+      <div class="rotate3d">
+        <img src="image1.jpeg" alt="베너" />
+      </div>
+    </div>
+  </body>
+</html>

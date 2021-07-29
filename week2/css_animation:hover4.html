@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>상품 이미지 확대 및 아이콘 출현 효과</title>
+    <style>
+      #wrap {
+        border: 2px solid #333;
+        width: 350px;
+        height: 200px;
+        margin: 100px auto;
+        overflow: hidden;
+        position: relative;
+      }
+      #wrap img {
+        transition: 1s;
+        width: 100%;
+      }
+      #wrap:hover img {
+        transform: scale(1.2);
+      }
+      #wrap span {
+        width: 80px;
+        height: 80px;
+        background-color: deeppink;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        line-height: 80px;
+        position: absolute;
+        left: 50%;
+        top: -50%;
+        /* margin-left: -40px;
+        margin-top: -40px; */
+        transform: translate(-50%, -50%);
+        transition: 1s;
+        opacity: 0;
+      }
+      #wrap:hover span {
+        top: 50%;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <img src="image1.jpeg" alt="베너" />
+      <span>SALE</span>
+    </div>
+  </body>
+</html>
