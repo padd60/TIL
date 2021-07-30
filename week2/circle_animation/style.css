@@ -1,0 +1,48 @@
+@charset "uhf-8";
+
+body {
+  margin: 0;
+  padding: 100px;
+  background-color: #333;
+  height: 300px;
+}
+#logobox {
+  width: 120px;
+  height: 50px;
+  position: relative;
+  left: 50%;
+  top: 0;
+}
+#logobox > div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+}
+#logobox .circle1 {
+  left: 0;
+  background-color: indigo;
+  animation: circle1 1s infinite;
+}
+#logobox .circle2 {
+  right: 0;
+  background-color: red;
+  animation: circle2 1s infinite;
+}
+@keyframes circle1 {
+  0% {
+    left: 0;
+    z-index: 1;
+  }
+  50% {
+    left: 60%;
+  }
+}
+@keyframes circle2 {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: 60%;
+  }
+}

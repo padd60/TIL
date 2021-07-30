@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+[id^='wrap'] {
+  border: 1px solid blue;
+  padding: 10px;
+  margin: 20px;
+}
+.ball {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: red;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  transition: 1s ease-in-out 0.5s;
+}
+#wrap1:hover .ball {
+  margin-left: 1000px;
+  transform: rotate(1turn);
+}
+#wrap2 .ball {
+  animation: play 2s alternate 5 forwards ease-in-out 1s;
+}
+@keyframes play {
+  0% {
+    margin-left: 0px;
+    transform: rotate(0deg);
+  }
+  100% {
+    margin-left: 1000px;
+    transform: rotate(1turn);
+  }
+}
+.ball2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-image: radial-gradient(#333, #ff0000);
+  animation: play2 3s alternate infinite cubic-bezier(0.78, 0, 0.21, 0.99);
+}
+@keyframes play2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(250px, 300px);
+  }
+  50% {
+    transform: translate(500px, 0);
+  }
+  75% {
+    transform: translate(750px, 300px);
+  }
+  100% {
+    transform: translate(1000px, 0);
+  }
+}

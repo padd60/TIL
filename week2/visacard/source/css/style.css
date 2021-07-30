@@ -1,0 +1,331 @@
+@charset "utf-8";
+html {
+  scroll-behavior: smooth;
+}
+#wrap {
+  width: 100%;
+}
+
+.inner {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+header {
+  height: 100px;
+  background-color: #1a1f71;
+  border-bottom: 4px solid #f7b600;
+}
+.logo {
+  float: left;
+  margin-top: 22px;
+}
+header nav {
+  float: left;
+}
+.gnb {
+  margin: 28px 0 0 280px;
+}
+.gnb li {
+  float: left;
+  padding: 12px 24px;
+}
+.gnb li a {
+  color: #fff;
+  transition: 0.3s;
+}
+.gnb li:hover a {
+  color: #f7b600;
+}
+
+.search {
+  float: right;
+  margin-top: 38px;
+  width: 50px;
+  border-left: 1px solid #ddd;
+}
+.search img {
+  margin-left: 35px;
+}
+
+#visual {
+  height: 500px;
+  background: url(../images/marquee-visahotdeals-1600x900.jpg) no-repeat center /
+    cover;
+}
+#visual .inner {
+  position: relative;
+}
+.caption {
+  width: 260px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 30px;
+  position: absolute;
+  top: 80px;
+  left: 50px;
+}
+.main_title {
+  font-size: 42px;
+  color: #1a1f71;
+}
+.sub_title {
+  margin-top: 10px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+.btn {
+  margin-top: 10px;
+  width: 100px;
+  height: 34px;
+  background-color: #f7b600;
+  color: #1a1f71;
+  border: none;
+  border-radius: 7px;
+  transition: 0.5s;
+}
+.btn:hover {
+  background-color: #1a1f71;
+  color: #f7b600;
+  cursor: pointer;
+}
+
+#tab_menu {
+  height: 60px;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 1px 1px 10px #eee;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10;
+}
+.tab_list {
+  width: 600px;
+  margin: 0 auto;
+}
+.tab_list li {
+  float: left;
+  width: 200px;
+  text-align: center;
+  margin: 20px 0;
+  border-right: 2px solid #ccc;
+  box-sizing: border-box;
+}
+.tab_list li:first-child {
+  border-left: 2px solid #ccc;
+}
+.tab_list li a {
+  color: #1a1f71;
+  transition: 0.3s;
+}
+.tab_list li:hover a {
+  color: #f7b600;
+}
+
+#content {
+  width: 1140px;
+  margin: 0 auto;
+}
+#content section {
+  padding: 100px 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+#content section:last-child {
+  border-bottom: 0;
+}
+#content section .con_title {
+  font-size: 36px;
+  color: #1a1f71;
+  margin-bottom: 40px;
+}
+#content section .con_title .line {
+  position: relative;
+}
+#content section .con_title .line::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background-color: #f7b600;
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transition: 0.5s;
+  transform-origin: left;
+}
+#content section:hover .con_title .line::after {
+  transform: scaleX(1);
+}
+
+#hotdeal .hotdeal_text {
+  line-height: 1.6;
+  color: #5c5c5c;
+}
+.store_list li {
+  float: left;
+  width: 360px;
+  box-sizing: border-box;
+  border: 1px solid #f7b600;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  height: 190px;
+  position: relative;
+  overflow: hidden;
+}
+.store_list li img {
+  width: 80%;
+}
+.store_list li:nth-child(3n) {
+  margin-right: 0;
+}
+
+.hover_box {
+  background-color: rgba(247, 182, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(100%);
+  transition: 0.5s;
+}
+.hover_box h3 {
+  color: #fff;
+  font-size: 32px;
+  text-shadow: 2px 2px 2px #1a1f71;
+  margin: 50px 0 10px;
+}
+.hover_box button {
+  background-color: #1a1f71;
+  border: 0;
+  padding: 10px 20px;
+  color: #f7b600;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.store_list li:hover .hover_box {
+  transform: translateY(0);
+}
+
+#card .card_list li {
+  float: left;
+  width: 370px;
+  margin-right: 15px;
+}
+#card .card_list li:last-child {
+  margin-right: 0;
+}
+#card .card_list li a {
+  display: block;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+#card .card_list li a > img {
+  width: 100%;
+  transition: 0.5s;
+}
+#card .card_list li:hover a > img {
+  transform: scale(1.1);
+}
+#card .card_list li a .arrow {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translate(-100px, 100px);
+  transition: 0.5s;
+}
+#card .card_list li a .arrow img {
+  width: 50%;
+  display: block;
+}
+#card .card_list li:hover a .arrow {
+  transform: translate(-30px, 30px);
+}
+.card_title {
+  font-size: 32px;
+  color: #1a1f71;
+  margin: 20px 0 15px;
+}
+.card_copy {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+  text-align: left;
+}
+
+footer {
+  background-color: #f7f7f7;
+  border-top: 1px solid #ccc;
+  padding: 50px 0;
+}
+footer .site_map dl {
+  float: left;
+  margin-right: 140px;
+}
+footer .site_map dl:last-child {
+  margin-right: 0;
+}
+footer .site_map dl dt {
+  font-size: 28px;
+  color: #1a1f71;
+  line-height: 2.5;
+  font-weight: bold;
+}
+footer .site_map dl dd {
+  line-height: 1.8;
+  color: #555;
+}
+footer .site_map dl:last-child dd {
+  float: left;
+  font-size: 32px;
+  margin-right: 20px;
+  color: #1a1f71;
+}
+footer .site_map dl:last-child dd:hover a {
+  color: #f7b600;
+}
+
+footer .copyright {
+  margin: 50px auto 0;
+  text-align: center;
+  color: #5c5c5c;
+}
+footer .copyright .btm_logo {
+  float: left;
+  width: 300px;
+}
+footer .copyright .btm_logo img {
+  width: 100%;
+}
+footer .copyright .copytxt {
+  width: 800px;
+  float: right;
+  line-height: 50px;
+  border-left: 1px solid #ccc;
+}
+
+.top {
+  width: 50px;
+  height: 50px;
+  background-color: #1a1f71;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 55px;
+  font-size: 25px;
+}
+.top a {
+  color: #f7b600;
+}
+.top:hover {
+  background-color: #f7b600;
+  cursor: pointer;
+}
+.top:hover a {
+  color: #1a1f71;
+}

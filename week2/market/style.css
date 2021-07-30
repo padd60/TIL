@@ -1,0 +1,106 @@
+@charset "uft-8";
+
+#wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  margin: 50px 0;
+  position: relative;
+  padding-bottom: 10px;
+}
+h1::after {
+  content: '';
+  width: 300px;
+  height: 2px;
+  background-image: linear-gradient(to right, green, orangered);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(0%);
+  transition: 1s;
+}
+h1:hover::after {
+  transform: translateX(-50%) scaleX(100%);
+}
+.list {
+  list-style: none;
+  width: 792px;
+  margin: 0 auto;
+}
+.list li {
+  float: left;
+  width: 224px;
+  margin: 0 20px;
+  box-sizing: border-box;
+}
+.imgbox {
+  width: 224px;
+  height: 224px;
+  position: relative;
+}
+.bg1,
+.bg2,
+.bg3 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid green;
+  box-sizing: border-box;
+  transition: 1s;
+}
+.imgbox .bg1 {
+  background: url(images/marke1.jpg) no-repeat center / 100%;
+}
+.imgbox .bg2 {
+  background: url(images/marke5.jpg) no-repeat center / 100%;
+}
+.imgbox .bg3 {
+  background: url(images/marke2.jpg) no-repeat center / 100%;
+}
+.icon {
+  background-color: green;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  transition: 0.5s, 2s;
+  transform-origin: 100px 100px;
+}
+.imgbox .bg1,
+.imgbox .bg2,
+.imgbox .bg3 {
+  transition: 1s;
+}
+
+.imgbox:hover .bg1,
+.imgbox:hover .bg2,
+.imgbox:hover .bg3 {
+  border-color: orangered;
+  background-size: 110%;
+}
+.imgbox:hover .icon {
+  background-color: orangered;
+  transform: rotate(1turn);
+}
+.detail {
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.6;
+  height: 50px;
+  margin-top: 20px;
+}
+.price {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+}
+.price strong {
+  font-size: 20px;
+}
