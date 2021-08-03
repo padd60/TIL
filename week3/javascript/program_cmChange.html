@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>100cm 단위 -> 1m 단위</title>
+  </head>
+  <body>
+    <h1 id="result"><!-- innerHTML --></h1>
+    <input type="text" value="test" /><!-- .value -->
+    <script>
+      let cm = prompt('cm단위를 입력하세요!');
+      const div = 100; // 변하지 않는 상수
+      let m = cm / div;
+      document.getElementById(
+        'result'
+      ).innerHTML = `${cm}cm는 미터단위로 환산하면 ${m}m입니다.`;
+    </script>
+  </body>
+</html>

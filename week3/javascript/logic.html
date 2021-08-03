@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>논리연산자</title>
+  </head>
+  <body>
+    <p id="result"></p>
+    <hr />
+    <p id="result2"></p>
+    <hr />
+    <p id="result3"></p>
+    <hr />
+    <p id="result4"></p>
+    <hr />
+    <p id="result5"></p>
+
+    <script>
+      let x = 6;
+      let y = 3;
+
+      document.getElementById('result').innerHTML =
+        (x < 10 && y > 1) + '<br>' + (x > 10 && y > 1);
+      // 참 && 참 -> && :  양쪽 다 참일 경우만 -> 참
+
+      document.getElementById('result2').innerHTML =
+        (x < 10 || y > 1) +
+        '<br>' +
+        (x > 10 || y > 1) +
+        '<br>' +
+        (x > 10 || y < 1);
+      // 참 || 참 -> 참 , 참 || 거짓 -> 참, 거짓 || 거짓 -> 거짓
+
+      document.getElementById('result3').innerHTML = !(x > 10 || y > 1);
+      // !참 -> 거짓
+
+      x = 2;
+      y = '2';
+
+      document.getElementById('result4').innerHTML =
+        (x == y) + '<br>' + (x === y);
+      // true(값만) false(데이터타입까지 동일)
+
+      x = 6;
+      y = '3';
+      document.getElementById('result5').innerHTML =
+        !(x === y) + '<br>' + !(x > y);
+    </script>
+  </body>
+</html>

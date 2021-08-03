@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>용돈 계산기</title>
+  </head>
+  <body>
+    <span>용돈 총액: </span
+    ><input type="text" id="all" placeholder="총액을 입력하세요" />
+    <span>원</span>
+    <hr />
+    <span>교통비: </span>
+    <input type="text" id="fee1" placeholder="금액을 입력하세요" />
+    <span>원</span>
+    <span>식비: </span>
+    <input type="text" id="fee2" placeholder="금액을 입력하세요" />
+    <span>원</span>
+    <span>기타: </span>
+    <input type="text" id="fee3" placeholder="금액을 입력하세요" />
+    <span>원</span>
+    <hr />
+    <button onclick="price()">계산하기</button>
+    <p id="result"></p>
+    <script>
+      function price() {
+        let all = document.getElementById('all').value;
+        let fee1 = document.getElementById('fee1').value;
+        let fee2 = document.getElementById('fee2').value;
+        let fee3 = document.getElementById('fee3').value;
+        const feeAll = Number(fee1) + Number(fee2) + Number(fee3);
+
+        const result =
+          Number(all) < feeAll
+            ? `${feeAll - all}원 초과되었으니 지출을 줄이셔야합니다.`
+            : `${all - feeAll}원 세이브되었으니 지출을 유지하셔도 좋습니다.`;
+
+        document.getElementById('result').innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
