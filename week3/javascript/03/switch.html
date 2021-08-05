@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let subject = prompt('수강할 과목을 입력하세요');
+
+      switch (subject) {
+        case '웹퍼블리싱':
+          document.write('<p>웹퍼블리싱 수업은 201호 입니다.</p>');
+          break;
+        case '프론트 개발':
+          document.write('<p>프론트 개발 수업은 301호 입니다.</p>');
+          break;
+        case '백 개발':
+          document.write('<p>백 개발 수업은 401호 입니다.</p>');
+          break;
+        default:
+          alert('수강과목이 없습니다. 잘못 입력하셨습니다.');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let num = prompt('펙토리얼 계산할 숫자를 입력하세요');
+      let nFact = 1;
+      // 연산이 누적되는 변수로 값에 영향이 없는 초기값을 세팅한다.
+      for (let i = 2; i <= num; i++) {
+        nFact *= i; // nFact = nFact * i;
+        console.log(i, nFact);
+      }
+      document.write(`${num}! = ${nFact}`);
+    </script>
+  </body>
+</html>

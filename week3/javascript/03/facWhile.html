@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let num = prompt('펙토리얼 계산할 숫자를 입력하세요');
+      let nFact = 1;
+      let i = 2;
+
+      while (i <= num) {
+        nFact *= i; // nFact = nFact * i;
+        console.log(i, nFact);
+        i++;
+      }
+      document.write(`${num}! = ${nFact}`);
+    </script>
+  </body>
+</html>

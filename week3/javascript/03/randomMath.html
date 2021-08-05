@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>가위 바위 보 게임</title>
+  </head>
+  <body>
+    <h1>가위 바위 보 게임</h1>
+    <script>
+      // 1 -> 가위 / 2 -> 바위 / 3 -> 보자기
+      // 1 ~ 3 랜덤한 숫자 출력
+      let rdm = Math.random(); // 소수점 난수
+      let num = Math.ceil(rdm * 3); // 소숫점 무조건 올림 -> 정수
+      console.log(num);
+      document.write(`<img src="images/math_img_${num}.jpeg">`);
+
+      let game = prompt(
+        '가위/바위/보 중에서 어떤것이 나올지 맞춰보세요',
+        '가위'
+      );
+      let gameNum;
+
+      switch (game) {
+        case '가위':
+          gameNum = 1;
+          break;
+        case '바위':
+          gameNum = 2;
+          break;
+        case '보':
+          gameNum = 3;
+          break;
+        default:
+          alert('잘못 입력하셨습니다.');
+      }
+
+      if (num === gameNum) {
+        document.write('<img src="images/game_1.jpeg">');
+      } else {
+        document.write('<img src="images/game_2.jpeg">');
+      }
+    </script>
+  </body>
+</html>

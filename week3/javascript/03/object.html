@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>객체</title>
+  </head>
+  <body>
+    <script>
+      let tv = new Object();
+
+      tv.color = 'black';
+      tv.price = 30000;
+      tv.info = function () {
+        document.write(`tv의 칼라는 ${tv.color}입니다.`);
+        document.write(`tv의 가격은 ${tv.price}입니다.`);
+      };
+
+      tv.info();
+
+      let car = {
+        color: 'red', // 속성이름 : 속성값, 속성이름 : 속성값
+        price: 100000,
+        info: function () {
+          // 메서드
+          document.write(`자동차의 칼라는 ${this.color}입니다.`);
+          document.write(`자동차의 가격은 ${this.price}입니다.`);
+        },
+      };
+      car.info(); // 객체.속성  객체.메서드
+    </script>
+  </body>
+</html>

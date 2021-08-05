@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>D-day</title>
+  </head>
+  <body>
+    <span>년 :</span>
+    <input type="text" id="year" />
+    <span>월 :</span>
+    <input type="text" id="month" />
+    <span>일 :</span>
+    <input type="text" id="day" />
+    <hr />
+    <button onclick="dDay()">남은 일자 확인하기</button>
+    <button onclick="reset()">입력값 리셋하기</button>
+    <hr />
+    <p id="result"></p>
+    <script>
+      function dDay() {
+        let year = document.getElementById('year').value;
+        let month = document.getElementById('month').value - 1;
+        let day = document.getElementById('day').value;
+        let date = new Date();
+        let endDay = new Date(year, month, day);
+        console.log(endDay);
+        let getTime = endDay.getTime() - date.getTime();
+
+        console.log(getTime);
+
+        let D_day_raw = getTime / (1000 * 60 * 60 * 24);
+
+        let D_day = Math.ceil(D_day_raw);
+        console.log(D_day);
+
+        if (!year && !month && !day) {
+          document.getElementById(
+            'result'
+          ).innerHTML = `잘못된 입력입니다, 다시 입력해주세요!`;
+        } else {
+          document.getElementById(
+            'result'
+          ).innerHTML = `해당 날까지는 ${D_day}일 남았습니다.`;
+        }
+      }
+      function reset() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>

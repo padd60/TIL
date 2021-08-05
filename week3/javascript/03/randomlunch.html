@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>점심메뉴 추천</title>
+  </head>
+  <body>
+    <script>
+      // 메뉴 5섯개로 설정 = 난수 1 ~ 5
+      let rdm = Math.random();
+      let num = Math.ceil(rdm * 5);
+
+      let menu;
+
+      switch (num) {
+        case 1:
+          menu = '짜장면';
+          break;
+        case 2:
+          menu = '피자';
+          break;
+        case 3:
+          menu = '치킨';
+          break;
+        case 4:
+          menu = '돈까스';
+          break;
+        case 5:
+          menu = '국밥';
+          break;
+        default:
+          alert('준비되지 않는 메뉴입니다.');
+      }
+      document.write(`오늘의 점심 메뉴는 ${menu}입니다.`);
+    </script>
+  </body>
+</html>

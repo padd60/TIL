@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>랜덤 숫자 출력하기</title>
+  </head>
+  <body>
+    <script>
+      // 0 ~ 10 정수가 랜덤하게 출력
+
+      // Math.floor -> 소숫점 이하는 버림 ---> 정수출력
+      let num = Math.random();
+
+      const oneToten = Math.floor(num * 11);
+
+      document.write(`${oneToten} = 0 ~ 10`, '<br>');
+      /* 랜덤 출력 숫자의 범위를 지정하는 공식
+        Math.floor(Math.random()*(최대값 - 최소값) + 1) + 최솟값 )
+                                10 - 0 + 1 = 11 + 0 => 11*/
+
+      // 120 ~ 150 사이의 숫자를 램덤 출력
+      const hundred = Math.floor(num * 31) + 120;
+
+      document.write(`${hundred} = 120 ~ 150`, '<br>');
+      console.log(Math.floor(Math.random() * 31)); // 0 ~ 30
+
+      // 11 ~ 99 사이의 숫자를 랜덤 출력
+      const eleven = Math.floor(num * 89) + 11;
+      document.write(`${eleven} = 11 ~ 99`);
+    </script>
+  </body>
+</html>

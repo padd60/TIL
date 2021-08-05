@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>날짜 객체 -> 내장함수</title>
+  </head>
+  <body>
+    <h1>2021년도 12월 25일까지 몇일 남았는지 계산</h1>
+    <!-- D-day 게산법 = 표적한 날짜 - 오늘날짜 -->
+    <!-- 날짜를 시간으로 치환하여 사칙연산해야함 -->
+    <script>
+      let today = new Date();
+      //현재 시간을 가진 객체를 생성
+      // 날짜 객체 생성
+      let nowYear = today.getFullYear();
+      // 년도 2021
+      console.log(today, nowYear);
+      console.log(today.getDay()); // 4
+
+      let theDate = new Date(2021, 11, 25);
+      // 인자로 정해진 시간을 가진 객체를 생성
+      // 월은 0부터 시작하므로 12월 -> 11
+
+      let dTime = theDate.getTime() - today.getTime();
+      console.log(dTime); // 12225628908 1000분의 1초 단위 시간
+
+      // 1000 -> 1초 / 60초 -> 1분 / 60분 -> 1시간 / 24시간 -> 1일
+      let result = Math.ceil(dTime / (1000 * 60 * 60 * 24)); // 소수점 올림
+      console.log(result); // 142일
+
+      document.write(
+        `${nowYear}년도 크리스마스는 오늘부터 ${result}일 남았습니다.`
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>D-day</title>
+  </head>
+  <body>
+    <script>
+      let date = new Date();
+      let endDay = new Date(2022, 01, 17);
+      console.log(endDay);
+      let getTime = endDay.getTime() - date.getTime();
+
+      console.log(getTime);
+
+      let D_day_raw = getTime / (1000 * 60 * 60 * 24);
+
+      let D_day = Math.round(D_day_raw);
+      console.log(D_day);
+
+      document.write(`마지막 날까지는 ${D_day}일 남았습니다.`);
+    </script>
+  </body>
+</html>

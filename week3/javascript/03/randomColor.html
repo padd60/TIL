@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>color you want</title>
+    <style>
+      p {
+        border: 1px solid #333;
+        width: 200px;
+        padding: 10px;
+      }
+      .red {
+        color: white;
+        background-color: red;
+      }
+      .yellow {
+        color: black;
+        background-color: yellow;
+      }
+      .blue {
+        color: white;
+        background-color: blue;
+      }
+      .green {
+        color: white;
+        background-color: green;
+      }
+      .violet {
+        color: white;
+        background-color: violet;
+      }
+      .orange {
+        color: white;
+        background-color: orange;
+      }
+      .beige {
+        color: black;
+        background-color: beige;
+      }
+      .white {
+        color: #333;
+        background-color: white;
+      }
+      .black {
+        color: white;
+        background-color: black;
+      }
+      .gray {
+        color: white;
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="result"></p>
+    <button onclick="reset()">다른 색 추천받기</button>
+    <script>
+      let rdm = Math.random();
+      // 컬러 10개 지정
+      let num = Math.ceil(rdm * 10);
+      let name;
+      let color;
+
+      switch (num) {
+        case 1:
+          name = 'red';
+          break;
+        case 2:
+          name = 'yellow';
+          break;
+        case 3:
+          name = 'blue';
+          break;
+        case 4:
+          name = 'green';
+          break;
+        case 5:
+          name = 'violet';
+          break;
+        case 6:
+          name = 'orange';
+          break;
+        case 7:
+          name = 'beige';
+          break;
+        case 8:
+          name = 'white';
+          break;
+        case 9:
+          name = 'black';
+          break;
+        case 10:
+          name = 'gray';
+          break;
+      }
+      switch (name) {
+        case 'red':
+          color = '오늘의 추천색은 빨강입니다.';
+          break;
+        case 'yellow':
+          color = '오늘의 추천색은 노랑입니다.';
+          break;
+        case 'blue':
+          color = '오늘의 추천색은 파랑입니다.';
+          break;
+        case 'green':
+          color = '오늘의 추천색은 초록입니다.';
+          break;
+        case 'violet':
+          color = '오늘의 추천색은 보라입니다.';
+          break;
+        case 'orange':
+          color = '오늘의 추천색은 주황입니다.';
+          break;
+        case 'beige':
+          color = '오늘의 추천색은 베이지입니다.';
+          break;
+        case 'white':
+          color = '오늘의 추천색은 화이트입니다.';
+          break;
+        case 'black':
+          color = '오늘의 추천색은 검정입니다.';
+          break;
+        case 'gray':
+          color = '오늘의 추천색은 그레이입니다.';
+          break;
+      }
+      document.getElementById('result').innerHTML = color;
+      document.getElementById('result').className = name;
+
+      function reset() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
