@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>구구단</h1>
+    <p id="wrap"></p>
+    <script>
+      const num = 2;
+
+      let gugudan = '';
+
+      for (let i = 1; i <= 9; i++) {
+        gugudan += `${num} x ${i} = ${num * i} <br>`;
+      }
+
+      document.getElementById('wrap').innerHTML = gugudan;
+    </script>
+  </body>
+</html>

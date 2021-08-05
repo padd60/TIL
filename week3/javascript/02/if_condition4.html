@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>건강습관</title>
+  </head>
+  <body>
+    <script>
+      let input = prompt('하루 걷는 양을 입력하세요!', 0);
+      let walk = Number(input);
+
+      if (walk >= 10000) {
+        document.write(`${walk}보 걸으셨네요~ 건강합니다.`);
+      } else if (!walk) {
+        document.write('다시 입력해주세요!');
+      } else {
+        document.write('운동부족입니다.');
+      }
+    </script>
+  </body>
+</html>

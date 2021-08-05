@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>5X5 table</title>
+  </head>
+  <body>
+    <script>
+      let num = 1;
+      let table = '<table border="1">';
+      for (let i = 1; i <= 5; i++) {
+        table += `<tr>`;
+        for (let j = 1; j <= 5; j++) {
+          table += `<td>${num}</td>`;
+          num++;
+        }
+        table += `</tr>`;
+      }
+      table += '</table>';
+
+      document.write(table);
+    </script>
+  </body>
+</html>

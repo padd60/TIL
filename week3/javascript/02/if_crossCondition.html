@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>양쪽조건</title>
+  </head>
+  <body>
+    <script>
+      let dbId = 'test';
+      let dbPw = 1234;
+
+      let userId = prompt('아이디를 입력하세요', '');
+      let userPw = prompt('비밀번호를 입력하세요', '');
+
+      if (dbId == userId && dbPw == userPw) {
+        alert('환영합니다.');
+      } else {
+        alert('아이디, 비밀번호가 일치하지 않습니다.');
+      }
+    </script>
+  </body>
+</html>

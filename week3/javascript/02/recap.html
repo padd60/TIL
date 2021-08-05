@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>recap</title>
+  </head>
+  <body>
+    <p id="test"></p>
+    <p class="txt"></p>
+    <script>
+      // 한줄주석
+      /* 
+      여러줄 주석
+      */
+      // alert('Hi');
+      console.log(1 + 2);
+      document.write('Hi~');
+      document.write(8 * 2);
+      document.getElementById('test').innerHTML = 'Hi ~ ~';
+      document.querySelector('.txt').innerHTML = 'wow ~';
+
+      let text = 'java';
+      text = 1234;
+      const num = 100;
+      // num = 150; => 불가능
+      console.log(typeof text, text);
+
+      let txt1 = 'java';
+      let txt2 = 'script';
+      let txt3 = txt1 + txt2;
+      document.write('<br>' + txt3);
+
+      let txt4 = 'java';
+      txt4 += 'script';
+      document.write('<br>' + txt4);
+
+      let t1 = '아주';
+      let t2 = '오늘은 날씨가 ' + t1 + ' 좋습니다.';
+      let price = '5000';
+      let buy = 10;
+      let summary = `붕어빵은 ${price}원에 ${buy}개입니다.`;
+
+      document.write('<br>', t2);
+      document.write('<br>', summary);
+    </script>
+  </body>
+</html>

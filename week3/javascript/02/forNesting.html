@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>table using for</title>
+  </head>
+  <body>
+    <script>
+      let table = '<table border="1">';
+      for (let i = 1; i <= 3; i++) {
+        table += '<tr>'; // tr 3줄
+        for (let j = 1; j <= 3; j++) {
+          table += `<td>${i}-${j}</td>`; // td 3줄
+        }
+        table += '</tr>';
+      }
+      table += '</table>';
+      document.write(table);
+    </script>
+  </body>
+</html>

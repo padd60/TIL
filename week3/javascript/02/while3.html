@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>while</title>
+    <style>
+      p {
+        font-size: 20px;
+      }
+      .red {
+        color: red;
+      }
+      .blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // 20 ~ 10까지 중 홀수는 파랑, 짝수는 빨강
+      let i = 20;
+
+      while (i >= 10) {
+        if (i % 2 == 0) {
+          document.write(`<p class="red">${i}</p>`);
+        } else {
+          document.write(`<p class="blue">${i}</p>`);
+        }
+        i--;
+      }
+    </script>
+  </body>
+</html>

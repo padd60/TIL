@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>for</title>
+  </head>
+  <body>
+    <script>
+      //1~20까지의 범위 중 짝수만 화면 출력
+      for (let i = 1; i <= 20; i++) {
+        // if (i == 10) break; // 반복문을 강제 종료
+        if (i == 10) continue; // 건너띄고 실행
+        if (i % 2 == 0) {
+          document.write(i, '<br>');
+        }
+      }
+      // 1~100까지의 합 출력
+      let sum = 0;
+      for (let j = 1; j <= 100; j++) {
+        sum += j; // sum = sum + i;
+      }
+      document.write(sum);
+    </script>
+  </body>
+</html>

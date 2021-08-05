@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>중첩 if</title>
+  </head>
+  <body>
+    <script>
+      let dbId = 'test';
+      let dbPw = 1234;
+
+      let userId = prompt('아이디를 입력하세요', '');
+
+      if (dbId == userId) {
+        let userPw = prompt('비밀번호를 입력하세요', '');
+
+        if (dbPw == userPw) {
+          document.write('로그인 성공 환영합니다.');
+        } else {
+          document.write('비밀번호가 일치하지 않습니다.');
+        }
+      } else {
+        document.write('아이디가 일치하지 않습니다.');
+      }
+    </script>
+  </body>
+</html>

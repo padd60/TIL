@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>condition</title>
+  </head>
+  <body>
+    <p id="ride"></p>
+    <script>
+      /* 어린이 놀이기구 -> 키가 110cm 이상 탑승 가능 */
+      let height = prompt('어린이의 키를 입력하세요');
+      const standard = 110;
+      let result = height > 110 ? '탑승가능' : '탑승불가능';
+
+      document.getElementById(
+        'ride'
+      ).innerHTML = `어린이는 키가 ${height}cm이므로 ${result}합니다.`;
+    </script>
+  </body>
+</html>

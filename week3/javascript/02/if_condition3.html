@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>3배수, 5배수, 15배수</title>
+  </head>
+  <body>
+    <script>
+      let input = prompt('숫자를 입력해주세요!');
+      let num = Number(input);
+      const three = num % 3 == 0;
+      const five = num % 5 == 0;
+
+      if (three && five) {
+        alert(`${num}은 15의 배수입니다.`);
+      } else if (five) {
+        alert(`${num}은 5의 배수입니다.`);
+      } else if (three) {
+        alert(`${num}은 3의 배수입니다.`);
+      } else {
+        alert('다시 입력해보세요.');
+      }
+    </script>
+  </body>
+</html>
