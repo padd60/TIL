@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>문자열</title>
+  </head>
+  <body>
+    <script>
+      let txt = 'Hello Thank you good luck to you';
+      let txt2 = new String('javascript');
+
+      document.write(txt.charAt(16), '<br>'); // g
+      document.write(txt.indexOf('you'), '<br>'); // 12
+      document.write(txt.lastIndexOf('you'), '<br>'); // 29
+      document.write(txt.length, '<br>'); // 32
+      document.write(txt.toUpperCase(), '<br>'); // HELLO THANK YOU GOOD LUCK TO YOU
+      document.write(txt.toLowerCase(), '<br>'); // hello thank you good luck to you
+      document.write(txt.match('luck'), '<br>'); // luck
+      document.write(txt.match('no'), '<br>'); // null
+      document.write(txt.search('you'), '<br>'); // 12 인덱스 번호
+      document.write(txt.substr(21, 4), '<br>'); // luck (시작인덱스 번호, 자를 개수)
+      document.write(txt.substring(21, 25), '<br>'); // luck (시작인덱스 번호, 마지막 인덱스 번호)
+      document.write(txt.substring(6, 11), '<br>'); // Thank (시작인덱스 번호, 마지막 인덱스 번호)
+      document.write(txt.replace('you', 'me'), '<br>'); // Hello Thank me good luck to you
+
+      let txt3 = txt.split(' '); //공백기준 자름
+      document.write(txt3, '<br>'); // Hello,Thank,you,good,luck,to,you 공백 기준 자르기
+      document.write(txt3[0], '<br>'); // Hello
+      document.write(txt3[4], '<br>'); // luck
+
+      let txt4 = txt3[0].split('');
+      document.write(txt4, '<br>'); // H,e,l,l,o
+    </script>
+  </body>
+</html>

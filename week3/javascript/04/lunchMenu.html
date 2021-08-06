@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>점심메뉴 목록 등록하기</title>
+  </head>
+  <body>
+    <input type="text" placeholder="메뉴를 입력하세요" id="input" />
+    <button onclick="add()">등록하기</button>
+    <button onclick="del()">삭제하기</button>
+    <hr />
+    <ul id="menuList"></ul>
+    <script>
+      let menu = [];
+
+      function add() {
+        let menuData = document.getElementById('input').value;
+        menu.push(menuData);
+        let list = '';
+
+        for (i in menu) {
+          list += `<li>${menu[i]}</li>`;
+        }
+        document.getElementById('menuList').innerHTML = list;
+        document.getElementById('input').value = '';
+      }
+
+      function del() {
+        menu.pop();
+        let list2 = '';
+
+        for (i in menu) {
+          list2 += `<li>${menu[i]}</li>`;
+        }
+        document.getElementById('menuList').innerHTML = list2;
+      }
+    </script>
+  </body>
+</html>

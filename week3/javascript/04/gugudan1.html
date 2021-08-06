@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>구구단 출력</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        float: left;
+        margin: 20px;
+      }
+      table td {
+        border: 1px solid #555;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let table = ''; // 빈문자열을 초기값으로 세팅해줘야 누적연산이 가능
+
+      for (let i = 2; i <= 9; i++) {
+        table += '<table>';
+        table += `<caption>${i}단</caption>`;
+
+        for (let j = 1; j <= 9; j++) {
+          let total = i * j;
+          table += '<tr>';
+
+          if (total == String(9)) {
+            table += '<td style = "background-color: red">';
+          } else {
+            table += '<td style = "background-color: skyblue">';
+          }
+
+          table += `${i} x ${j} = ${total} </td>`;
+          table += '</tr>';
+        }
+        table += '</table>';
+      }
+      document.write(table);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>음악플레이리스트</title>
+    <style>
+      #list {
+        width: 100px;
+        list-style: none;
+        padding-left: 10px;
+      }
+      #list li {
+        border-bottom: 1px solid #333;
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>뮤직 플레이리스트</h1>
+    <input type="text" placeholder="노래 제목을 입력해주세요" id="input" />
+    <button onclick="add()">추가하기</button>
+    <button onclick="del()">삭제하기</button>
+    <ul id="list"></ul>
+    <script>
+      let playlist = [];
+
+      function add() {
+        let music = document.getElementById('input').value;
+
+        if (!music) {
+          document.getElementById('input').value = '';
+        } else {
+          playlist.push(music);
+          let list = '';
+
+          for (i in playlist) {
+            list += `<li>${playlist[i]}</li>`;
+          }
+          document.getElementById('list').innerHTML = list;
+          document.getElementById('input').value = '';
+        }
+      }
+      function del() {
+        let music = document.getElementById('input').value;
+
+        playlist.pop(music);
+
+        let list2 = '';
+
+        for (i in playlist) {
+          list2 += `<li>${playlist[i]}</li>`;
+        }
+        document.getElementById('list').innerHTML = list2;
+        document.getElementById('input').value = '';
+      }
+    </script>
+  </body>
+</html>

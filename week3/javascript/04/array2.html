@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let car = ['벤츠', '볼보', '현대기아', '테슬라', '케딜락'];
+
+      document.write(car, car.length, '<br>');
+      document.write(car[1], '<br>'); // 볼보
+
+      let carList = '<ul>';
+
+      for (i in car) {
+        carList += `<li>${car[i]}</li>`;
+      }
+      carList += '</ul>';
+
+      document.write(carList);
+    </script>
+  </body>
+</html>

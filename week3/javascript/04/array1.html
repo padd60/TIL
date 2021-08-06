@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let menu = ['짜장면', '짬뽕', '냉면', '족발', '보쌈'];
+
+      let ul = '<ul>';
+
+      for (i in menu) {
+        ul += `<li>${menu[i]}</li>`;
+      }
+
+      ul += '</ul>';
+
+      document.write(ul);
+
+      menu[2] = '라면';
+      console.log(menu);
+
+      for (let i = 0; i < menu.length; i++) {
+        document.write(menu[i], '<br>');
+      }
+
+      menu[4] = '탕수육';
+      console.log(menu);
+
+      for (i in menu) {
+        document.write(menu[i], '<br>');
+      }
+    </script>
+  </body>
+</html>

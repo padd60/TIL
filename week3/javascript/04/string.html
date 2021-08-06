@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>문자열 객체</title>
+  </head>
+  <body>
+    <script>
+      let text = 'Hello Javascript ';
+      let text2 = new String('Hello Javascript'); // 문자열 객체
+      let text3 = 'jQuery';
+      console.log(text);
+      console.log(text2);
+
+      console.log(text.toUpperCase()); // 영문 일괄 대문자
+      console.log(text.toLowerCase()); // 영문 일괄 소문자
+      console.log(text[7].toUpperCase()); // A // 특정 인덱스만 선택
+
+      console.log(text.charAt(1)); // e // 특정 인덱스의 문자만 추출
+      console.log(text.indexOf('Javascript')); // 6 // 해당 문자로 시작하는 인덱스번호
+      console.log(text.indexOf('q')); // -1 // 문자열 찾지 못하면 -1 반환
+      console.log(text.indexOf('s')); // 10
+      console.log(text.lastIndexOf('p')); // 14
+
+      // slice, substring, substr
+      console.log(text.slice(6, 10)); // Java // 문자를 잘라옴 (시작인덱스, 끝인덱스번호 : 미포함) = 실제 들어오는 인덱스 시작 ~ (끝 - 1)
+      console.log(text.substring(6, 10)); // Java // 결과가 slice와 같지만 끝인덱스번호 뒤의 데이터는 삭제하는 점이 다르다.
+      console.log(text.substr(6, 10)); // Javascript // (위치지정, 지정 위치부터의 문자갯수)
+      console.log(text.length); // 16
+      console.log(text.trim()); // 앞뒤에 붙은 공백문자 제거
+      console.log(text.concat(text3)); // Hello Javascript jQuery
+      console.log(text.concat('test')); // Hello Javascript test
+      console.log(text.charCodeAt(0)); // 72 // 문자에 대한 아스키코드
+      console.log(String.fromCharCode(72)); // H // 아스키코드에 대한 문자
+      console.log(text.match('show')); // null
+      console.log(text.match('script')); // ["script", index: 10, input: "Hello Javascript ", groups: undefined]
+      console.log(text.replace('Hello', 'Hi')); // Hi Javascript
+      console.log('\u{1F60D}'); // 😍
+      console.log("it's very good"); // it's very good
+      console.log("it's very good"); // it's very good
+      console.log('A\\B'); // A\B
+    </script>
+  </body>
+</html>

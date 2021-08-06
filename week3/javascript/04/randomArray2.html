@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>점심메뉴골라줌</title>
+  </head>
+  <body>
+    <h1>점심 추천 메뉴</h1>
+    <p id="menu"></p>
+    <script>
+      let menu = ['라면', '떡볶이', '치킨', '피자', '햄버거'];
+
+      let rdm = Math.random(); // 1이하의 소숫점 난수
+
+      let num = Math.floor(rdm * menu.length); // 0 ~ 4
+
+      document.getElementById(
+        'menu'
+      ).innerHTML = `오늘의 추천메뉴는 ${menu[num]}입니다.`;
+    </script>
+  </body>
+</html>

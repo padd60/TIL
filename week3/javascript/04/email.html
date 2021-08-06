@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>이메일 유효성 검사</title>
+  </head>
+  <body>
+    <script>
+      let userEmail = prompt('이메일 주소를 입력해주세요');
+      let arrUrl = ['.com', 'co.kr', '.net', '.or.kr', 'go,kr'];
+
+      // boolean 판단 변수 생성
+      let check1 = false; // @ 유무
+      let check2 = false; // url 유무
+
+      //  '@'가 userEmail에 없으면 -1을 반환하므로 양수이면 @ 판단 변수를 true로 바꿔준다.
+      if (userEmail.indexOf('@') > 0) {
+        check1 = true;
+      }
+
+      for (i in arrUrl) {
+        // arrUrl 내부 데이터가 userEmail에 없으면 -1을 반환하므로 양수이면 url판단 변수를 true로 바꿔준다.
+        if (userEmail.indexOf(arrUrl[i]) > 0) {
+          check2 = true;
+        }
+      }
+
+      if (check1 && check2) {
+        document.write(userEmail);
+      } else {
+        alert('이메일 형식이 잘못되었습니다.');
+      }
+    </script>
+  </body>
+</html>

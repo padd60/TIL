@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>배열 편집 사용빈도 높은 메서드 연습</title>
+  </head>
+  <body>
+    <script>
+      let green = ['교대', '방배', '강남'];
+      let yellow = ['미금', '정자', '수서'];
+
+      green.splice(1, 1, '서초', '역삼');
+      console.log(green); // ["교대", "서초", "역삼", "강남"]
+
+      let data1 = green.pop(); // '깅님'
+      console.log(green); // ["교대", "서초", "역삼"]
+
+      let data2 = green.shift(); // '교대'
+      console.log(green); // ["서초", "역삼"]
+
+      green.push('신도림');
+      console.log(green); // ["서초", "역삼", "신도림"]
+
+      yellow.push(data1);
+      console.log(yellow); // ["미금", "정자", "수서", "강남"]
+
+      yellow.unshift(data2);
+      console.log(yellow); // ["교대", "미금", "정자", "수서", "강남"]
+    </script>
+  </body>
+</html>

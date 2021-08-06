@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>행운의 인사말</title>
+  </head>
+  <body>
+    <p id="hi"></p>
+    <script>
+      let say = ['Hi', '안녕', '오랜만이야', '반갑다', 'welcome', '무야호'];
+
+      let rdm = Math.random();
+      let num = Math.floor(rdm * say.length);
+
+      document.getElementById(
+        'hi'
+      ).innerHTML = `오늘 행운의 인사말은 ? ... 바로 "${say[num]}"입니다!`;
+    </script>
+  </body>
+</html>

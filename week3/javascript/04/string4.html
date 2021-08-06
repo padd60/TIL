@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>전화번호</title>
+  </head>
+  <body>
+    <script>
+      let userName = prompt('이름을 영문으로 입력해주세요');
+      let upperName = userName.toUpperCase();
+      document.write(upperName, '<br>');
+
+      let userNum = prompt('전화번호를 입력해주세요');
+      // 0101234 1234
+      // .substring(a, b) -> iwi : a 인덱스 번호부터 b 인덱스 이전 구간 문자반환
+      let test = userNum.replaceAll(' ', '-');
+      let tel = userNum.substring(0, userNum.length - 4) + '****';
+      document.write(tel, '<br>');
+    </script>
+  </body>
+</html>
