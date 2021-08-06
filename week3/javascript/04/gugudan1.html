@@ -24,13 +24,15 @@
         table += `<caption>${i}단</caption>`;
 
         for (let j = 1; j <= 9; j++) {
-          let total = i * j;
+          let total = String(i * j);
           table += '<tr>';
 
-          if (total == String(9)) {
+          if (total.indexOf('9') >= 0) {
             table += '<td style = "background-color: red">';
-          } else {
+          } else if (total.indexOf('7') >= 0) {
             table += '<td style = "background-color: skyblue">';
+          } else {
+            table += '<td>';
           }
 
           table += `${i} x ${j} = ${total} </td>`;
