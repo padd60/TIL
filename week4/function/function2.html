@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>파라미터 == 매개변수</title>
+  </head>
+  <body>
+    <script>
+      function myFnc() {
+        let name = '홍길동';
+        let area = '서울';
+        document.write(`안녕하세요 ${name}입니다.`, '<br>');
+        document.write(`사는곳은 ${area}입니다.`, '<br>', '<br>');
+      }
+      myFnc();
+
+      // 사람과 지역이 늘어날수록 함수 선언이 많아짐
+      // 매개변수 사용하여 코드효율성 높임
+      // 로직이 같고 필요한 변수 데이터만 변경될 시 매개변수를 사용
+      function myFnc2(name, area, age) {
+        // name, area, age -> 매개변수, 파라미터
+        document.write(`안녕하세요 ${name}입니다.`, '<br>');
+        document.write(`나이는 ${age}입니다.`, '<br>');
+        document.write(`사는곳은 ${area}입니다.`, '<br>', '<br>');
+      }
+      myFnc2('마이콜', '대전', 30);
+      myFnc2('둘리', '부산', 26);
+      myFnc2('또치', '인천', 19);
+      // 훨씬 간결해진 코드를 볼 수 있다
+    </script>
+  </body>
+</html>

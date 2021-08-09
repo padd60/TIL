@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>setInterval</title>
+  </head>
+  <body>
+    <button onclick="clearInterval(autoAdd)">증가 정지</button>
+    <button onclick="clearInterval(autoSub)">감소 정지</button>
+    <script>
+      let addNum = 0; // 0 1 2 ...
+      let subNum = 1000; // 1000 999 998 ...
+
+      let autoAdd = setInterval(function () {
+        addNum++; // addNum = addNum + 1;
+        console.log('addNum : ' + addNum);
+      }, 1000); // 1000 -> 1초
+
+      let autoSub = setInterval(function () {
+        subNum--;
+        console.log('subNum : ' + subNum);
+      }, 1000);
+    </script>
+  </body>
+</html>

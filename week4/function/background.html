@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>배경 칼라 순서대로 출력하기</title>
+  </head>
+  <body id="bg">
+    <button onclick="changeBg()">배경색상 바꾸기</button>
+    <script>
+      let color = ['red', 'blue', 'orange', 'green', 'yellow'];
+      let num = 0;
+
+      function changeBg() {
+        console.log(num); // 0 1 2 3 4
+
+        // 배경 순서대로 배경색상 바꾸기
+        document.getElementById('bg').style.backgroundColor = color[num];
+
+        num++; // 1 2 3 4 5
+
+        if (num == 5) {
+          num = 0;
+        }
+      }
+
+      let i = 0;
+      function changeBg2() {
+        i++;
+
+        if (i >= color.length) {
+          i = 0;
+        }
+
+        let bodyTag = document.getElementById('bg');
+        bodyTag.style.backgroundColor = color[i];
+      }
+    </script>
+  </body>
+</html>

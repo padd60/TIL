@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>레이어팝업</title>
+    <style>
+      #wrap {
+        width: 800px;
+        margin: 0 auto;
+        padding: 50px;
+      }
+      #wrap p {
+        color: #555;
+        line-height: 2;
+      }
+      #popup_bg {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 999;
+      }
+      #popup_bg .modal {
+        width: 300px;
+        padding: 20px;
+        background-color: #fff;
+        text-align: center;
+        margin: 100px auto;
+        border: 2px solid green;
+        box-shadow: 5px 5px 20px rgb(146, 146, 146);
+      }
+      #popup_bg .modal img {
+        margin-bottom: 20px;
+      }
+      #title {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1 id="title" onclick="popOpen()">레이어 팝업 열기</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis est
+        ab, inventore commodi, minima officiis reprehenderit voluptas dolorem
+        maxime voluptatem sint in saepe ratione optio nemo debitis?
+        Necessitatibus, voluptatum. Velit!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis est
+        ab, inventore commodi, minima officiis reprehenderit voluptas dolorem
+        maxime voluptatem sint in saepe ratione optio nemo debitis?
+        Necessitatibus, voluptatum. Velit!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis est
+        ab, inventore commodi, minima officiis reprehenderit voluptas dolorem
+        maxime voluptatem sint in saepe ratione optio nemo debitis?
+        Necessitatibus, voluptatum. Velit!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis est
+        ab, inventore commodi, minima officiis reprehenderit voluptas dolorem
+        maxime voluptatem sint in saepe ratione optio nemo debitis?
+        Necessitatibus, voluptatum. Velit!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis est
+        ab, inventore commodi, minima officiis reprehenderit voluptas dolorem
+        maxime voluptatem sint in saepe ratione optio nemo debitis?
+        Necessitatibus, voluptatum. Velit!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis est
+        ab, inventore commodi, minima officiis reprehenderit voluptas dolorem
+        maxime voluptatem sint in saepe ratione optio nemo debitis?
+        Necessitatibus, voluptatum. Velit!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis est
+        ab, inventore commodi, minima officiis reprehenderit voluptas dolorem
+        maxime voluptatem sint in saepe ratione optio nemo debitis?
+        Necessitatibus, voluptatum. Velit!
+      </p>
+    </div>
+    <div id="popup_bg">
+      <div class="modal">
+        <img src="./window_object_1.jpeg" alt="" />
+        <button onclick="popClose()">닫기</button>
+      </div>
+    </div>
+    <script>
+      function popClose() {
+        // 팝업 안보이게 -> #popup_bg -> display :'none';
+        document.getElementById('popup_bg').style.display = 'none';
+      }
+      function popOpen() {
+        document.getElementById('popup_bg').style.display = 'block';
+      }
+    </script>
+  </body>
+</html>

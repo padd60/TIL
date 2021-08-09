@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>매개변수 없이 함수 전달된 값을 받아오는 arguments</title>
+  </head>
+  <body>
+    <script>
+      function sum(a, b, c) {
+        // 매개변수 a = 1, b = 2, c = 3
+        let sum = a + b + c;
+        document.write(sum, '<br>');
+      }
+      sum(); // NaN
+      sum(1, 2); // NaN
+      sum(1, 2, 3); // 인자값 전달 // 6
+
+      function sum2() {
+        // 매개변수 없으면 atguments 사용됨
+        // arguments [1,2,3]
+        // let sum = a + b + c; 오류 발생
+        let sum = arguments[0] + arguments[1] + arguments[2];
+        document.write(sum, '<br>');
+      }
+      sum2(1, 2, 3); // 인자값 전달 // 6
+
+      function sum3() {
+        // arguments [1,2,3]
+        // 인수를 모두 더하기 연산하는 함수
+        let sum = 0;
+        for (let i = 0; i < arguments.length; i++) {
+          sum += arguments[i];
+        }
+        document.write(sum, '<br>');
+      }
+      sum3(1, 2, 3); // 인자값 전달 // 6
+      sum3(1, 2, 3, 4); // 인자값 전달 // 10
+      sum3(1, 2, 3, 4, 5); // 인자값 전달 // 15
+      sum3(14, 45, 32, 56, 11); // 인자값 전달 // 158
+    </script>
+  </body>
+</html>

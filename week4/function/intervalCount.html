@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>interval count</title>
+  </head>
+  <body>
+    <h1>console 창을 확인하세요!</h1>
+    <script>
+      let num = 1;
+      function count() {
+        if (num >= 7) {
+          num = 1;
+        } else {
+          console.log(num);
+          num++;
+        }
+      }
+      setInterval(function () {
+        if (num > 7) {
+          num = 1;
+        } else {
+          console.log(num);
+          num++;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

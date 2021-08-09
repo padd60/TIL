@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>screen 객체</title>
+  </head>
+  <body>
+    <script>
+      let w = screen.width; // 모니터 전체 너비
+      let h = screen.height; // 모니터 전체 세로
+
+      let w2 = screen.availWidth; // 모니터 안쪽 너비
+      let h2 = screen.availHeight; // 모니터 안쪽 세로
+
+      let color = screen.colorDepth; // 접속한 모니터가 표현가능한 컬러의 bit
+
+      console.log('모니터 전체 너비: ' + w, '모니터 전체 세로: ' + h);
+      console.log('모니터 안쪽 너비: ' + w2, '모니터 안쪽 세로: ' + h2);
+      console.log('모니터가 표현가능한 컬러의 bit: ' + color);
+
+      let ow = window.outerWidth; // 브라우저 자체 너비
+      let oh = window.outerHeight; // 브라우저 자체 세로
+      let iw = window.innerWidth; // 브라우저 안쪽 너비 - 실제 작업영역// 많이 사용
+      let ih = window.innerHeight; // 브라우저 안쪽 세로 - 실제 작업영역// 많이 사용
+
+      console.log('브라우저 자체 너비: ' + ow, '브라우저 자체 세로: ' + oh);
+      console.log('브라우저 안쪽 너비: ' + iw, '브라우저 안쪽 세로: ' + ih);
+    </script>
+  </body>
+</html>

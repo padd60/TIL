@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>width square</title>
+  </head>
+  <body>
+    <script>
+      function square(x, y) {
+        let wid = `입력하신 사각형의 넓이는 ${x * y}㎠입니다.`;
+        return wid;
+      }
+      let X = prompt('사각형 가로 길이를 입력해주세요.');
+      let Y = prompt('사각형 세로 길이를 입력해주세요.');
+      let result = square(X, Y);
+
+      document.write(result);
+    </script>
+  </body>
+</html>

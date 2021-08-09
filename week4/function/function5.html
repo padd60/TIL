@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>return 있는 함수</title>
+  </head>
+  <body>
+    <!-- 반복문: break; - 즉시 종료 
+    return - 계산된 값을 호출한 위치에 반환 -->
+    <script>
+      function sum(num1, num2) {
+        let sum = num1 + num2;
+        document.write(sum, '<br>');
+      }
+      sum(1, 2);
+
+      // return 사용
+      function sum2(num1, num2) {
+        return num1 + num2;
+      }
+      // return 떄문에 호출한 위치에 반환
+      let total = sum2(1, 2);
+      // let total = 3;
+      document.write(total);
+    </script>
+  </body>
+</html>

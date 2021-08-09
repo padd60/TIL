@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>매개변수가 있는 함수 -> 파라미터</title>
+  </head>
+  <body>
+    <script>
+      let rightId = 'test';
+      let rightPw = '1234';
+
+      function login(id, pw) {
+        if (id == rightId) {
+          if (pw == rightPw) {
+            document.write(`${id}씨의 방문을 환영합니다.`);
+          } else {
+            alert('비밀번호를 잘못입력하셨습니다.');
+          }
+        } else {
+          alert('아이디를 잘못입력하셨습니다.');
+        }
+      }
+
+      let userId = prompt('아이디를 입력해주세요');
+      let userPw = prompt('비밀번호를 입력해주세요');
+
+      login(userId, userPw);
+    </script>
+  </body>
+</html>

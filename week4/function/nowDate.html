@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>now date</title>
+  </head>
+  <body>
+    <script>
+      function date(month, date, day) {
+        let now = `오늘은 ${month}월 ${date}일 ${day}입니다.`;
+        return now;
+      }
+
+      const dayList = [
+        '일요일',
+        '월요일',
+        '화요일',
+        '수요일',
+        '목요일',
+        '금요일',
+        '토요일',
+      ];
+
+      let Now = new Date();
+      console.log(Now);
+      let nowMonth = Now.getMonth() + 1;
+      console.log(nowMonth);
+      let nowDate = Now.getDate();
+      console.log(nowDate);
+      let nowDay = dayList[Now.getDay()];
+      console.log(nowDay);
+
+      let today = date(nowMonth, nowDate, nowDay);
+      console.log(today);
+
+      document.write(today);
+    </script>
+  </body>
+</html>

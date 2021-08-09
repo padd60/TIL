@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>setTimeout(function(){}, 1000); 지정시간 한번실행후 종료</title>
+  </head>
+  <body>
+    <script>
+      let boom = setTimeout(function () {
+        alert('펑!!!!!');
+      }, 3000); // 지정한 시간에 한번 실행후 종료
+      clearTimeout(boom);
+      // 타임아웃을 클리어했기 떄문에 새로고침해도 알림이 뜨지 않는다.
+    </script>
+  </body>
+</html>
