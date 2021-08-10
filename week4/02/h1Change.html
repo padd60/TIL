@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>제목 및 도형 바꾸기</title>
+    <style>
+      #title {
+        text-align: center;
+      }
+      #block {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+        margin: 0 auto;
+        transition: 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">노란 사각형</h1>
+    <div id="block" onclick="change('red')"></div>
+    <script>
+      function change(value) {
+        if (value == 'red') {
+          document.getElementById('title').innerHTML = '빨강색 원';
+          document.getElementById('block').style.backgroundColor = 'red';
+          document.getElementById('block').style.borderRadius = '50%';
+          document
+            .getElementById('block')
+            .setAttribute('onclick', "change('yellow')");
+        } else {
+          document.getElementById('title').innerHTML = '노란사각형';
+          document.getElementById('block').style.backgroundColor = 'yellow';
+          document.getElementById('block').style.borderRadius = '0%';
+          document
+            .getElementById('block')
+            .setAttribute('onclick', "change('red')");
+        }
+      }
+    </script>
+  </body>
+</html>

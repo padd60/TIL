@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>숫자 놀이</title>
+  </head>
+  <body>
+    <script>
+      function play(a, b) {
+        if (a == b) {
+          return `두수의 곱은 ${a * b}`;
+        } else {
+          return `두수의 합은 ${a + b}`;
+        }
+      }
+
+      let A = Number(prompt('첫번째 숫자를 입력하세요.'));
+      let B = Number(prompt('두번째 숫자를 입력하세요.'));
+
+      let result = play(A, B);
+
+      document.write(result);
+    </script>
+  </body>
+</html>

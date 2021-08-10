@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>함수간 충돌방지</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        let num = 100;
+        function menu() {
+          num += 100; // num = num + 100; = 200
+          alert('num1 : ' + num);
+          let hi = '안녕';
+        }
+        menu();
+      })();
+
+      (function () {
+        let num = 100;
+        function menu() {
+          num += 10;
+          alert('num2 : ' + num); // 110
+        }
+        menu();
+      })();
+    </script>
+  </body>
+</html>

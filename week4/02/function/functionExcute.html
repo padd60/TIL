@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>함수즉시 실행</title>
+  </head>
+  <body>
+    <script>
+      //함수이름 ();
+      // (function(){})();
+      // (function(){}());
+
+      let result = (function () {
+        return 1 + 2;
+      })();
+      console.log(result); // 3
+
+      let result2 = (function (a, b) {
+        return a + b;
+      })(5, 8); // 인수 추가
+      console.log(result2); // 13
+    </script>
+  </body>
+</html>

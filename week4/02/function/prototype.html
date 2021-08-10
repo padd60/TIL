@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>객체 생성자 함수 메모리 절약 -> 프로토타입</title>
+  </head>
+  <body>
+    <script>
+      // 이름, 키, 몸무게, 정상몸무게 계산함수
+      function Checkweight(name, height, weight) {
+        // let userName = ''
+        this.userName = name;
+        this.userHeight = height;
+        this.userWeight = weight;
+        this.minWeight;
+        this.maxWeight;
+      }
+
+      Checkweight.prototype.getInfo = function () {
+        // 개인 정보 출력 함수
+        let str = '';
+        str += `이름: ${this.userName}, `;
+        str += `키: ${this.userHeight}, `;
+        str += `몸무게: ${this.userWeight} <br>`;
+        return str;
+      };
+
+      Checkweight.prototype.getResult = function () {
+        this.minWeight = (this.userHeight - 100) * 0.9 - 5;
+        this.maxWeight = (this.userHeight - 100) * 0.9 + 5;
+
+        if (
+          this.userWeight >= this.minWeight &&
+          this.userWeight <= this.maxWeight
+        ) {
+          //정상몸무게
+          return '정상 몸무게입니다. <br><br>';
+        } else if (this.userWeight < this.minWeight) {
+          //저체중
+          return '몸무게 미달입니다. <br><br>';
+        } else {
+          //과체중
+          return '몸무게 초과입니다. <br><br>';
+        }
+      };
+
+      let kim = new Checkweight('김가루', 176, 70);
+
+      document.write(kim.getInfo()); // 이름: 고길동, 키: 176, 몸무게: 70
+      document.write(kim.getResult()); // 정상 몸무게입니다.
+
+      let park = new Checkweight('박치기', 180, 65);
+      document.write(park.getInfo()); // 이름: 박치기, 키: 180, 몸무게: 65
+      document.write(park.getResult()); // 몸무게 미달입니다.
+    </script>
+  </body>
+</html>

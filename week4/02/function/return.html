@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>return</title>
+  </head>
+  <body>
+    <script>
+      let num = 0;
+
+      test();
+
+      function test() {
+        num++;
+        document.write(num, '<br>');
+        if (num == 10) return; // 함수 반복을 종료하기 위해 조건을 걸어 return하여 함수 종료
+        test(); // 함수 안에서 다시 자신을 실행 = 재귀함수 -> 함수 무한 반복
+      }
+    </script>
+  </body>
+</html>

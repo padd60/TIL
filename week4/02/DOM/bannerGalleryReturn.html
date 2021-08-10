@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>베너 갤러리</title>
+    <style>
+      #gallery {
+        width: 350px;
+        margin: 50px auto;
+        text-align: center;
+      }
+      #gallery img {
+        width: 100%;
+      }
+      #gallery button {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- element.setAttribute(attribute, value) : element의 attribute값 변경 -->
+    <div id="gallery">
+      <div><img src="images/n1.jpeg" alt="베너1" id="photo" /></div>
+      <div>
+        <button onclick="gallery(false)">이전</button>
+        <button onclick="gallery(true)">다음</button>
+      </div>
+    </div>
+    <script>
+      let num = 1;
+
+      function gallery(test) {
+        if (test) {
+          if (num == 6) {
+            return;
+          }
+          num++;
+          console.log(num);
+        } else {
+          if (num == 1) {
+            return;
+          }
+          num--;
+          console.log(num);
+        }
+        let imgTag = document.getElementById('photo');
+        imgTag.setAttribute('src', `images/n${num}.jpeg`);
+      }
+    </script>
+  </body>
+</html>

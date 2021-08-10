@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>자바스크립트 시계</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      #time {
+        border: 2px solid#ccc;
+        padding: 30px;
+        text-align: center;
+        width: 500px;
+        margin: 0 auto;
+        background-color: #f1f1f1;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>자바스크립트 시계</h1>
+    <h2 id="time"></h2>
+    <script>
+      let timeShow = document.getElementById('time');
+      let weekDay = [
+        '일요일',
+        '월요일',
+        '화요일',
+        '수요일',
+        '목요일',
+        '금요일',
+        '토요일',
+      ];
+      function clock() {
+        let date = new Date();
+        let clockMonth = date.getMonth() + 1;
+        let clockDate = date.getDate();
+        let clockDay = weekDay[date.getDay()];
+
+        let clockHour =
+          date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+        let clockMinute =
+          date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+        let clockSecond = `${
+          date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds()
+        }`; // 이중 백틱
+
+        let today = `${clockMonth}/${clockDate} ${clockDay} ${clockHour}:${clockMinute}:${clockSecond}`;
+
+        timeShow.innerHTML = today;
+      }
+
+      setInterval(clock, 1000);
+    </script>
+  </body>
+</html>

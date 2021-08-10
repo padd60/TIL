@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>넥스트 이미지</title>
+    <style>
+      img {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="images/n1.jpeg" alt="이미지1" onclick="next()" id="photo" />
+    <script>
+      let num = 1;
+      function next() {
+        num++;
+        if (num > 6) {
+          num = 1;
+        }
+        document
+          .getElementById('photo')
+          .setAttribute('src', `images/n${num}.jpeg`);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>제목 및 도형 바꾸기2</title>
+    <style>
+      #title {
+        text-align: center;
+      }
+      #block {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+        margin: 0 auto;
+        transition: 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">노란 사각형</h1>
+    <div id="block"></div>
+    <script>
+      document.getElementById('block').addEventListener('click', change);
+
+      let bg = document.getElementById('block');
+
+      // 실행하면 한번클릭이후 바로 안바뀌고 한번 더 클릭했을때 바뀌는 이유
+      // getElementById('block').style.backgroundColor과 같은 변경은 태그의 인라인 구조를 바꾸는 것으로
+      // 기존에 설정된 css 속성을 바꾸지는 못한다.
+      // 따라서 바로 변경되게 하려면 처음부터 인라인 속성을 넣어주어야 바로 바꾸는 것이 가능하다.
+
+      function change() {
+        if (bg.style.backgroundColor == 'yellow') {
+          document.getElementById('title').innerHTML = '빨강색 원';
+          document.getElementById('block').style.backgroundColor = 'red';
+          document.getElementById('block').style.borderRadius = '50%';
+        } else {
+          document.getElementById('title').innerHTML = '노란 사각형';
+          document.getElementById('block').style.backgroundColor = 'yellow';
+          document.getElementById('block').style.borderRadius = '0%';
+        }
+      }
+    </script>
+  </body>
+</html>

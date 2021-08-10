@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>랜덤배경</title>
+    <style>
+      #bg {
+        transition: 1s;
+      }
+      #btn {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        border: 3px solid #333;
+        border-radius: 7px;
+        font-size: 20px;
+        font-weight: bold;
+        transition: 1s;
+      }
+    </style>
+  </head>
+  <body id="bg">
+    <button onclick="rdm()" id="btn">버튼</button>
+  </body>
+  <script>
+    function rdm() {
+      let num1 = Math.floor(Math.random() * 255);
+      let num2 = Math.floor(Math.random() * 255);
+      let num3 = Math.floor(Math.random() * 255);
+      let num4 = Math.floor(Math.random() * 255);
+      let num5 = Math.floor(Math.random() * 255);
+      let num6 = Math.floor(Math.random() * 255);
+      let num7 = Math.floor(Math.random() * 255);
+      let num8 = Math.floor(Math.random() * 255);
+      let num9 = Math.floor(Math.random() * 255);
+
+      let leftNum = Math.floor(Math.random() * 45) + 30;
+      let topNum = Math.floor(Math.random() * 45) + 30;
+
+      let leftTopNum = Math.floor(Math.random() * 51);
+      let leftBottomNum = Math.floor(Math.random() * 51);
+      let rightTopNum = Math.floor(Math.random() * 51);
+      let rightBottomNum = Math.floor(Math.random() * 51);
+
+      document.getElementById(
+        'bg'
+      ).style.backgroundColor = `rgb(${num1},${num2},${num3})`;
+
+      document.getElementById(
+        'btn'
+      ).style.backgroundColor = `rgb(${num4},${num5},${num6})`;
+
+      document.getElementById(
+        'btn'
+      ).style.color = `rgb(${num7},${num8},${num9})`;
+
+      document.getElementById('btn').style.left = `${leftNum}%`;
+
+      document.getElementById('btn').style.top = `${topNum}%`;
+
+      document.getElementById(
+        'btn'
+      ).style.borderTopLeftRadius = `${leftTopNum}%`;
+
+      document.getElementById(
+        'btn'
+      ).style.borderTopRightRadius = `${rightTopNum}%`;
+
+      document.getElementById(
+        'btn'
+      ).style.borderBottomLeftRadius = `${leftBottomNum}%`;
+
+      document.getElementById(
+        'btn'
+      ).style.borderBottomRightRadius = `${rightBottomNum}%`;
+    }
+
+    setInterval(rdm, 1000);
+  </script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>스코프</title>
+  </head>
+  <body>
+    <script>
+      function test() {
+        alert('전역함수');
+      }
+
+      function test2() {
+        function test3() {
+          alert('지역함수');
+        }
+        test();
+      }
+
+      test();
+      // 전역함수
+
+      test2();
+      // 전역함수
+
+      function test2() {
+        function test() {
+          alert('지역함수');
+        }
+        test();
+      }
+
+      test2();
+      // 지역함수
+
+      function test2() {
+        function test4() {
+          alert('지역함수');
+        }
+        test4();
+      }
+
+      test4();
+      //undefined
+
+      function test() {
+        alert('전역함수재선언');
+      }
+    </script>
+  </body>
+</html>

@@ -9,21 +9,14 @@
     <script>
       let num = 1;
       function count() {
-        if (num >= 7) {
-          num = 1;
-        } else {
-          console.log(num);
-          num++;
-        }
-      }
-      setInterval(function () {
         if (num > 7) {
           num = 1;
         } else {
           console.log(num);
           num++;
         }
-      }, 1000);
+      }
+      setInterval(count, 1000);
     </script>
   </body>
 </html>

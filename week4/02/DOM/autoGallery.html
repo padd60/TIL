@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>오토갤러리</title>
+    <style>
+      #wrap {
+        width: 500px;
+        margin: 30px auto;
+      }
+      #wrap img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <img src="images/n1.jpeg" alt="이미지1" id="photo" />
+    </div>
+    <script>
+      let num = 1;
+      function auto() {
+        num++;
+        if (num > 6) {
+          num = 1;
+        }
+        document
+          .getElementById('photo')
+          .setAttribute('src', `images/n${num}.jpeg`);
+      }
+      setInterval(auto, 1000);
+    </script>
+  </body>
+</html>
