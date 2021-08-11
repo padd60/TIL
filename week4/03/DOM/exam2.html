@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+      ul li {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+        float: left;
+        margin: 10px;
+        text-align: center;
+        line-height: 200px;
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>box1</li>
+      <li>box2</li>
+      <li>box3</li>
+      <li>box4</li>
+      <li>box5</li>
+    </ul>
+  </body>
+  <script>
+    let box = document.querySelectorAll('ul>li');
+
+    function reset() {
+      for (let j = 0; j < box.length; j++) {
+        box[j].style.backgroundColor = '';
+        box[j].style.borderRadius = '';
+      }
+    }
+
+    for (let i = 0; i < box.length; i++) {
+      box[i].addEventListener('click', function () {
+        if (box[i].style.backgroundColor == '') {
+          reset();
+          box[i].style.backgroundColor = 'red';
+          box[i].style.borderRadius = '50%';
+        } else {
+          box[i].style.backgroundColor = '';
+          box[i].style.borderRadius = '';
+        }
+      });
+    }
+  </script>
+</html>

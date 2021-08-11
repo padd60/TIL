@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>상품페이지</title>
+    <style>
+      #wrap {
+        width: 700px;
+        margin: 0 auto;
+      }
+      #wrap::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      .title {
+        text-align: center;
+      }
+      .left {
+        float: left;
+        width: 50%;
+      }
+      .left > img {
+        width: 100%;
+        border: 4px solid brown;
+        box-sizing: border-box;
+        font-size: 0;
+      } /* 큰이미지 */
+      .coffee_list {
+        list-style: none;
+        padding: 0;
+      }
+      .coffee_list li {
+        float: left;
+        width: 32%;
+        font-size: 0;
+        margin-right: 2%;
+        box-sizing: border-box;
+        border: 4px solid brown;
+        transition: 0.5s;
+      }
+      .coffee_list li:hover {
+        border-color: crimson;
+      }
+      .coffee_list li:last-child {
+        margin-right: 0;
+      }
+      .coffee_list li img {
+        width: 100%;
+        filter: grayscale(1);
+        transition: 0.5s;
+      }
+      .coffee_list li:hover img {
+        filter: grayscale(0);
+      }
+      .right {
+        float: right;
+        width: 46%;
+        line-height: 2;
+        font-size: 18px;
+      }
+      .text_list {
+        list-style: none;
+      }
+      .right button {
+        width: 100%;
+        padding: 8px 0;
+      }
+      .right #view {
+        margin-top: 10px;
+      }
+
+      #popupbg {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        display: none;
+      }
+      .modal {
+        margin: 100px auto;
+        width: 300px;
+        background-color: #fff;
+        padding: 30px;
+        text-align: center;
+      }
+      .modal #close {
+        background-color: brown;
+        color: #fff;
+        border: none;
+        padding: 8px 20px;
+      }
+      .detail {
+        padding: 20px;
+        font-size: 14px;
+        color: #555;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="popupbg">
+      <div class="modal">
+        <h1>주문완료</h1>
+        <button id="close">닫기 X</button>
+      </div>
+    </div>
+    <div id="wrap">
+      <h1 class="title">에디오피아 커피</h1>
+      <div class="left">
+        <img src="images/coffee-pink.jpeg" alt="" id="coffee" />
+        <ul class="coffee_list">
+          <li><img src="images/coffee-pink.jpeg" alt="pink" class="simg" /></li>
+          <li><img src="images/coffee-blue.jpeg" alt="blue" class="simg" /></li>
+          <li><img src="images/coffee-gray.jpeg" alt="gray" class="simg" /></li>
+        </ul>
+      </div>
+      <div class="right">
+        <ul class="text_list">
+          <li>상품명 : 에디오피아 게뎁</li>
+          <li>판매가 : 9,000원</li>
+          <li>배송비 : 3,000원<br />(50,000원 이상 구매시 무료)</li>
+          <li>적립금 : 180원(2%)</li>
+          <li>로스팅 : 2021.06.17</li>
+        </ul>
+        <button>장바구니담기</button>
+        <a href="#" id="view">상세설명 보기</a>
+        <!-- 상세설명 닫기 -->
+        <p class="detail">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
+          dolore laborum eum assumenda optio, reiciendis repellat cupiditate
+          dicta, fuga asperiores nobis corrupti consequuntur vitae corporis
+          deleniti, qui iste delectus repudiandae!
+        </p>
+      </div>
+    </div>
+    <script>
+      // 1. 상세설명 보기 클릭 시 .detail 화면 출력
+      // 2. 상세설명 보기 -> 상세설명 닫기
+      let view = document.querySelector('#view');
+      let detail = document.querySelector('.detail');
+
+      view.addEventListener('click', show);
+
+      let showDetail = true;
+      function show() {
+        if (showDetail) {
+          detail.style.display = 'block';
+          this.innerText = '상세설명 닫기';
+          showDetail = false;
+        } else {
+          detail.style.display = 'none';
+          this.innerText = '상세설명 보기';
+          showDetail = true;
+        }
+      }
+
+      let buy = document.querySelector('.right>button');
+
+      buy.addEventListener('click', add);
+
+      function add() {
+        document.querySelector('#popupbg').style.display = 'block';
+      }
+
+      let popClose = document.querySelector('.modal>button');
+
+      popClose.addEventListener('click', pClose);
+      function pClose() {
+        document.querySelector('#popupbg').style.display = 'none';
+      }
+
+      let bimg = document.querySelector('#coffee');
+      let simg = document.querySelectorAll('.simg');
+
+      bimg.onclick = function () {
+        let bsrc = bimg.getAttribute('src');
+        alert(bsrc);
+      };
+
+      // simg[1].addEventListener('mouseover', function () {
+      //   let src = this.getAttribute('src');
+      //   console.log(src);
+      //   bimg.setAttribute('src', src);
+      // });
+
+      for (let i = 0; i < simg.length; i++) {
+        simg[i].addEventListener('mouseover', function () {
+          let src = this.getAttribute('src');
+          console.log(src);
+          bimg.setAttribute('src', src);
+        });
+      }
+    </script>
+  </body>
+</html>

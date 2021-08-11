@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>이벤트</title>
+  </head>
+  <body>
+    <h1>점심 리스트</h1>
+    <ul>
+      <li>떡볶이</li>
+      <li>라면</li>
+      <li>피자</li>
+      <li>햄버거</li>
+      <li>백반</li>
+    </ul>
+    <div class="imgbox">
+      <img src="test1.png" alt="" />
+    </div>
+    <button>타이틀</button>
+    <button>변경</button>
+    <script>
+      document.querySelectorAll('button')[0].onclick = chText;
+      function chText() {
+        document.querySelector('h1').innerHTML = '음식 리스트';
+      }
+
+      document.querySelectorAll('button')[1].addEventListener('click', chBg);
+      function chBg() {
+        for (let i = 0; i < document.querySelectorAll('li').length; i++) {
+          document.querySelectorAll('li')[i].style.backgroundColor = 'yellow';
+          document.querySelectorAll('li')[i].style.border = '2px solid red';
+        }
+      }
+
+      let imgTag = document.querySelector('img');
+      imgTag.addEventListener('mouseover', chImg);
+      imgTag.addEventListener('mouseout', chImg2);
+
+      function chImg() {
+        imgTag.setAttribute('alt', '이미지2');
+        imgTag.src = 'test2.jpg';
+      }
+      function chImg2() {
+        imgTag.setAttribute('alt', '이미지1');
+        imgTag.src = 'js.png';
+      }
+
+      let liTag = document.querySelectorAll('li');
+      liTag[2].addEventListener('click', pizza);
+
+      function pizza() {
+        liTag[2].style.fontSize = '24px';
+      }
+    </script>
+  </body>
+</html>

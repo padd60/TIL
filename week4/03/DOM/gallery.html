@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>라이트박스 갤러리</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #imgbox {
+        width: 800px;
+        margin: 0 auto;
+      }
+
+      .imgList {
+        list-style: none;
+        margin: 100px auto;
+      }
+      .imgList li {
+        float: left;
+        width: 32%;
+        height: 250px;
+        margin: 0.5%;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+      .imgList li img {
+        width: 100%;
+        transition: 0.5s;
+        filter: grayscale(1);
+      }
+      .imgList li:hover {
+        border: 1px solid skyblue;
+      }
+      .imgList li:hover img {
+        transform: scale(1.1);
+        filter: grayscale(0);
+      }
+      #lightBox {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+      }
+      #lightBox img {
+        display: block;
+        margin: 100px auto;
+        border: 5px solid #fff;
+        max-height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="imgbox">
+      <ul class="imgList">
+        <li>
+          <img
+            src="images/iu/iu-1-thumb.jpg"
+            data-src="images/iu/iu-1.jpg"
+            alt="0"
+          />
+        </li>
+        <li>
+          <img
+            src="images/iu/iu-2-thumb.jpg"
+            data-src="images/iu/iu-2.jpg"
+            alt="1"
+          />
+        </li>
+        <li>
+          <img
+            src="images/iu/iu-3-thumb.jpg"
+            data-src="images/iu/iu-3.jpg"
+            alt="2"
+          />
+        </li>
+        <li>
+          <img
+            src="images/iu/iu-4-thumb.jpg"
+            data-src="images/iu/iu-4.jpg"
+            alt="3"
+          />
+        </li>
+        <li>
+          <img
+            src="images/iu/iu-5-thumb.jpg"
+            data-src="images/iu/iu-5.jpg"
+            alt="4"
+          />
+        </li>
+        <li>
+          <img
+            src="images/iu/iu-6-thumb.jpg"
+            data-src="images/iu/iu-6.jpg"
+            alt="5"
+          />
+        </li>
+      </ul>
+      <div id="lightBox">
+        <img src="images/iu/iu-1.jpg" alt="lightBoxImg" />
+      </div>
+    </div>
+    <script>
+      let thumbImg = document.querySelectorAll('.imgList>li>img'); // 작은 이미지 배열
+      let lightBoxImg = document.querySelector('#lightBox>img'); // 큰 이미지
+      let lightBox = document.querySelector('#lightBox'); // 팝업
+
+      // 1. 작은 이미지 클릭하면 -> 팝업 뜨고 -> 큰이미지가 나온다
+      for (let i = 0; i < thumbImg.length; i++) {
+        thumbImg[i].addEventListener('click', function () {
+          let dataSrc = this.getAttribute('data-src');
+          lightBoxImg.setAttribute('src', dataSrc);
+          lightBox.style.display = 'block';
+        });
+      }
+
+      // 2. 팝업창을 클릭하면 다시 닫아준다
+      lightBox.addEventListener('click', function () {
+        lightBox.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>

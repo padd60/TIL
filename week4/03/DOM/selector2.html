@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM 선택자</title>
+  </head>
+  <body>
+    <h1 id="title">DOM 선택자</h1>
+    <!-- 배경 red, 폰트 white -->
+    <p class="text">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi nulla
+      aperiam perferendis labore, sint magnam rem dicta necessitatibus, tenetur
+      delectus nostrum! Ad enim et doloremque vel ea error sequi totam.
+    </p>
+    <ul>
+      <li>바나나</li>
+      <li>딸기</li>
+      <li>레몬</li>
+      <li>오렌지</li>
+      <li>포도</li>
+      <li>수박</li>
+      <li>망고</li>
+    </ul>
+    <p>문단입니다.</p>
+    <hr />
+    <button onclick="test1()">배경칼라</button>
+    <!-- class='text'의 배경칼라 yellow 변경 -->
+    <button onclick="test2()">변경</button>
+    <!-- 바나나 -> 파인애플 -->
+    <button onclick="test3()">갯수출력</button>
+    <!-- li태그의 갯수 출력 / 문단입니다. -> n개입니다. -->
+    <button onclick="test4()">삭제</button>
+    <!-- class='text' 안보이게 -->
+    <button onclick="test5()">출력</button>
+    <!-- class='text' 보이게 -->
+    <button onclick="test6()">리스트배경</button>
+    <!-- list 배경색 skyblue -->
+
+    <script>
+      let title = document.querySelector('#title');
+      title.style.backgroundColor = 'red';
+      title.style.color = '#fff';
+      title.style.textAlign = 'center';
+
+      let background = document.getElementsByClassName('text');
+
+      let list = document.querySelector('li');
+
+      let liTag = document.querySelectorAll('li');
+
+      let del = document.querySelector('.text');
+
+      let show = document.querySelector('.text');
+
+      function test1() {
+        background[0].style.backgroundColor = 'yellow';
+      }
+
+      function test2() {
+        list.innerHTML = '파인애플';
+      }
+
+      function test3() {
+        document.querySelectorAll(
+          'p'
+        )[1].innerHTML = `목록은 총 ${liTag.length}개입니다.`;
+      }
+
+      function test4() {
+        del.style.display = 'none';
+      }
+
+      function test5() {
+        show.style.display = 'block';
+      }
+
+      function test6() {
+        for (let i = 0; i < liTag.length; i++) {
+          liTag[i].style.backgroundColor = 'skyblue';
+        }
+      }
+    </script>
+  </body>
+</html>

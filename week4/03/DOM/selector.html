@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>자바스크립트 선택자</title>
+  </head>
+  <body>
+    <h1 id="title">자바스크립트 선택자</h1>
+    <ul class="list">
+      <li class="item">태그선택자</li>
+      <li class="item">id 선택자</li>
+      <li class="item">class 선택자</li>
+      <li class="item">querySelector</li>
+      <li class="item">querySelectorAll</li>
+    </ul>
+
+    <h1 id="menuList">점심메뉴 리스트</h1>
+    <dl class="menu">
+      <dt class="menuTitle">점심메뉴</dt>
+      <dd class="m">짜장면</dd>
+      <dd class="m">햄버거</dd>
+      <dd class="m">피자</dd>
+    </dl>
+    <script>
+      // id는 단수로 받고 tag, class는 유사 배열형태로 받는다.
+      document.getElementById('title').style.border = '2px solid blue';
+      document.getElementsByClassName('list')[0].style.border = '2px solid red';
+      document.getElementsByClassName('item')[2].style.border =
+        '2px solid green';
+      for (let i = 0; i < document.getElementsByClassName('item').length; i++) {
+        document.getElementsByClassName('item')[i].style.color = 'blue';
+      }
+
+      document.getElementsByTagName('h1')[0].style.textAlign = 'center';
+
+      for (let i = 0; i < document.getElementsByTagName('li').length; i++) {
+        document.getElementsByTagName('li')[i].style.fontSize = '24px';
+      }
+
+      document.querySelector('#menuList').style.textAlign = 'center';
+      document.querySelector('.menu').style.border = '2px solid red';
+
+      // 자바스크립트 선택자는 클래스나 태그를 선택할때 배열형태로 선택되나
+      // querySelector는 무조건 단수로 들어오고 배열형태로 선택될 시 맨 첫번째 [0]을 선택한다.
+
+      document.querySelector('dd').style.color = 'red';
+      // 위는 다음과 의미하는 바가 같음 document.getElementsByTagName('dd')[0].style.color = 'red';
+
+      // querySelectorAll은 무조건 배열형태로 받아온다.
+      document.querySelectorAll('.menu')[0].style.backgroundColor = 'orange';
+
+      for (let i = 0; i < document.querySelectorAll('dd').length; i++) {
+        document.querySelectorAll('dd')[i].style.color = '#fff';
+      }
+    </script>
+  </body>
+</html>
