@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        padding: 30px;
+      }
+      button {
+        background-color: skyblue;
+        color: #fff;
+        padding: 15px 40px;
+        border: 0;
+        cursor: pointer;
+      }
+      .menu {
+        list-style: none;
+        width: 300px;
+        box-shadow: 3px 3px 10px #ccc;
+        display: none;
+      }
+      .menu li {
+        padding: 12px 20px;
+      }
+      .menu li a {
+        text-decoration: none;
+        color: #000;
+      }
+      .menu li:hover a {
+        color: blueviolet;
+      }
+      .on {
+        background-color: teal;
+      }
+      .show {
+        display: block;
+      }
+      .show a {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <button>메뉴리스트</button>
+    <ul class="menu">
+      <li><a href="#">회사소개</a></li>
+      <li><a href="#">고객센터</a></li>
+      <li><a href="#">공지사항</a></li>
+    </ul>
+    <script>
+      let menuBtn = document.querySelector('button');
+      let menuBox = document.querySelector('.menu');
+
+      menuBtn.onclick = function () {
+        menuBox.classList.toggle('show');
+        this.classList.toggle('on');
+      };
+    </script>
+  </body>
+</html>

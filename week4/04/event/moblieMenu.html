@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>모바일 서랍메뉴</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .toggle {
+        display: inline-block;
+        cursor: pointer;
+        margin: 50px 0 0 500px;
+      }
+      .toggle span {
+        width: 35px;
+        height: 2px;
+        background-color: #333;
+        display: block;
+        margin: 7px 0;
+      }
+      .sidnav {
+        height: 100%;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: -400px;
+        padding: 100px 150px 0 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        overflow-x: hidden;
+        transition: 1s;
+      }
+      .sidnav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        font-size: 32px;
+        display: block;
+      }
+      .on {
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="sidnav">
+      <a href="#" class="close">X 닫기</a>
+      <a href="#">menu01</a>
+      <a href="#">menu02</a>
+      <a href="#">menu03</a>
+      <a href="#">menu04</a>
+    </nav>
+    <script>
+      let toggle = document.querySelector('.toggle'); // 햄버거 버튼
+      let sidnav = document.querySelector('.sidnav'); // 서랍메뉴박스
+      let close = document.querySelector('.close'); // 닫기버튼
+
+      toggle.onclick = function () {
+        sidnav.classList.add('on');
+      };
+
+      close.onclick = function () {
+        sidnav.classList.remove('on');
+      };
+    </script>
+  </body>
+</html>

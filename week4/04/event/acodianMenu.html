@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아코디언 메뉴</title>
+    <style>
+      .aco {
+        background-color: #eee;
+        color: #555;
+        cursor: pointer;
+        padding: 20px;
+        width: 100%;
+        outline: 0;
+        font-size: 24px;
+        border: 1px solid #999;
+      }
+      .aco:hover,
+      .aco.on {
+        background-color: #ddd;
+      }
+      .aco + div {
+        padding: 20px;
+        background-color: #fff;
+        border: 2px solid #ddd;
+        box-sizing: border-box;
+        display: none;
+      }
+      .aco + div p {
+        line-height: 2;
+        color: #333;
+        font-size: 14px;
+      }
+      .show {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>아코디언 메뉴</h1>
+    <button class="aco">메뉴 01</button>
+    <div id="acobox1">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis ut
+        magni repellat et minima cumque sapiente, corrupti animi odit dolorem
+        vero mollitia praesentium pariatur quod? Praesentium velit fugit sed
+        perferendis?
+      </p>
+    </div>
+    <button class="aco">메뉴 02</button>
+    <div id="acobox2">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis ut
+        magni repellat et minima cumque sapiente, corrupti animi odit dolorem
+        vero mollitia praesentium pariatur quod? Praesentium velit fugit sed
+        perferendis?
+      </p>
+    </div>
+    <button class="aco">메뉴 03</button>
+    <div id="acobox3">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis ut
+        magni repellat et minima cumque sapiente, corrupti animi odit dolorem
+        vero mollitia praesentium pariatur quod? Praesentium velit fugit sed
+        perferendis?
+      </p>
+    </div>
+    <script>
+      let btn = document.querySelectorAll('.aco');
+
+      for (let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener('click', function () {
+          this.classList.toggle('on');
+          // this.nextElementSibling.style.display = 'block';
+          this.nextElementSibling.classList.toggle('show');
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>slider</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #slider {
+        width: 700px;
+        margin: 20px auto;
+        border: 1px solid #333;
+        position: relative;
+        overflow: hidden;
+        height: 400px;
+      }
+      .imgbox {
+        list-style: none;
+        width: 2100px;
+        height: 400px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 1s;
+      }
+      .imgbox li {
+        float: left;
+      }
+      .imgbox li img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="slider">
+      <ul class="imgbox">
+        <li><img src="images/slider1.jpeg" alt="0" /></li>
+        <li><img src="images/slider2.jpeg" alt="1" /></li>
+        <li><img src="images/slider3.jpeg" alt="2" /></li>
+      </ul>
+    </div>
+    <script>
+      let imgbox = document.querySelector('.imgbox');
+
+      let num = 0;
+
+      setInterval(slide, 2000);
+
+      function slide() {
+        num++;
+        if (num == 3) {
+          num = 0;
+        }
+        imgbox.style.left = `${num * -700}px`;
+      }
+
+      // 아직 마지막 이미지에서 첫 이미지로 가는게 보이기 때문에 추후에 배울 태그를 복사하고 붙히는 노드편집방법을 사용해서 구현한다.
+    </script>
+  </body>
+</html>

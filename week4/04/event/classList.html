@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>클래스 편집 메서드</title>
+    <style>
+      .test1 {
+        width: 400px;
+        height: 100px;
+        border: 5px solid red;
+      }
+      .test2 {
+        background-color: yellow;
+      }
+      .test3 {
+        font-size: 42px;
+        text-align: center;
+        margin: 50px;
+        line-height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <button class="add">클래스 추가</button>
+    <button class="del">클래스 삭제</button>
+    <button class="toggle">클래스 토글</button>
+    <script>
+      let box = document.querySelector('#box');
+
+      document.querySelector('.add').onclick = function () {
+        box.innerHTML = '<q>javascript</q>';
+        box.classList.add('test1', 'test2', 'test3');
+      };
+
+      document.querySelector('.del').onclick = function () {
+        box.classList.remove('test1', 'test2', 'test3');
+      };
+
+      document.querySelector('.toggle').onclick = function () {
+        box.classList.toggle('test1');
+      };
+    </script>
+  </body>
+</html>

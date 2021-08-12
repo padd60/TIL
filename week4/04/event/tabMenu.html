@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>탭 메뉴</title>
+    <style>
+      .tab_title {
+        overflow: hidden;
+        background: #eee;
+        border-left: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+      }
+      .tab_title .tab_btn {
+        background: inherit;
+        float: left;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        font-size: 20px;
+        padding: 14px 30px;
+      }
+      .tab_title .tab_btn:hover {
+        background: #eee;
+      }
+      .tab_title .tab_btn.on {
+        background: #fff;
+        border-bottom-color: #fff;
+      }
+
+      .tab_box {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-top: none;
+        display: none;
+      }
+      .tab_box.on {
+        display: block;
+      }
+      .tab_box h3 {
+        font-size: 24px;
+      }
+      .tab_box p {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab_title">
+      <button class="tab_btn">첫번째</button>
+      <button class="tab_btn">두번쨰</button>
+      <button class="tab_btn">세번째</button>
+    </div>
+
+    <div id="red" class="tab_box">
+      <h3>첫번째 탭메뉴</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+    <div id="yellow" class="tab_box">
+      <h3>두번째 탭메뉴</h3>
+      <p>동해물과 백두산이 동해물과 백두산이</p>
+    </div>
+    <div id="blue" class="tab_box">
+      <h3>세번째 탭메뉴</h3>
+      <p>하나 둘 셋 넷 하나 둘 셋 넷 하나 둘 셋 넷</p>
+    </div>
+
+    <script>
+      let btn = document.querySelectorAll('.tab_btn');
+      let txt = document.querySelectorAll('.tab_box');
+
+      for (let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener('click', function () {
+          for (let j = 0; j < btn.length; j++) {
+            btn[j].classList.remove('on');
+            txt[j].classList.remove('on');
+          }
+          this.classList.toggle('on');
+          txt[i].classList.toggle('on');
+        });
+      }
+
+      btn[0].click();
+    </script>
+  </body>
+</html>

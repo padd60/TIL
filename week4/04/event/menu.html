@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #wrap {
+        width: 1000px;
+        margin: 0 auto;
+      }
+      .tab_box {
+        padding: 50px;
+        text-align: center;
+        color: #fff;
+        display: none;
+      }
+      #crimson {
+        background-color: crimson;
+      }
+      #deepskyblue {
+        background-color: deepskyblue;
+      }
+      #darkolivegreen {
+        background-color: darkolivegreen;
+      }
+      #orange {
+        background-color: orange;
+      }
+      .tab_btn {
+        background-color: #555;
+        color: #fff;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        padding: 14px 20px;
+        float: left;
+        width: 25%;
+      }
+      .tab_btn:hover {
+        background-color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="crimson" class="tab_box">
+        <h1>crimson</h1>
+        <p>My color : crimson</p>
+      </div>
+      <div id="deepskyblue" class="tab_box">
+        <h1>deepskyblue</h1>
+        <p>My color : deepskyblue</p>
+      </div>
+      <div id="darkolivegreen" class="tab_box">
+        <h1>darkolivegreen</h1>
+        <p>My color : darkolivegreen</p>
+      </div>
+      <div id="orange" class="tab_box">
+        <h1>orange</h1>
+        <p>My color : orange</p>
+      </div>
+      <button class="tab_btn" onclick="openTab('crimson', this)">
+        crimson
+      </button>
+      <button class="tab_btn" onclick="openTab('deepskyblue', this)">
+        deepskyblue
+      </button>
+      <button class="tab_btn" onclick="openTab('darkolivegreen', this)">
+        darkolivegreen
+      </button>
+      <button class="tab_btn" onclick="openTab('orange', this)">orange</button>
+    </div>
+    <script>
+      let tab_box = document.querySelectorAll('.tab_box'); // 탭내용 배열
+      let tab_btn = document.querySelectorAll('.tab_btn'); // 탭버튼 배열
+
+      function openTab(color, self) {
+        for (let i = 0; i < tab_box.length; i++) {
+          // 초기화코드
+          tab_box[i].style.display = 'none';
+          tab_btn[i].style.backgroundColor = '#555';
+        }
+        // tab_box[0].style.display = 'block';
+        document.getElementById(color).style.display = 'block';
+        self.style.backgroundColor = color;
+      }
+    </script>
+  </body>
+</html>

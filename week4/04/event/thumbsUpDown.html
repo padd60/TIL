@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      #wrap {
+        padding: 30px 100px;
+        text-align: center;
+        width: 200px;
+        margin: 50px auto;
+        height: 250px;
+        border: 5px solid skyblue;
+      }
+      #title {
+        font-size: 62px;
+      }
+      .fa {
+        font-size: 62px;
+        color: skyblue;
+      }
+      #like {
+        font-size: 32px;
+        color: crimson;
+        margin-top: 30px;
+      }
+      .del {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1 class="title">추천</h1>
+      <i class="fa fa-thumbs-up"></i>
+      <p id="like">❤️ ❤️ ❤️</p>
+    </div>
+    <script>
+      let wrap = document.querySelector('#wrap');
+      let title = document.querySelector('.title');
+      let fa = document.querySelector('.fa');
+      let like = document.querySelector('#like');
+
+      wrap.onclick = function () {
+        fa.classList.toggle('fa-thumbs-down');
+        like.classList.toggle('del');
+        if (like.classList.contains('del')) {
+          title.innerHTML = '비추천';
+        } else {
+          title.innerHTML = '추천';
+        }
+      };
+    </script>
+  </body>
+</html>
