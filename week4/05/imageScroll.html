@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      div[id^='box'] {
+        width: 350px;
+        height: 200px;
+        overflow: hidden;
+        border: 2px solid #ccc;
+        padding: 20px;
+        transition: 0.5s;
+        margin: 50px auto;
+        background-color: #fff;
+      }
+      div[id^='box'] img {
+        width: 100%;
+      }
+      h1 {
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>스크롤 애니메이션</h1>
+    <div id="box1"><img src="images/n1.jpeg" alt="0" /></div>
+    <div id="box2"><img src="images/n2.jpeg" alt="1" /></div>
+    <div id="box3"><img src="images/n3.jpeg" alt="2" /></div>
+    <div id="box4"><img src="images/n4.jpeg" alt="3" /></div>
+    <div id="box5"><img src="images/n5.jpeg" alt="4" /></div>
+    <script>
+      window.onscroll = function () {
+        let scrollTop = document.documentElement.scrollTop;
+        let box1 = document.querySelector('#box1');
+        let box2 = document.querySelector('#box2');
+        let box3 = document.querySelector('#box3');
+        let box4 = document.querySelector('#box4');
+        let box5 = document.querySelector('#box5');
+        console.log(scrollTop, box1);
+
+        if (scrollTop > box1.offsetTop - 150) {
+          box1.style.opacity = '1';
+          box1.style.transform = 'translateX(0px)';
+        } else {
+          box1.style.opacity = '0';
+          box1.style.transform = 'translateX(500px)';
+        }
+        if (scrollTop > box2.offsetTop - 270) {
+          box2.style.opacity = '1';
+          box2.style.transform = 'translateX(0px)';
+        } else {
+          box2.style.opacity = '0';
+          box2.style.transform = 'translateX(-500px)';
+        }
+        if (scrollTop > box3.offsetTop - 300) {
+          box3.style.opacity = '1';
+          box3.style.transform = 'rotateY(360deg)';
+        } else {
+          box3.style.opacity = '0';
+          box3.style.transform = 'rotateY(0deg)';
+        }
+        if (scrollTop > box4.offsetTop - 400) {
+          box4.style.opacity = '1';
+          box4.style.transform = 'scale(1.5)';
+        } else {
+          box4.style.opacity = '0';
+          box4.style.transform = 'scale(1)';
+        }
+        if (scrollTop > box5.offsetTop - 550) {
+          box5.style.opacity = '1';
+          box5.style.transform = 'translateY(0px)';
+        } else {
+          box5.style.opacity = '0';
+          box5.style.transform = 'translateY(300px)';
+        }
+      };
+    </script>
+  </body>
+</html>

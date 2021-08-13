@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+      }
+      header {
+        text-align: center;
+        padding: 30px;
+      }
+      nav {
+        background-color: #333;
+        transition: 0.5s;
+        margin: 0;
+        overflow: hidden;
+      }
+      nav ul {
+        padding: 0;
+        list-style: none;
+      }
+      nav ul li {
+        display: inline-block;
+        padding: 10px 30px;
+      }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+      nav ul li:hover a {
+        color: skyblue;
+      }
+
+      #content {
+        padding: 30px;
+      }
+      .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: darkorchid;
+      }
+      .sticky + #content {
+        padding-top: 100px;
+      }
+
+      .btntop {
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        color: #fff;
+        background-color: darkorchid;
+        text-decoration: none;
+        position: fixed;
+        right: 20px;
+        bottom: 50px;
+        z-index: 10;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      .on {
+        opacity: 1;
+      }
+      #box {
+        width: 100%;
+        height: 8px;
+        background-color: #ccc;
+      }
+      #box .bar {
+        height: 100%;
+        background-color: crimson;
+        width: 0%;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="top">
+      <h1>메뉴단 고정</h1>
+      <p>Sticky 효과 상단 고정하기</p>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">NOTICE</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+      <div id="box">
+        <div class="bar"></div>
+      </div>
+    </nav>
+    <div id="content">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        officia nesciunt molestias amet dignissimos accusantium laborum quod
+        dolores ea, eligendi ad iste sint dolore quis quam natus incidunt
+        quaerat error?
+      </p>
+    </div>
+    <a href="#top" class="btntop">TOP</a>
+    <script>
+      let nav = document.querySelector('nav');
+      let navTop = nav.offsetTop; // 193
+      console.log(navTop);
+
+      window.onscroll = function () {
+        let scroll = window.pageYOffset; // 세로방향 스크롤된 좌표값
+        console.log(scroll);
+
+        if (scroll >= navTop) {
+          nav.classList.add('sticky');
+        } else {
+          nav.classList.remove('sticky');
+        }
+
+        // 탑버튼 출력
+        let topbtn = document.querySelector('.btntop');
+        if (scroll > 400) {
+          topbtn.classList.add('on');
+        } else {
+          topbtn.classList.remove('on');
+        }
+
+        // let winscroll = window.pageYOffset // 스크롤 y 좌표;
+        let winscroll = document.documentElement.scrollTop; // 스크롤 y 좌표;
+        let scrollHeight = document.documentElement.scrollHeight; // 스크롤 전체 세로길이
+        let clientHeight = document.documentElement.clientHeight; // 보이는 화면의 세로길이
+
+        // 화면에 안보이는 남은 화면의 길이 = scrollHeight - clientHeight;
+        let height = scrollHeight - clientHeight;
+
+        // 스크롤된 양 = (스크롤 y 좌표 / 남은 화면의 길이) * 100;
+        let scrolled = (winscroll / height) * 100;
+
+        console.log(scrolled);
+
+        let bar = document.querySelector('.bar');
+        bar.style.width = scrolled + '%';
+      };
+    </script>
+  </body>
+</html>

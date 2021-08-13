@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>노드편집</title>
+    <style>
+      .accent {
+        border: 1px solid #222;
+        padding: 15px 20px;
+        background-color: red;
+      }
+      .bold {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- p태크 주문이 완료되었습니다. -->
+    <!-- a태그 -> 네이버 바로가기 -> 클릭하면 네이버 https://www.naver.com/ -->
+    <!-- button태그 클릭~! close라는 클래스 추가 -->
+  </body>
+  <script>
+    let newTagP = document.createElement('p');
+    console.log(newTagP); // <p></p>
+
+    let newText = document.createTextNode('주문이 완료되었습니다.');
+    newTagP.appendChild(newText);
+    console.log(newTagP); // <p>주문이 완료되었습니다.</p>
+    let attr = document.createAttribute('class');
+    attr.value = 'accent';
+
+    newTagP.setAttributeNode(attr);
+
+    document.body.appendChild(newTagP);
+
+    let newTagA = document.createElement('a');
+    let newLinkText = document.createTextNode('네이버 바로가기');
+
+    newTagA.appendChild(newLinkText);
+    console.log(newTagA); // <a>네이버 바로가기</a>
+
+    let href = document.createAttribute('href');
+    href.value = 'https://www.naver.com/';
+
+    newTagA.setAttributeNode(href);
+
+    document.body.appendChild(newTagA);
+
+    let newBtn = document.createElement('button');
+    let newBtnText = document.createTextNode('클릭~!');
+    let closeAttr = document.createAttribute('class');
+    closeAttr.value = 'close';
+
+    newBtn.appendChild(newBtnText);
+    newBtn.setAttributeNode(closeAttr);
+
+    document.body.appendChild(newBtn);
+  </script>
+</html>

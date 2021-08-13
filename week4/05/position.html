@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>위치 속성</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        width: 150px;
+        height: 100px;
+        background-color: orange;
+        margin: 100px 250px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">box</div>
+    <script>
+      let box = document.querySelector('#box');
+
+      console.log('offsetWidth: ' + box.offsetWidth); // 상자 너비 : 150
+      console.log('offsetHeight: ' + box.offsetHeight); // 상자 길이 : 100
+
+      console.log('offsetTop: ' + box.offsetTop); // 상자 수직좌표 : 100
+      console.log('offsetLeft: ' + box.offsetLeft); // 상자 수평좌표 : 250
+
+      // 화면크기
+      console.log('window.outerWidth: ' + window.outerWidth);
+      console.log('window.outerHeight: ' + window.outerHeight);
+      console.log('window.innerWidth: ' + window.innerWidth);
+      console.log('window.innerHeight: ' + window.innerHeight);
+    </script>
+  </body>
+</html>
