@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>타자치는 효과</title>
+  </head>
+  <body>
+    <button onclick="typeWrite()">타자치는 효과</button>
+    <p id="text"></p>
+
+    <script>
+      let txt = prompt(
+        '타자치는효과 텍스트를 입력하세요',
+        '오늘은 날씨가 매우 화창합니다.'
+      );
+      let speed = 100; // 0.1초
+      let i = 0;
+
+      function typeWrite() {
+        if (i < txt.length) {
+          document.getElementById('text').innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWrite, speed); // 자기자신을 0.1초 간격으로 계속 호출함
+        }
+      }
+    </script>
+  </body>
+</html>

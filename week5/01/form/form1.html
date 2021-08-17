@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>onfocus, onblur</title>
+  </head>
+  <body>
+    <label for="userId">아이디</label><input type="text" id="userId" /><br />
+    <label for="userPw">비밀번호</label><input type="text" id="userPw" /><br />
+    <input type="search" placeholder="검색어를 입력해주세요" /><br />
+    <textarea name="" cols="30" rows="10" id="content"></textarea>
+    <script>
+      let input = document.querySelectorAll('input'); // 배열
+
+      for (let i = 0; i < input.length; i++) {
+        input[i].onfocus = function () {
+          // 커서 들어감
+          this.style.backgroundColor = 'yellow';
+        };
+        input[i].onblur = function () {
+          // 커서 밖으로 나와서 해지됨
+          this.style.backgroundColor = 'transparent';
+        };
+      }
+      let search = document.querySelector('input[type="search"]');
+      let content = document.getElementById('content');
+
+      search.oninput = function () {
+        content.value = this.value;
+      };
+    </script>
+  </body>
+</html>

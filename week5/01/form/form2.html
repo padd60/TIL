@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>onchange, onselect</title>
+  </head>
+  <body>
+    <input type="radio" name="book" id="js" value="javascript" /><label for="js"
+      >Javascript</label
+    >
+    <input type="radio" name="book" id="html" value="html" /><label for="html"
+      >HTML</label
+    >
+    <input type="radio" name="book" id="css" value="css" /><label for="css"
+      >CSS</label
+    >
+    <hr />
+    <select name="" id="">
+      <option value="0">선택하세요</option>
+      <option value="js">js</option>
+      <option value="html">html</option>
+      <option value="css">css</option>
+    </select>
+    <hr />
+    <textarea name="" id="content" cols="30" rows="10"></textarea>
+    <script>
+      let radio = document.querySelectorAll('input[name="book"]');
+      let select = document.querySelector('select');
+      let textarea = document.getElementById('content');
+
+      for (let i = 0; i < radio.length; i++) {
+        radio[i].onchange = function () {
+          textarea.value = this.value;
+        };
+      }
+
+      select.onchange = function () {
+        textarea.value = this.value;
+      };
+
+      textarea.onselect = function () {
+        if (confirm('선택한 문자열을 복사할까요?')) {
+          document.execCommand('copy');
+          // copy : 현재 선택 항목을 복사
+          alert(this.value + '복사되었습니다.');
+        }
+      };
+    </script>
+  </body>
+</html>

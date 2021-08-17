@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" placeholder="점심메뉴 입력" id="menuText" />
+      <button id="addBtn">등록!</button>
+    </form>
+    <ul id="menuBox"></ul>
+    <script>
+      let menuText = document.getElementById('menuText');
+      let addBtn = document.getElementById('addBtn');
+      let menuBox = document.getElementById('menuBox');
+      let menuList = [];
+
+      addBtn.addEventListener('click', function (e) {
+        e.preventDefault(); // 태그 기본 기능 막기
+        let menuValue = menuText.value;
+
+        if (menuValue != '' && menuValue != null) {
+          menuList.push(menuValue);
+          console.log(menuList);
+          menuText.value = '';
+          menuText.focus();
+        }
+
+        // 화면에 출력코드 작성
+        let li = '';
+        for (i in menuList) {
+          li += `<li>${menuList[i]}-------<span id="${i}"> x 메뉴삭제</span></li>`;
+        }
+        menuBox.innerHTML = li;
+
+        // 삭제 버튼 클릭시 배열 삭제
+        let delBtn = document.querySelectorAll('#menuBox>li>span'); // 버튼의 갯수만큼 배열 등록
+        for (let i = 0; i < delBtn.length; i++) {
+          delBtn[i].addEventListener('click', remove);
+        }
+
+        // 클릭한 위치에 red
+        let liTag = document.querySelectorAll('li');
+
+        for (let i = 0; i < liTag.length; i++) {
+          liTag[i].addEventListener('click', function () {
+            if (this.style.color == 'red') {
+              this.style.cssText = '';
+            } else {
+              this.style.cssText = 'color: red; font-weight: bold;';
+            }
+          });
+        }
+      });
+
+      function remove() {
+        let indexNum = this.getAttribute('id');
+        menuList.splice(indexNum, 1); // splice(클릭한 메뉴명의 인덱스 번호, 1)
+        console.log(menuList);
+
+        // 화면에 출력코드 작성
+        let li = '';
+        for (i in menuList) {
+          li += `<li>${menuList[i]}-------<span id="${i}"> x 메뉴삭제</span></li>`;
+        }
+        menuBox.innerHTML = li;
+
+        // 삭제 버튼 클릭시 배열 삭제
+        let delBtn = document.querySelectorAll('#menuBox>li>span'); // 버튼의 갯수만큼 배열 등록
+        for (let i = 0; i < delBtn.length; i++) {
+          delBtn[i].addEventListener('click', remove);
+        }
+
+        // 클릭한 위치에 red
+        let liTag = document.querySelectorAll('li');
+
+        for (let i = 0; i < liTag.length; i++) {
+          liTag[i].addEventListener('click', function () {
+            if (this.style.color == 'red') {
+              this.style.cssText = '';
+            } else {
+              this.style.cssText = 'color: red; font-weight: bold;';
+            }
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

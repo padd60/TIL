@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans|Jua');
+
+* {
+  box-sizing: border-box;
+}
+.container {
+  width: 450px;
+  margin: 0 auto;
+  /* background:url(images/heart.png) no-repeat 5px -100px;
+  background-size:500px;   */
+  border: 1px solid #ccc;
+  border-radius: 2%;
+  box-shadow: 2px 2px 10px #ccc;
+}
+.day1 {
+  padding-top: 30px;
+  text-align: center;
+}
+.day1 h3 {
+  font-size: 1.2em;
+  color: #666;
+}
+.accent {
+  margin: 0 auto 40px;
+  font-family: 'Jua', sans-serif;
+  font-weight: bold;
+  font-size: 4em;
+  color: #6b1ed1;
+}
+.bar {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 15px;
+  height: 50px;
+  background: #792fdb;
+  color: #fff;
+  font-size: 1.2em;
+  line-height: 50px;
+}
+.day2 {
+  width: 420px;
+  margin: 20px auto 20px auto;
+}
+.day2 ul {
+  list-style: none;
+  border-bottom: 1px dashed #ccc;
+  height: 60px;
+}
+.day2 ul:last-child {
+  border-bottom: none;
+}
+.item-title {
+  float: left;
+  width: 170px;
+  font-size: 1.5em;
+  line-height: 60px;
+}
+.item-date {
+  float: left;
+  /*  margin-left:60px;*/
+  font-size: 1.2em;
+  color: #222;
+  text-align: right;
+  line-height: 60px;
+}
