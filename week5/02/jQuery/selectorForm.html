@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>form 필터 선택자</title>
+    <style>
+      #vis {
+        display: none;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('input:text').css('background', 'red'); // type='text'
+        $('input:password').css('background', 'orange'); // type='password'
+        $(':button').css('background', 'yellow'); // type='button', button 태그
+        $('input:checked + label').css('background', 'green'); // checked 속성이 있으면 선택
+        $('option:selected').css('color', 'blue'); // selected 속성이 있으면 선택
+        $('textarea:disabled').css('background', 'pink'); // disabled 속성이 있으면 선택
+        console.log($('div:hidden').text());
+        $('div:visible').css('background', 'orange');
+      });
+    </script>
+  </head>
+  <body>
+    <div><input type="text" /></div>
+    <div><input type="password" /></div>
+    <div><button>확인</button></div>
+    <div>
+      <input type="checkbox" id="css" checked="checked" /><label for="css"
+        >css</label
+      >
+    </div>
+    <div>
+      <select>
+        <option>과목선택</option>
+        <option>javascript</option>
+        <option selected="selected">jQuery</option>
+      </select>
+      <textarea cols="20" rows="5" disabled="disabled">javascript</textarea>
+    </div>
+    <div id="vis">내용1</div>
+  </body>
+</html>

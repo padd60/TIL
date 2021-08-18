@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <p></p>
+    <h1></h1>
+    <input type="text" />
+    <button class="btn1">입력</button>
+    <button class="btn2">변경</button>
+    <!-- alert창에 hi, p = 안녕하세요, h1 = 제목입니다, input = 반갑습니다 -->
+    <script>
+      alert('hi');
+      $('.btn1').click(function () {
+        $('p').html('<q>안녕하세요</q>');
+        $('h1').html('제목입니다');
+        $('input').val('반갑습니다');
+      });
+
+      $('.btn2').click(function () {
+        $('p').css('background', 'red');
+        $('h1').css('background', 'blue');
+        $('input').css('font-size', '24px');
+      });
+    </script>
+  </body>
+</html>

@@ -16,19 +16,6 @@ function addList() {
     itemBox.focus();
   }
 
-  let li = '';
-
-  for (i in itemList) {
-    li +=
-      '<li>' +
-      itemList[i] +
-      '<span class="close" id="' +
-      i +
-      '""> x <span>' +
-      '</li>';
-  }
-  ul.innerHTML = li;
-
   showList();
 }
 
@@ -50,7 +37,7 @@ function showList() {
       itemList[i] +
       '<span class="close" id="' +
       i +
-      '""> x <span>' +
+      '"> x <span>' +
       '</li>';
   }
   ul.innerHTML = li;

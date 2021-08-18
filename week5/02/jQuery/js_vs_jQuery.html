@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1 id="title"></h1>
+    <h1 id="title2"></h1>
+    <h1 id="title3"></h1>
+    <ul>
+      <li>바나나</li>
+      <li>수박</li>
+      <li>포도</li>
+    </ul>
+    <script>
+      alert('hi');
+      console.log('test');
+      document.querySelector('#title').innerHTML = '안녕하세요';
+      $('#title2').html('반갑습니다.');
+      $('#title3').text('<q>반갑습니다.</q>');
+      // jquery는 $로 시작하는 문법이 많다.
+
+      // 메뉴 클릭 이벤트 => 바닐라 자바스크립트로 구현하기
+      let list = document.querySelectorAll('ul>li');
+
+      for (let i = 0; i < list.length; i++) {
+        list[i].addEventListener('click', function () {
+          for (let j = 0; j < list.length; j++) {
+            list[j].style.backgroundColor = '';
+          }
+          list[i].style.backgroundColor = 'red';
+        });
+      }
+
+      // 메뉴 클릭 이벤트 => jquery로 구현하기
+      // $('ul>li').css('background', 'yellow');
+      $('ul>li').click(function () {
+        $('ul>li').css('color', '');
+        $(this).css('color', '#fff');
+      });
+    </script>
+  </body>
+</html>
