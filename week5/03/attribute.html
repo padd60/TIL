@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>속성 메서드 .attr</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- 바위 변경 alt 바위 -> 클릭하면 네이버로 이동, 새창 / 보더 2px solid red -->
+    <a href="#"><img src="images/math_img_1.jpeg" alt="가위" /></a>
+
+    <script>
+      $('[href]').click(function () {
+        // $('a>img').attr('src', 'images/math_img_2.jpeg');
+        // $('a>img').attr('alt', '바위');
+
+        $('a>img')
+          .attr({
+            src: 'images/math_img_2.jpeg',
+            alt: '바위',
+          })
+          .css('border', '2px solid red');
+
+        $(this).attr({
+          href: 'https://www.naver.com/',
+          target: '_blank',
+        });
+
+        console.log($('a>img').attr('alt'));
+      });
+    </script>
+  </body>
+</html>

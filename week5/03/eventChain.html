@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>이벤트 연결 메서드</title>
+    <style>
+      * {
+        margin: 5px;
+      }
+      .on {
+        background: #ff6600;
+        color: #fff;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#m1 button').on('click', function () {
+          // javascript의 addEventlistener와 비슷함
+          alert('이벤트 연결');
+        });
+
+        $('#m2').on('click', 'button', function () {
+          alert('이벤트 연결2');
+        });
+
+        $('#m3 button').on({
+          mouseenter: function () {
+            $(this).addClass('on');
+          },
+          mouseleave: function () {
+            $(this).removeClass('on');
+          },
+        });
+
+        function showEvent() {
+          alert('이벤트 연결 4번');
+        }
+        $('#m4 button').on('click', showEvent);
+
+        $('#m5 button')
+          .on('click', function () {
+            alert('이벤트 제거');
+          })
+          .off();
+        // .on으로 붙힌 이벤트 제거 ()만 사용하면 모든 이벤트 제거, ('특정이벤트')이면 특정이벤트만 제거
+
+        $('#m6 button').one('click', function () {
+          alert('이벤트 한번만 실행');
+        });
+
+        $('#m7').on('click', function () {
+          // $(p, this).css('background-color', 'red');
+          $(this).add('p').css('background-color', 'red');
+          // this는 그룹선택자 안됨
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="m1">
+      <button>클릭1</button>
+    </div>
+    <div id="m2">
+      <button>클릭2_1</button>
+      <button>클릭2_2</button>
+    </div>
+    <div id="m3">
+      <button>클릭3</button>
+    </div>
+    <div id="m4">
+      <button>클릭4</button>
+    </div>
+    <div id="m5">
+      <button>클릭5</button>
+    </div>
+    <div id="m6">
+      <button>클릭6</button>
+    </div>
+    <div id="m7">
+      <p>클릭7</p>
+    </div>
+  </body>
+</html>

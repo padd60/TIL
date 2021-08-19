@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('a:first').attr({
+          href: 'https://www.naver.com/',
+          target: '_blank',
+        });
+
+        $('a:last').text('구글 바로가기');
+        $('a:last').attr('href', 'https://www.google.co.kr');
+
+        $('button').on('click', function () {
+          $('p').css('display', 'block');
+        });
+
+        $('p').on({
+          click: function () {
+            $(this).css('display', 'none');
+          },
+          mouseover: function () {
+            $(this)
+              .css('background-color', 'red')
+              .siblings('p')
+              .css('background-color', '#fff');
+          },
+          mouseout: function () {
+            $(this)
+              .css('background-color', 'blue')
+              .siblings('p')
+              .css('background-color', '#fff');
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <a href="">네이버 바로가기</a>
+    <a href="">바로가기2</a>
+    <hr />
+    <p>클릭하면 사라짐1</p>
+    <p>클릭하면 사라짐2</p>
+    <p>클릭하면 사라짐3</p>
+    <p>클릭하면 사라짐4</p>
+    <p>클릭하면 사라짐5</p>
+    <hr />
+    <button>나타내기</button>
+  </body>
+</html>

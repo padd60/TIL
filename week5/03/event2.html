@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .pic {
+        background-color: #eee;
+      }
+      .pic img {
+        vertical-align: top;
+        transform: translateX(-300px);
+        transition: 1s;
+      }
+      .pic img.on {
+        transform: translateX(0);
+      }
+      .on {
+        background-color: orange;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $('button').click(function () {
+          // $('.pic img').toggleClass('on');
+          if ($('.pic img').hasClass('on')) {
+            $('.pic img').removeClass('on');
+            $('button').html('이미지 보기');
+          } else {
+            $('.pic img').addClass('on');
+            $('button').html('이미지 닫기');
+          }
+        });
+        // $('button').mouseover(function () {
+        //   $('.pic img').addClass('on');
+        //   $('button').html('이미지 닫기');
+        // });
+        // $('button').mouseout(function () {
+        //   $('.pic img').removeClass('on');
+        //   $('button').html('이미지 보기');
+        // });
+
+        $('button').hover(
+          function () {
+            // 마우스가 영역에 올라갔을때 이벤트 발생
+            $('.pic img').addClass('on');
+            $('button').html('이미지 닫기');
+          },
+          function () {
+            // 마우스가 영역에 나갔을때 이벤트 발생
+            $('.pic img').removeClass('on');
+            $('button').html('이미지 보기');
+          }
+        );
+
+        $('textarea').keydown(function () {
+          $(this).addClass('on');
+        });
+
+        $('textarea').keyup(function () {
+          $(this).removeClass('on');
+        });
+
+        $('textarea').keypress(function () {
+          $('.display').text($(this).val());
+        });
+        // keypress: keydown과 유사하지만 한/영 -> 이벤트 발생 안함
+        // alt, shift, ctrl, esc 와 같은 특수키는 이벤트가 발생하지 않음
+      });
+    </script>
+  </head>
+  <body>
+    <div class="pic">
+      <img src="images/math_img_1.jpeg" alt="가위" />
+    </div>
+    <button>이미지 보기</button>
+    <hr />
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <div class="display"></div>
+  </body>
+</html>

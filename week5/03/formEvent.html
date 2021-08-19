@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>폼 관련 이벤트</title>
+    <style>
+      * {
+        margin: 5px;
+      }
+      input[type='text'].on {
+        background: #ff6600;
+        color: #fff;
+      }
+      p {
+        color: #ff0000;
+        display: none;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#m1 input')
+          .focus(function () {
+            //input 요소를 직접 선택해야 focus 효과 들어감
+            $(this).addClass('on');
+          })
+          .blur(function () {
+            $(this).removeClass('on');
+          });
+
+        $('#m2')
+          .focusin(function () {
+            // 선택된 요소나 자식요소에 포커스되면 이벤트 발생
+            $(this).children().addClass('on');
+          })
+          .focusout(function () {
+            $(this).children().removeClass('on');
+          });
+
+        $('#m3 input').change(function () {
+          let text = confirm('값을 바꾸시겠습니까?');
+          if (!text) {
+            $(this).val(10);
+          }
+        });
+
+        $('#m4 input').select(function () {
+          let text = $(this).val();
+          let size = text.length;
+          alert(text + `: 문자가 ${size}자 입니다.`);
+
+          let t1 = window.getSelection();
+          console.log(t1.toString().length);
+        });
+
+        $('.frm').submit(function () {
+          if (!$('#id').val()) {
+            // 아이디가 입력되지 않으면 실행
+            $('.msg1').css('display', 'block');
+            $('#id').focus(); // 커서를 자동으로 넣어주는 기능
+          } else {
+            $('.msg1').css('display', 'none');
+          }
+          if (!$('#pw').val()) {
+            $('.msg2').css('display', 'block');
+            $('#pw').focus();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="m1">
+      <input type="text" placeholder="값을 입력하세요." />
+    </div>
+    <div id="m2">
+      <input type="text" placeholder="값을 입력하세요." />
+    </div>
+    <div id="m3">
+      <span>값을 수정한 후 다음 입력요소로 이동하세요.</span>
+      <input type="text" value="10" />
+    </div>
+    <div id="m4">
+      <input type="text" value="텍스트를 드래하세요." />
+    </div>
+    <form action="#" class="frm">
+      <fieldset>
+        <legend>로그인</legend>
+        <div><label for="id">아이디</label><input type="text" id="id" /></div>
+        <p class="msg1">아이디를 입력하세요!</p>
+        <div>
+          <label for="pw">비밀번호</label><input type="password" id="pw" />
+        </div>
+        <p class="msg2">비밀번호를 입력하세요!</p>
+        <button>전송</button>
+      </fieldset>
+    </form>
+  </body>
+</html>
