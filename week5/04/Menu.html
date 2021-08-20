@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+      }
+      ul > li {
+        float: left;
+        padding: 10px 20px;
+        background-color: skyblue;
+        position: relative;
+      }
+      ul > li > ul {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 40px;
+        display: none;
+      }
+      ul > li > ul > li {
+        width: 100%;
+        padding: 5px 0;
+        background-color: yellow;
+      }
+    </style>
+    <script>
+      $(function () {
+        $('ul>li').on('mouseover', function () {
+          $(this).children('ul').stop().slideDown(500);
+        });
+        $('ul>li').on('mouseout', function () {
+          $(this).children('ul').stop().slideUp(500);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="#">대메뉴1</a>
+        <ul class="">
+          <li><a href="#">서브메뉴1-1</a></li>
+          <li><a href="#">서브메뉴1-2</a></li>
+          <li><a href="#">서브메뉴1-3</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">대메뉴2</a>
+        <ul>
+          <li><a href="#">서브메뉴2-1</a></li>
+          <li><a href="#">서브메뉴2-2</a></li>
+          <li><a href="#">서브메뉴2-3</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">대메뉴3</a>
+        <ul>
+          <li><a href="#">서브메뉴3-1</a></li>
+          <li><a href="#">서브메뉴3-2</a></li>
+          <li><a href="#">서브메뉴3-3</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">대메뉴4</a>
+        <ul>
+          <li><a href="#">서브메뉴4-1</a></li>
+          <li><a href="#">서브메뉴4-2</a></li>
+          <li><a href="#">서브메뉴4-3</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">대메뉴5</a>
+        <ul>
+          <li><a href="#">서브메뉴5-1</a></li>
+          <li><a href="#">서브메뉴5-2</a></li>
+          <li><a href="#">서브메뉴5-3</a></li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+        border: 2px solid red;
+        background-color: yellow;
+        position: absolute;
+        font-size: 42px;
+      }
+      .play,
+      .stop {
+        margin-top: 120px;
+      }
+    </style>
+    <script>
+      $(function () {
+        $('.play').click(function () {
+          $('#box').animate(
+            { left: '500px' },
+            1000,
+            'easeOutBounce',
+            function () {
+              alert('동작끝');
+            }
+          );
+          $('.stop').click(function () {
+            $('#box').stop();
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="box">box</div>
+    <button class="play">play</button>
+    <button class="stop">stop</button>
+  </body>
+</html>

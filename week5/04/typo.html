@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>타이포 애니메이션</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #fff;
+      }
+      div {
+        background-color: #555;
+        width: 1000px;
+        margin: 0 auto;
+        height: 300px;
+        position: relative;
+      }
+      .txt1 {
+        position: absolute;
+        top: 100px;
+        font-size: 42px;
+        font-weight: bold;
+        font-style: italic;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+      }
+      .txt2 {
+        position: absolute;
+        top: 130px;
+        font-size: 18px;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+      }
+    </style>
+    <script>
+      $(function () {
+        $('.txt1')
+          .delay(1000)
+          .animate({ opacity: 0.9, top: 80 }, 800, function () {
+            $('.txt2').delay(500).animate({ opacity: 0.9, top: 150 }, 800);
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <span class="txt1">Responsive Web</span>
+      <span class="txt2">[HTML CSS Javascript jQuery]</span>
+    </div>
+  </body>
+</html>

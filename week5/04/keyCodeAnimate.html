@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+      #box {
+        width: 50px;
+        height: 50px;
+        background-color: skyblue;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+    </style>
+    <script>
+      $(document).on('keydown', function (e) {
+        console.log(e);
+        switch (e.keyCode) {
+          case 37: //left
+            $('#box').animate({ left: '-=50px' }, 200);
+            break;
+          case 39: //right
+            $('#box').animate({ left: '+=50px' }, 200);
+            break;
+          case 38: //up
+            $('#box').animate({ top: '-=50px' }, 200);
+            break;
+          case 40: //down
+            $('#box').animate({ top: '+=50px' }, 200);
+            break;
+          default:
+            alert('방향키를 다시 눌러주세요');
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="box"></div>
+  </body>
+</html>

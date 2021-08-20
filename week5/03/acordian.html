@@ -57,37 +57,41 @@
     </style>
     <script>
       $(function () {
-        $('a.m').on('click', function () {
-          // $(this)
-          //   .toggleClass('on')
-          //   .parent('li')
-          //   .siblings('li')
-          //   .children('ul')
-          //   .removeClass('on')
-          //   .end()
-          //   .children('a')
-          //   .removeClass('on');
-          // $(this).next('ul').toggleClass('on');
+        // $('a.m').on('click', function () {
+        // $(this)
+        //   .toggleClass('on')
+        //   .parent('li')
+        //   .siblings('li')
+        //   .children('ul')
+        //   .removeClass('on')
+        //   .end()
+        //   .children('a')
+        //   .removeClass('on');
+        // $(this).next('ul').toggleClass('on');
 
-          $('a.m').on('click', function () {
-            if (!$(this).hasClass('on')) {
-              $(this).addClass('on');
-              $(this)
-                .parent('li')
-                .siblings('li')
-                .children('a')
-                .removeClass('on');
-              $(this).next('ul').addClass('on');
-              $(this)
-                .parent('li')
-                .siblings('li')
-                .children('ul')
-                .removeClass('on');
-            } else {
-              $(this).removeClass('on');
-              $(this).next('ul').removeClass('on');
-            }
-          });
+        $('a.m').on('click', function () {
+          if (!$(this).hasClass('on')) {
+            $(this).addClass('on');
+            $(this).next('ul').addClass('on');
+            $(this).parent('li').siblings('li').children('a').removeClass('on');
+            $(this)
+              .parent('li')
+              .siblings('li')
+              .children('ul')
+              .removeClass('on');
+          } else {
+            $(this).removeClass('on');
+            $(this).next('ul').removeClass('on');
+          }
+        });
+
+        $('#m_menu ul a').on('click', function () {
+          $(this)
+            .toggleClass('on')
+            .parent('li')
+            .siblings('li')
+            .children('a')
+            .removeClass('on');
         });
       });
     </script>

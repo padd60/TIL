@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+      #box {
+        width: 300px;
+        height: 100px;
+        border: 5px solid red;
+        background-color: yellow;
+        padding: 20px;
+        margin: 50px 0;
+      }
+    </style>
+    <script>
+      $(function () {
+        $('button:eq(0)').click(function () {
+          // $('#box').css('display', 'none');
+          $('#box').hide();
+        });
+        $('button:eq(1)').click(function () {
+          // $('#box').css('display', 'block');
+          $('#box').show();
+        });
+        $('button:eq(2)').click(function () {
+          // if ($('#box').css('display') == 'none') {
+          //   $('#box').css('display', 'block');
+          // } else {
+          //   $('#box').css('display', 'none');
+          // }
+          $('#box').toggle();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="box">box</div>
+    <button>hide</button>
+    <button>show</button>
+    <button>toggle</button>
+  </body>
+</html>
