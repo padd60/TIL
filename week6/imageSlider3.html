@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>갤러리</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-size: 12;
+        font-family: '굴림', sans-serif;
+      }
+      #wrap {
+        width: 300px;
+        height: 320px;
+        margin: 20px auto;
+        border: 2px solid red;
+        position: relative;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      #wrap .page {
+        text-align: right;
+        margin-bottom: 5px;
+      }
+      #wrap .page button {
+        border: none;
+        background-color: #777;
+        width: 20px;
+        height: 20px;
+        line-height: 1.5;
+        overflow: hidden;
+        color: #fff;
+      }
+      #wrap .imgbox {
+        width: 2100px;
+        height: 300px;
+        position: absolute;
+        left: 0;
+        top: 20px;
+      }
+      #wrap .imgbox div {
+        float: left;
+        width: 300px;
+        height: 300px;
+      }
+      #wrap .imgbox img {
+        width: 100%;
+      }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        let num = 0;
+        let total = $('.imgbox div').length; // 7
+        $('.nextBtn').click(function () {
+          num++;
+          if (num > total - 1) {
+            num = 0;
+          }
+          console.log(num, num * -300);
+          $('.imgbox')
+            .stop()
+            .animate({ left: num * -300 }, 1000, function () {
+              if (num == total - 1) {
+                $('.imgbox').css('left', 0);
+              }
+            });
+          $('.page > span')
+            .eq(0)
+            .html(num + 1);
+        });
+
+        $('.prevBtn').click(function () {
+          num--;
+          if (num < 0) {
+            num = total - 1;
+          }
+          console.log(num, num * -300);
+          $('.imgbox')
+            .stop()
+            .animate({ left: num * -300 }, 1000);
+          $('.page > span')
+            .eq(0)
+            .html(num + 1);
+        });
+        $('.page > span')
+          .eq(0)
+          .html(num + 1);
+        $('.page > span').eq(1).html(total);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="page">
+        <span>현재번호</span> / <span> 총이미지 갯수 </span>
+        <button class="prevBtn">&lt;</button>
+        <button class="nextBtn">&gt;</button>
+      </div>
+      <div class="imgbox">
+        <div><img src="images/marke1.jpg" alt="1" /></div>
+        <div><img src="images/marke2.jpg" alt="2" /></div>
+        <div><img src="images/marke3.jpg" alt="3" /></div>
+        <div><img src="images/marke4.jpg" alt="4" /></div>
+        <div><img src="images/marke5.jpg" alt="5" /></div>
+        <div><img src="images/marke6.jpg" alt="6" /></div>
+        <div><img src="images/marke1.jpg" alt="1" /></div>
+      </div>
+    </div>
+  </body>
+</html>

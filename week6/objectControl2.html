@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>객체 편집 메서드 234p</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        // .append: 선택한 부모요소를 기준으로 자식요소를 마지막에 추가
+        $('#listBox').append('<li>append</li>');
+        $('<li>appendTo</li>').appendTo('#listBox');
+
+        // .prepend: 선택한 부모요소를 기준으로 자식요소를 앞에 추가
+        $('#listBox').prepend('<li>prepend</li>');
+        $('<li>prependTo</li>').prependTo('#listBox');
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="listBox">
+      <!-- li>prependTo</li> -->
+      <!-- <li>prepend</li> -->
+      <li>리스트</li>
+      <!-- <li>append</li> -->
+      <!-- <li>appendTo</li> -->
+    </ul>
+  </body>
+</html>

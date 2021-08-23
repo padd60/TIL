@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>복사/삭제</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+  </head>
+  <style>
+    div {
+      padding: 10px;
+      border: 2px solid red;
+    }
+  </style>
+  <script>
+    $(function () {
+      let detachDiv;
+      $('button:eq(0)').click(function () {
+        // removeAttr 태그의 속성 삭제
+        $('#m1 a').removeAttr('href');
+        // empty 내용 삭제
+        $('#m2').empty();
+        // remove 자체 선택자 삭제 = div 통째로 삭제
+        $('#m3').remove();
+        detachDiv = $('#m4').detach();
+      });
+      $('button:eq(1)').click(function () {
+        detachDiv.insertAfter('#m2');
+      });
+      $('button:eq(2)').click(function () {
+        clone2 = $('#m1').clone(false);
+        // true: 이벤트까지 같이 복사, false: 요소만 복사
+        clone2.insertBefore('#m4');
+      });
+      $('#m5').click(function () {
+        alert('test m5');
+      });
+      $('button:eq(2)').click(function () {
+        clone2 = $('#m5').clone(true);
+        // true: 이벤트까지 같이 복사, false: 요소만 복사
+        clone2.insertBefore('#m4');
+      });
+    });
+  </script>
+  <body>
+    <div id="m1">
+      <a href="#"><span>링크1</span></a>
+    </div>
+    <div id="m2">
+      <span>내용2</span>
+    </div>
+    <div id="m3">
+      <span>내용3</span>
+    </div>
+    <div id="m4">
+      <span>내용4</span>
+    </div>
+    <div id="m5">
+      <span>내용5</span>
+    </div>
+    <button>삭제</button>
+    <button>detach</button>
+    <button>복사</button>
+  </body>
+</html>

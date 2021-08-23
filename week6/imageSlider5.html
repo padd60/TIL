@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>갤러리</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-size: 12;
+        font-family: '굴림', sans-serif;
+      }
+      #wrap {
+        width: 300px;
+        height: 320px;
+        margin: 20px auto;
+        border: 2px solid red;
+        position: relative;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      #wrap .page {
+        text-align: right;
+        margin-bottom: 5px;
+      }
+      #wrap .page button {
+        border: none;
+        background-color: #777;
+        width: 20px;
+        height: 20px;
+        line-height: 1.5;
+        color: #fff;
+        overflow: hidden;
+      }
+      #wrap .imgbox {
+        height: 300px;
+        position: absolute;
+        left: 0;
+        top: 20px;
+      }
+      #wrap .imgbox div {
+        width: 300px;
+        height: 300px;
+        float: left;
+      }
+      #wrap .imgbox img {
+        width: 100%;
+      }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        let total = $('.imgbox div').length; // 이미지태그 총 갯수
+
+        let boxWidth = $('.imgbox div').width();
+        $('.imgbox').css('width', boxWidth * total); // 300 * 이미지 div 갯수
+
+        $('.nextBtn').click(function () {
+          $('.imgbox')
+            .stop()
+            .animate({ left: -boxWidth }, 1000, function () {
+              $('.imgbox > div:first').insertAfter('.imgbox > div:last');
+              // 첫번째 이미지 박스를 마지막 이미지 박스 뒤로 이동한다.
+              $('.imgbox').css('left', 0);
+              // 이미지를 둘러싼 박스의 left 값을 0으로 초기화해주어 이미지를 위치시켜준다.
+              let pageNum = $('.imgbox >div:first').children('img').attr('alt');
+              $('.page > span').eq(0).html(pageNum);
+            });
+        });
+
+        $('.prevBtn').click(function () {
+          $('.imgbox').css('left', -boxWidth);
+          // 이미지가 들어올 수 있게 둘러싼 박스의 left를 이미지 박스 너비만큼 마이너스 이동시켜준다.
+          $('.imgbox > div:last').insertBefore('.imgbox > div:first');
+          // 마지막 이미지 박스를 첫번째 이미지 박스 앞으로 이동한다.
+          $('.imgbox')
+            .stop()
+            .animate({ left: '0px' }, 1000, function () {
+              let pageNum = $('.imgbox >div:first').children('img').attr('alt');
+              $('.page > span').eq(0).html(pageNum);
+            });
+        });
+        $('.page > span').eq(0).html(1);
+        $('.page > span').eq(1).html(total);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="page">
+        <span>현재번호</span> / <span> 총이미지 갯수 </span>
+        <button class="prevBtn">&lt;</button>
+        <button class="nextBtn">&gt;</button>
+      </div>
+      <div class="imgbox">
+        <div><img src="images/marke1.jpg" alt="1" /></div>
+        <div><img src="images/marke2.jpg" alt="2" /></div>
+        <div><img src="images/marke3.jpg" alt="3" /></div>
+        <div><img src="images/marke4.jpg" alt="4" /></div>
+        <div><img src="images/marke5.jpg" alt="5" /></div>
+        <div><img src="images/marke6.jpg" alt="6" /></div>
+      </div>
+    </div>
+  </body>
+</html>
