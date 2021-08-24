@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>$(선택자).each(funciton(index, value){})</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        // console.log($('div').attr('class')); // m1
+        $('div').each(function (index, element) {
+          console.log(index, element);
+          console.log($(this).attr('class')); // m1 m2 m3
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="m1">내용1</div>
+    <div class="m2">내용2</div>
+    <div class="m3">내용3</div>
+  </body>
+</html>

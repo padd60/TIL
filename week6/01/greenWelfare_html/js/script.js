@@ -2,6 +2,21 @@ $(function () {
   // 1. 팝업구현 -> 배너를 클릭하면 팝업이 나타난다.
   $('.box').click(function () {
     $('#popup').fadeIn(500);
+    $('#popup').click(function () {
+      $(this).fadeOut(500);
+    });
+    $('.modal').click(function (e) {
+      e.stopPropagation(); // 이벤트 버블링 현상 차단
+    });
+    /* 
+      $('.modal').click(function (e) {
+        if($('.modal).has(e.target).length >= 0){ // 클릭하면 0
+          $('#popup).show();
+        }else{
+          $('#popup).fadeOut();
+        }
+      });
+    */
   });
   $('.close').click(function () {
     $('#popup').fadeOut(500);
@@ -67,9 +82,39 @@ $(function () {
   $('#tab_menu a').eq(0).trigger('click');
 
   // 4. 메뉴
-  $('.gnb li').mouseover(function () {
-    $(this).children('ul').slideDown(500).parent().siblings();
-  });
+  /*
+    1. 호버하면 대메뉴에 속해있는 서브만 슬라이드 다운으로 애니메이션
+    2. 호버하면 서브메뉴가 통채로 다 슬라이드 다운
+    3. 호버하면 서브메뉴가 통채로 다 슬라이드 다운 + bg가 같이
+  */
+  // 1번 메뉴
+  // $('.gnb li').on({
+  //   mouseenter: function () {
+  //     $(this).children('ul').stop().slideDown(500);
+  //   },
+  //   mouseleave: function () {
+  //     $(this).children('.submenu').stop().slideUp(500);
+  //   },
+  // });
 
-  $().mouseout(function () {});
+  // 2번 메뉴
+  // $('.gnb li').on({
+  //   mouseenter: function () {
+  //     $('.submenu').stop().slideDown(500);
+  //   },
+  //   mouseleave: function () {
+  //     $('.submenu').stop().slideUp(500);
+  //   },
+  // });
+
+  // 3번 메뉴
+  $('header').append('<div class="bg"></div>');
+  $('.gnb li').on({
+    mouseenter: function () {
+      $('.submenu, .bg').stop().slideDown(500);
+    },
+    mouseleave: function () {
+      $('.submenu, .bg').stop().slideUp(500);
+    },
+  });
 });

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>map 메서드</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      // $.map('배열 또는 객체명', function(value, index){});
+      let city = ['서울', '부산', '광주', '경기도'];
+      $.map(city, function (value, index) {
+        console.log(value, index);
+      });
+      // $.each는 return이 실행되지 않음
+      // 때문에 기존 배열 및 객체에서 새로운 배열 및 객체를 만들기 위해 map을 사용함
+      // map은 each와 다르게 인자 순서가 반대로 value, index가 들어옴
+      let newCity = $.map(city, function (value, index) {
+        if (index < 2) {
+          return value;
+        }
+      });
+      console.log(newCity.toString());
+      console.log(newCity);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>마우스 좌표</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #subject {
+        width: 500px;
+        height: 500px;
+        background-color: orange;
+        border: 10px solid red;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 500px;
+        color: #fff;
+        font-size: 32px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .tip {
+        width: 300px;
+        height: 46px;
+        border-radius: 20px;
+        background-color: brown;
+        line-height: 46px;
+        border: 2px solid red;
+        transition: opacity 0.5s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+      .tip.on {
+        opacity: 1;
+      }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        $('#subject')
+          .mousemove(function (e) {
+            let X = e.pageX; // 마우스 포인터의 브라우저 X 좌표값
+            let Y = e.pageY; // 마우스 포인터의 브라우저 Y 좌표값
+            console.log(X, Y);
+            $('.tip')
+              .css({
+                left: X - 30,
+                top: Y - 60,
+              })
+              .addClass('on');
+          })
+          .mouseleave(function () {
+            $('.tip').removeClass('on');
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="subject"></div>
+    <div class="tip">HTML, CSS, jQuery</div>
+  </body>
+</html>

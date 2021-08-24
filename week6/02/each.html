@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>.each()</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        let city = ['서울', '대구', '대전', '부산'];
+        // $.each('배열명 또는 객체명', 함수(index, value))
+        $.each(city, function (index, value) {
+          console.log(`${index} : ${value}`);
+        });
+
+        let subject = {
+          // 객체 key: value
+          subject: 'html',
+          grade: 1,
+          days: 20,
+        };
+        $.each(subject, function (key, value) {
+          console.log(key + ' : ' + value);
+        });
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

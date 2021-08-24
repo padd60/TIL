@@ -1,0 +1,63 @@
+@charset 'ufr-8';
+
+#wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+header {
+  height: 100px;
+}
+header nav {
+  float: right;
+}
+.gnb {
+  list-style: none;
+}
+.gnb li {
+  float: left;
+  background-color: #30a3f3;
+}
+.gnb li a {
+  color: #fff;
+  text-decoration: none;
+}
+.submenu {
+  list-style: none;
+}
+.submenu li {
+}
+.submenu li a {
+  text-decoration: none;
+}
+#slider {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+#content {
+  height: 200px;
+  width: 100%;
+}
+#content section {
+  float: left;
+  width: 33%;
+}
+.tab_con ul:last-child li {
+  float: left;
+}
+footer {
+  height: 100px;
+  width: 100%;
+}
+footer .btm_logo {
+  float: left;
+}
+footer .copy {
+  float: left;
+}
+.btm_menu li {
+  float: left;
+}
+footer .copyright {
+  float: left;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #outer {
+        width: 500px;
+        height: 500px;
+        margin: 50px;
+        position: relative;
+        background-color: orange;
+      }
+      .inner {
+        width: 100px;
+        height: 100px;
+        background-color: #ddd;
+        position: absolute;
+        left: 80px;
+        top: 50px;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        console.log($('.inner').offset().left); // 브라우저 전체에서 좌표 가져옴
+        console.log($('.inner').offset().top);
+        console.log($('.inner').position().left); // 부모요소 기준으로 좌표 가져옴
+        console.log($('.inner').position().top);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="outer">
+      <div class="inner"></div>
+    </div>
+  </body>
+</html>

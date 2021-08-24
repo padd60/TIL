@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        padding: 20px;
+        margin: 20px;
+        background-color: orange;
+        border: 5px solid red;
+      }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        $('div').width(150).height(150);
+        // width
+        console.log(`width: ${$('div').width()}`);
+        console.log(`height: ${$('div').height()}`);
+        // width + padding
+        console.log(`innerWidth: ${$('div').innerWidth()}`);
+        console.log(`innerHeight: ${$('div').innerHeight()}`);
+        // width + padding + border
+        console.log(`outerWidth: ${$('div').outerWidth()}`);
+        console.log(`outerHeight: ${$('div').outerHeight()}`);
+        // width + padding + border + margin
+        console.log(`outerWidth: ${$('div').outerWidth(true)}`);
+        console.log(`outerHeight: ${$('div').outerHeight(true)}`);
+      });
+    </script>
+  </head>
+  <body>
+    <div>box</div>
+  </body>
+</html>

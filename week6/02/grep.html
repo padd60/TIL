@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>grap 메서드</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      /*
+        $.grep(Array, function(배열객체, 인덱스번호){
+          return[true, false]
+        });
+      */
+
+      let arr1 = [
+        { name: '무대리', area: '서울' },
+        { name: '홍과장', area: '부산' },
+        { name: '박사장', area: '대전' },
+        { name: '빅마마', area: '서울' },
+      ];
+      let arr3 = $.grep(arr1, function (object, index) {
+        console.log(object, index);
+        if (object.area == '서울') {
+          return true; // true면 객체 데이터 반환
+        } else {
+          return false;
+        }
+      });
+      console.log(arr3);
+    </script>
+  </head>
+  <body></body>
+</html>

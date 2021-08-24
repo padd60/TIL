@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      #wrap {
+        margin: 200px;
+        height: 2000px;
+      }
+      .clear::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      section {
+        border: 1px solid #333;
+        margin: 10px;
+        text-align: center;
+      }
+      section > div {
+        width: 300px;
+        height: 200px;
+        margin: 20px;
+        padding: 20px;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      section.on > div {
+        opacity: 1;
+      }
+      .clear div {
+        float: left;
+      }
+      .left {
+        background-color: paleturquoise;
+      }
+      .right {
+        background-color: palevioletred;
+      }
+      .s1 div {
+        margin-left: 100px;
+      }
+      .s1.on div {
+        margin-left: 20px;
+      }
+      .s2 div {
+        margin-top: 100px;
+      }
+      .s2.on div {
+        margin-top: 20px;
+      }
+      .s3 .left {
+        transform: translateX(-100px);
+      }
+      .s3 .right {
+        transform: translateX(100px);
+      }
+      .s3.on div {
+        transform: translateX(0px);
+      }
+      .s4 .left {
+        transform: translateY(-100px);
+      }
+      .s4 .right {
+        transform: translateY(100px);
+      }
+      .s4.on div {
+        transform: translateY(0px);
+      }
+      .s5 div {
+        transform: scale(0.5);
+      }
+      .s5.on div {
+        transform: scale(1);
+      }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(window).scroll(function () {
+        let scTop = $(this).scrollTop();
+        let boxTop1 = $('.s1').offset().top;
+        let boxTop2 = $('.s2').offset().top;
+        let boxTop3 = $('.s3').offset().top;
+        let boxTop4 = $('.s4').offset().top;
+        let boxTop5 = $('.s5').offset().top;
+        // if (scTop > boxTop2 - 400) {
+        //   $('.s1').addClass('on');
+        // } else {
+        //   $('.s1').removeClass('on');
+        // }
+
+        // if (scTop > boxTop3 - 700) {
+        //   $('.s2').addClass('on');
+        // } else {
+        //   $('.s2').removeClass('on');
+        // }
+
+        //위의 반복되는 코드를 줄이기 위해 하단과 같이 each 메서드를 사용
+        $('section').each(function () {
+          let offTop = $(this).offset().top;
+          if (scTop > offTop - 300) {
+            $(this).addClass('on');
+          } else {
+            $(this).removeClass('on');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <section class="s1">
+        <div class="left">left</div>
+      </section>
+      <section class="s2">
+        <div class="left">left</div>
+      </section>
+      <section class="s3 clear">
+        <div class="left">left</div>
+        <div class="right">left</div>
+      </section>
+      <section class="s4 clear">
+        <div class="left">left</div>
+        <div class="right">left</div>
+      </section>
+      <section class="s5 clear">
+        <div class="left">left</div>
+        <div class="right">left</div>
+      </section>
+    </div>
+  </body>
+</html>
