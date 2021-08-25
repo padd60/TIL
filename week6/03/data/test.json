@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "홍길동", "age": 50, "score": 70 },
+  { "id": 2, "name": "도우너", "age": 12, "score": 50 },
+  { "id": 3, "name": "희동이", "age": 2, "score": 10 },
+  { "id": 4, "name": "마이콜", "age": 32, "score": 80 },
+  { "id": 5, "name": "둘리", "age": 100, "score": 100 }
+]

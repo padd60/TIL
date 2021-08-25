@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>json 테이블로 화면 출력하기</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 60%;
+        margin: 0 auto;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        text-align: center;
+        padding: 5px;
+      }
+      th {
+        background-color: rgb(206, 149, 76);
+        padding: 10px;
+        color: #fff;
+      }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        $('button').click(function () {
+          $.ajax({
+            url: 'data/test.json',
+            dataType: 'json',
+            success: function (data) {
+              console.log(data);
+              let tag = '';
+              $.each(data, function (index, value) {
+                tag += '<tr>';
+                tag += '<td>' + value.id + '</td>';
+                tag += '<td>' + value.name + '</td>';
+                tag += '<td>' + value.age + '</td>';
+                tag += '<td>' + value.score + '</td>';
+                tag += '</tr>';
+              });
+              $('tbody').append(tag); // 부모태그안에 문자열 자식으로 붙이기
+            },
+            error: function () {
+              alert('데이터 연동에 실패했습니다.');
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>출력</button>
+    <table>
+      <caption>
+        시험 점수 출력
+      </caption>
+      <thead>
+        <tr>
+          <th>Num</th>
+          <th>이름</th>
+          <th>나이</th>
+          <th>점수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 실제 데이터 출력하는 부분 -->
+      </tbody>
+    </table>
+  </body>
+</html>

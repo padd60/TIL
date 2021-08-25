@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>$.ajax 메모장 파일 가져오기</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        $('button').click(function () {
+          $.ajax({
+            url: 'data/text.txt',
+            dataType: 'text',
+            success: function (data) {
+              // 데이터 가져오기 성공했을때 실행 코드 -> 출력
+              $('#txt').html(data);
+            },
+            error: function () {
+              // 실패했을때 실행코드
+              alert('데이터 전송 실패했습니다.');
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>메모장 파일 출력~!</button>
+    <p id="txt"></p>
+  </body>
+</html>

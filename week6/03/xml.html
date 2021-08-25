@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XML 연결하기</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      table td {
+        border: 1px solid #ccc;
+        padding: 5px;
+      }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        $.ajax({
+          url: 'data/dataset.xml',
+          dataType: 'xml',
+          success: function (data) {
+            console.log(data);
+            let $data = $(data).find('record');
+            console.log($data);
+            if ($data.length > 0) {
+              // record 태그가 한개 이상 있으면
+              let $table = $('<table>');
+              $.each($data, function (index, value) {
+                let $id = $(value).find('id').text();
+                let $first_name = $(value).find('first_name').text();
+                let $last_name = $(value).find('last_name').text();
+                let $email = $(value).find('email').text();
+                let $gender = $(value).find('gender').text();
+
+                let $tr = $('<tr>').append(
+                  $('<td>').text($id),
+                  $('<td>').text($first_name),
+                  $('<td>').text($last_name),
+                  $('<td>').text($email),
+                  $('<td>').text($gender)
+                );
+                $table.append($tr);
+              });
+              $('#wrap').append($table);
+            }
+          },
+          error: function () {
+            alert('데이터 연결이 실패했습니다.');
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>회원정보출력</h1>
+    </div>
+  </body>
+</html>

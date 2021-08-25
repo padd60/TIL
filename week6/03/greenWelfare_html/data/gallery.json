@@ -1,0 +1,17 @@
+[
+  {
+    "num": 1,
+    "imgSrc": "thumb1.jpg",
+    "alt": "썸네일 1번 이미지"
+  },
+  {
+    "num": 2,
+    "imgSrc": "thumb2.jpg",
+    "alt": "썸네일 2번 이미지"
+  },
+  {
+    "num": 3,
+    "imgSrc": "thumb3.jpg",
+    "alt": "썸네일 3번 이미지"
+  }
+]
