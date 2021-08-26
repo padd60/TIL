@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RSS 구독</title>
+    <style>
+      /* reset, layout */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      body {
+        font: 12px Malgun Gothic, '맑은고딕', gulim, '굴림', sans-serif;
+        color: #333;
+        padding: 20px;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-size: 100%;
+        font-weight: normal;
+      }
+      a {
+        color: #333;
+        text-decoration: none;
+        outline: none;
+      }
+      h1 {
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* content */
+      #rsswrap {
+        width: 600px;
+        margin: 0 auto;
+      }
+
+      .tab_menu {
+        height: 50px;
+      }
+      .tab_menu h2 {
+        float: left;
+      }
+      .tab_menu h2 a {
+        display: block;
+        padding: 10px 20px;
+        border: 1px solid #aaa;
+        border-bottom: none;
+        border-radius: 5px 5px 0 0;
+        background-color: #ccc;
+      }
+      .tab_menu h2 a.on {
+        background-color: #fff;
+        font-weight: bold;
+      }
+
+      #rssList li {
+        line-height: 3;
+        font-size: 16px;
+        padding: 0 5px;
+      }
+      #rssList li::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      #rssList li:nth-child(2n) {
+        background-color: #eee;
+      }
+      #rssList li span {
+        float: right;
+        color: #555;
+        font-size: 14px;
+      }
+      #rssList li a {
+        display: block;
+        float: left;
+        width: 450px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        $('#rsswrap .tab_menu h2 a').on('click', function (e) {
+          e.preventDefault();
+          $(this)
+            .addClass('on')
+            .parent('h2')
+            .siblings('h2')
+            .children('a')
+            .removeClass('on');
+
+          $.ajax({
+            url: 'https://api.rss2json.com/v1/api.json',
+            dataType: 'json',
+            // http 요청과 함께 서버로 보낼 데이터
+            data: {
+              rss_url: $(this).attr('href'), // a가 클릭되면 href 주소 넘기기
+              count: 10, // 전송 받을 데이터 item 갯수
+            },
+            success: function (data) {
+              console.log(data);
+              // <li>1 <span>2021-00-00</span></li>
+              // let tagLi = <li> data.items.title <span> data.items.pubDate </span>
+              let tagLi = '';
+              $('#rssList').empty();
+              for (i in data.items) {
+                let title = data.items[i].title;
+                let link = data.items[i].link;
+                let date = data.items[i].pubDate;
+
+                tagLi += `<li><a href="${link}" target="_blank">${
+                  Number(i) + 1
+                }. ${title}</a><span>${date.substr(0, 10)}</span></li>`;
+              }
+              $('#rssList').append(tagLi);
+            },
+            error: function () {
+              alert('데이터 연동이 되지 않았습니다!');
+            },
+          });
+        });
+
+        $('#rsswrap .tab_menu h2 a').eq(0).click();
+      });
+    </script>
+  </head>
+  <body>
+    <h1>RSS 구독하기</h1>
+    <div id="rsswrap">
+      <div class="tab_menu">
+        <h2>
+          <a href="https://rss.blog.naver.com/cine_play.xml" class="on"
+            >영화정보</a
+          >
+        </h2>
+        <h2><a href="https://rss.blog.naver.com/sunred3.xml">책정보</a></h2>
+        <h2>
+          <a href="https://rss.blog.naver.com/tech-plus.xml">테크정보</a>
+        </h2>
+      </div>
+      <div id="rssList">
+        <!-- <li>1 <span>2021-00-00</span></li>
+        <li>1 <span>2021-00-00</span></li>
+        <li>1 <span>2021-00-00</span></li>
+        <li>1 <span>2021-00-00</span></li> -->
+      </div>
+    </div>
+  </body>
+</html>
