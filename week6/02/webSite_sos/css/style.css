@@ -163,7 +163,6 @@ header nav {
 
 footer {
   height: 100px;
-  width: 100%;
   border-top: 2px solid #ccc;
 }
 footer .btm_logo {
@@ -173,22 +172,61 @@ footer .btm_logo {
   line-height: 120px;
 }
 .copy {
-  width: 530px;
-  margin: 0 auto;
+  float: right;
+  width: 1000px;
 }
 .btm_menu {
-  border-bottom: 1px solid #ccc;
-  height: 30px;
-  padding-top: 20px;
+  overflow: hidden;
+  width: 600px;
+  margin: 0 auto;
+}
+.btm_menu::after {
+  width: 525px;
+  height: 1px;
+  background-color: #555;
 }
 .btm_menu li {
   float: left;
-  margin: 0 10px;
+  width: auto;
+  padding: 10px 10px;
   text-align: center;
   height: 30px;
   line-height: 30px;
 }
 footer .copyright {
-  width: 270px;
-  margin: 10px auto;
+  width: 320px;
+  margin: 20px auto;
+}
+
+#popup {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+#popup .modal {
+  background-color: #fff;
+  width: 400px;
+  margin: 250px auto;
+  padding: 50px;
+}
+#popup .modal h2 {
+  border-bottom: 1px solid #0066ad;
+  padding-bottom: 10px;
+}
+#popup .modal p {
+  margin-top: 20px;
+  line-height: 2;
+  color: #555;
+  font-size: 14px;
+}
+#popup .modal .close {
+  margin-top: 40px;
+  background-color: #0066ad;
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
 }

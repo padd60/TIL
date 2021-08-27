@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응형 레이아웃 연습</title>
+    <style>
+      /* reset */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #wrap {
+        width: 800px;
+        margin: 0 auto;
+      }
+      header {
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 30px;
+        overflow: hidden;
+      }
+      header h1 {
+        background-color: skyblue;
+        text-align: center;
+        color: #fff;
+        padding: 20px 0;
+        margin-bottom: 20px;
+      }
+      header nav {
+        float: left;
+        width: 30%;
+      }
+      header section {
+        float: right;
+        width: 65%;
+      }
+      header section h2 {
+        margin-bottom: 10px;
+      }
+      header section p {
+        line-height: 2;
+        color: #555;
+      }
+      .gnb {
+        list-style: none;
+      }
+      .gnb li {
+        background-color: crimson;
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+      }
+      .gnb li a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      #content {
+        padding: 50px 0;
+        text-align: center;
+      }
+      #content h2 {
+        margin-bottom: 20px;
+      }
+      #content .imgbox {
+        word-wrap: 90%;
+        margin: 10px auto;
+      }
+      #content img {
+        width: 100%;
+      }
+
+      footer {
+        background-color: #ddd;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 16px;
+      }
+
+      /* 테블릿 사이즈 540 ~ 720 */
+      /* min-width: 540px 최소수치 -> 540px 이하로는 css 적용하지 않겠다 */
+      /* max-width: 720px 최대수치 -> 720px 이상으로는 css 적용하지 않겠다 */
+      @media screen and (min-width: 540px) and (max-width: 720px) {
+        #wrap {
+          width: 100%;
+        }
+        header h1 {
+          background-color: crimson;
+        }
+        header nav {
+          float: none;
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        header section {
+          float: none;
+          width: 100%;
+        }
+        header section h2 {
+          text-align: center;
+        }
+        header section p {
+          margin: 0 20px;
+        }
+        .gnb {
+          overflow: hidden;
+        }
+        .gnb li {
+          float: left;
+          width: 24%;
+          margin: 0 0.5%;
+          box-sizing: border-box;
+          text-align: center;
+        }
+        #content {
+          overflow: hidden;
+        }
+        #content .imgbox {
+          float: left;
+          width: 48%;
+          margin: 0 1%;
+        }
+      }
+
+      /* 모바일 사이즈 ~ 540 */
+      @media screen and (max-width: 540px) {
+        #wrap {
+          width: 100%;
+        }
+        header h1 {
+          background-color: salmon;
+        }
+        header nav {
+          float: none;
+          width: 96%;
+          margin-bottom: 20px;
+          margin: 0 2% 20px;
+        }
+        header section {
+          float: none;
+          width: 92%;
+          margin: 0 4%;
+        }
+        .gnb li {
+          width: 100%;
+          margin: 0;
+          box-sizing: border-box;
+          text-align: center;
+        }
+        #content .imgbox:nth-of-type(1) {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <h1>사진 갤러리</h1>
+        <nav>
+          <ul class="gnb">
+            <li><a href="#">사진역사</a></li>
+            <li><a href="#">카메라 종류</a></li>
+            <li><a href="#">렌즈</a></li>
+            <li><a href="#">역사</a></li>
+          </ul>
+        </nav>
+        <section>
+          <h2>포토 갤러리</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            earum omnis eos quos laborum sit voluptatibus maxime sapiente ipsum
+            iusto, veniam voluptate dolor tempora error. Aliquam quam sapiente
+            cupiditate vero.
+          </p>
+        </section>
+      </header>
+      <div id="content">
+        <h2>포토 갤러리</h2>
+        <div class="imgbox">
+          <img src="images/naksansa.jpg" alt="" />
+        </div>
+        <div class="imgbox">
+          <img src="images/nungsohwa.jpg" alt="" />
+        </div>
+      </div>
+      <footer>copyright</footer>
+    </div>
+  </body>
+</html>
