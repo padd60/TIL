@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jonathan Nicol</title>
+    <link rel="stylesheet" href="css/jonathan.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+      $(function () {
+        $('.toggle').click(function () {
+          $('.gnb').toggleClass('on');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <header>
+        <div class="inner">
+          <h1 class="logo"><a href="#">Jonathan Nicol</a></h1>
+          <nav>
+            <ul class="gnb">
+              <li><a href="#">work</a></li>
+              <li><a href="#">blog</a></li>
+              <li><a href="#">about</a></li>
+              <li><a href="#">contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="toggle"><i class="fas fa-bars"></i></div>
+      </header>
+      <div id="content">
+        <ul class="list">
+          <li>
+            <a href="#"
+              ><img src="img/engraving-men.png" alt="" />
+              <strong>work</strong></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="img/engraving-typewriter.png" alt="" />
+              <strong>blog</strong></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="img/engraving-brain.png" alt="" />
+              <strong>about</strong></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="img/engraving-bird.png" alt="" />
+              <strong>twitter</strong></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="img/engraving-octopus.png" alt="" />
+              <strong>github</strong></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="img/engraving-boy.png" alt="" />
+              <strong>contact</strong></a
+            >
+          </li>
+        </ul>
+      </div>
+      <footer>
+        <div class="btm_logo">
+          <a href="#">Jonathan Nicol</a>
+        </div>
+        <div class="address">
+          <p>Room 6, Level 5</p>
+          <p>358 Lonsdale Street</p>
+          <p>Melbourne, VIC 3000</p>
+          <p>Australia</p>
+        </div>
+        <div class="email"><a href="#">info@jonathannicol.com</a></div>
+        <div class="icon">
+          <span
+            ><a href="#"><i class="fab fa-twitter"></i></a
+          ></span>
+          <span
+            ><a href="#"><i class="fab fa-github"></i></a
+          ></span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

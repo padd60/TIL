@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #eee;
+        border-bottom: 2px solid #555;
+        height: 100px;
+      }
+      .inner {
+        width: 1000px;
+        height: 100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        /* row(가로) 기본값 */
+        flex-wrap: nowrap;
+        /* no wrap(강제한줄) 기본값 */
+        justify-content: space-between;
+        align-items: center;
+      }
+      .gnb {
+        list-style: none;
+        display: flex;
+        flex-flow: row nowrap;
+        /* 기본 설정 한번에 입력 */
+        width: 600px;
+        justify-content: space-between;
+      }
+      .gnb li {
+        font-size: 18px;
+        padding: 10px 30px;
+        background-color: #ddd;
+      }
+      .gnb li:nth-child(1) {
+        order: 3;
+      }
+      .gnb li:nth-child(2) {
+        order: 1;
+      }
+      .gnb li:nth-child(3) {
+        order: 4;
+      }
+      .gnb li:nth-child(4) {
+        order: 2;
+      }
+      .gnb li:nth-child(5) {
+        order: 5;
+      }
+      .icon {
+        list-style: none;
+        display: flex;
+        width: 100px;
+        justify-content: space-between;
+      }
+      .icon li {
+        font-size: 24px;
+        background-color: #ddd;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+      }
+      .toggle {
+        width: 40px;
+        position: absolute;
+        top: 35px;
+        right: 30px;
+        display: none;
+      }
+      .toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #333;
+      }
+      .toggle span:nth-child(2) {
+        margin: 8px 0;
+      }
+
+      @media screen and (max-width: 540px) {
+        .inner {
+          width: 100%;
+        }
+        .toggle {
+          display: block;
+        }
+        .logo {
+          padding-left: 2%;
+        }
+        nav {
+          position: absolute;
+          top: 100px;
+          left: 0;
+          width: 100%;
+          height: 0;
+          transition: 1s;
+          overflow: hidden;
+        }
+        nav.on {
+          height: 230px;
+        }
+        .gnb {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: center;
+          width: 100%;
+        }
+        .gnb.on {
+          height: 230px;
+        }
+        .gnb li {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          border-bottom: 1px solid #555;
+        }
+        .gnb li:nth-child(1) {
+          order: 1;
+        }
+        .gnb li:nth-child(2) {
+          order: 2;
+        }
+        .gnb li:nth-child(3) {
+          order: 3;
+        }
+        .gnb li:nth-child(4) {
+          order: 4;
+        }
+        .gnb li:nth-child(5) {
+          order: 5;
+        }
+        .icon {
+          display: none;
+        }
+      }
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function () {
+        $('.toggle').click(function () {
+          // $('.gnb').stop().slideToggle(500); //display block
+          $('nav').toggleClass('on');
+          // jQuery 애니메이션이 disaplay를 none/block으로 바꾸어서 flex가 깨진다.
+          // 따라서 css 클래스를 별도로 주고 추가했다 제거했다 하여 애니메이션 효과를 주는 것이 좋다.
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="inner">
+        <h1 class="logo">LOGO</h1>
+        <nav>
+          <ul class="gnb">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+          </ul>
+        </nav>
+        <div class="toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="icon">
+          <li>@</li>
+          <li>#</li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>

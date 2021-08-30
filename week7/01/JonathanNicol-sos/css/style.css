@@ -1,0 +1,277 @@
+@charset "utf-8";
+
+/* PC + 공통화면 */
+#wrap {
+  line-height: 1.6;
+}
+.inner {
+  max-width: 1200px;
+  margin: 20px auto 60px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+header {
+  border-top: 8px solid #1b1b1b;
+}
+.logo {
+  margin-left: 1%;
+}
+.logo a {
+  color: #1b1b1b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 24px;
+}
+header nav {
+  width: 50%;
+}
+.gnb {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+.gnb li {
+  width: 22%;
+  font-size: 14px;
+  border-bottom: 1px solid #bfbfbf;
+  padding: 0 0 7px 0;
+  line-height: 1;
+  font-weight: bold;
+}
+.gnb li a {
+  color: #1b1b1b;
+  text-transform: uppercase;
+}
+.gnb li:hover {
+  border-bottom: 1px solid #1b1b1b;
+}
+.gnb li:hover a {
+  text-decoration: none;
+}
+.toggle {
+  display: none;
+  position: absolute;
+  top: 27px;
+  right: 4%;
+  font-size: 27px;
+}
+
+#content {
+  max-width: 1600px;
+  /* 화면너비가 1600이상이면 박스 1600으로 고정
+    화면너비가 1600이하로 떨어지면 너비는 100% */
+  margin: 0 auto;
+}
+.list {
+  display: flex;
+  flex-flow: row wrap;
+}
+.list li {
+  width: 33.3333%;
+}
+.list li a {
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  position: relative;
+  transition: 0.5s;
+}
+.list li:nth-child(1) a {
+  background-color: #969696;
+}
+.list li:nth-child(1) a:hover {
+  background-color: #f6335a;
+}
+.list li:nth-child(2) {
+  background-color: #848484;
+}
+.list li:nth-child(2) a:hover {
+  background-color: #0af59b;
+}
+.list li:nth-child(3) {
+  background-color: #9e9e9e;
+}
+.list li:nth-child(3) a:hover {
+  background-color: #ffdf3a;
+}
+.list li:nth-child(4) {
+  background-color: #bfbfbf;
+}
+.list li:nth-child(4) a:hover {
+  background-color: #88a0f7;
+}
+.list li:nth-child(5) {
+  background-color: #929292;
+}
+.list li:nth-child(5) a:hover {
+  background-color: #2b9cf6;
+}
+.list li:nth-child(6) {
+  background-color: #aaaaaa;
+}
+.list li:nth-child(6) a:hover {
+  background-color: #f6745e;
+}
+.list li a img {
+  width: 100%;
+}
+.list li a strong {
+  font-size: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.list li a:hover strong {
+  opacity: 1;
+}
+footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 70px 70px 0 70px;
+  box-sizing: border-box;
+}
+footer div {
+  width: 22%;
+  border-top: 1px solid #bfbfbf;
+  padding: 20px 0 30px;
+}
+.btm_logo a {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1b1b1b;
+}
+.address {
+  font-size: 16px;
+}
+.address p {
+  width: 80%;
+}
+.email {
+  font-size: 16px;
+}
+.email a {
+  text-decoration: underline;
+  color: #1b1b1b;
+}
+.icon {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+.icon span {
+  display: block;
+  text-align: center;
+  margin-left: 10px;
+}
+.icon a {
+  display: block;
+  background-color: #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 50px;
+}
+.icon i {
+  color: #848484;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 680px) {
+  .inner {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 3%;
+  }
+  .logo {
+    margin: 0;
+  }
+  header .logo {
+    margin-bottom: 15px;
+  }
+  header nav {
+    width: 100%;
+  }
+  .gnb {
+    flex-flow: row nowrap;
+  }
+  .gnb li {
+    width: 23.5%;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .list li {
+    width: 50%;
+  }
+  footer {
+    flex-flow: column wrap;
+    justify-content: space-around;
+    margin: 1%;
+    padding: 0;
+    box-sizing: border-box;
+    border-top: 1px solid #bfbfbf;
+    margin-top: 70px;
+  }
+  footer div {
+    width: 100%;
+    padding: 20px 2% 20px;
+    border-top: none;
+  }
+  .icon {
+    justify-content: flex-start;
+  }
+  .icon span {
+    margin: 0 10px 0 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header .inner {
+    margin: 20px auto 10px;
+  }
+  .toggle {
+    display: block;
+  }
+  .list li {
+    width: 100%;
+  }
+  header nav {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  .gnb {
+    height: 0;
+    overflow: hidden;
+    flex-flow: column nowrap;
+    transition: 1s;
+  }
+  .gnb.on {
+    height: 170px;
+  }
+  .gnb li {
+    justify-content: center;
+    width: 100%;
+    font-size: 14px;
+    background-color: rgba(27, 27, 27, 0.7);
+    border-bottom: 1px solid #555;
+    padding: 14px;
+  }
+  .gnb li a {
+    color: #fff;
+  }
+  .gnb li:hover {
+    border-bottom: 1px solid #555;
+  }
+}
