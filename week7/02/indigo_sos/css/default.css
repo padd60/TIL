@@ -22,7 +22,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 999999;
   border-bottom: 1px solid var(--main-color);
   box-shadow: 1px 1px 20px rgba(152, 152, 152, 0.5);
   transition: 0.5s;
@@ -94,16 +94,33 @@ header.on .gnb li:hover a {
   font-weight: normal;
   text-transform: uppercase;
 }
+.weare.on {
+  opacity: 1;
+}
 .weare {
+  opacity: 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   border-bottom: 1px solid #ccc;
   padding-bottom: 100px !important;
+  transition: 0.5s;
+}
+.weare.on > .con_title {
+  transform: translateX(0);
+}
+.weare.on > p {
+  transform: translateX(0);
 }
 .weare > .con_title {
   width: 30%;
   margin: 8px 2% 0;
+  transform: translateX(-100px);
+  transition: 1s;
+}
+.weare.on .list {
+  transform: translateY(0);
+  opacity: 1;
 }
 .weare > p {
   width: 60%;
@@ -112,12 +129,17 @@ header.on .gnb li:hover a {
   line-height: 1.6;
   color: #555;
   font-size: 14px;
+  transform: translateX(100px);
+  transition: 1s;
 }
 .weare .list {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
   margin-top: 80px;
+  transform: translateY(200px);
+  transition: 1s 0.2s;
+  opacity: 0;
 }
 .weare .list li {
   flex: 1 1 0;
@@ -134,10 +156,25 @@ header.on .gnb li:hover a {
   color: #555;
   font-size: 14px;
 }
-
+.work.on .con_title {
+  transform: translateX(0);
+  opacity: 1;
+}
+.work .con_title {
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: 1s;
+}
+.work.on .list {
+  opacity: 1;
+  transform: translateY(0);
+}
 .work .list {
   display: flex;
   flex-flow: row wrap;
+  opacity: 0;
+  transform: translateY(200px);
+  transition: 1s 0.2s;
 }
 .work .list li {
   width: 25%;
@@ -203,8 +240,19 @@ header.on .gnb li:hover a {
   text-align: left;
   display: flex;
 }
+.blog.on .con_title {
+  transform: translateX(0);
+  opacity: 1;
+}
 .blog .con_title {
   flex: 1 1 0;
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: 1s;
+}
+.blog.on .list li {
+  transform: translateY(0);
+  opacity: 1;
 }
 .blog .list {
   flex: 3 3 0;
@@ -213,9 +261,21 @@ header.on .gnb li:hover a {
 .blog .list li {
   flex: 1 1 0;
   margin-left: 1%;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: 1s;
 }
 .blog .list li:first-child {
   margin-left: 0;
+}
+.blog .list li:nth-child(1) {
+  transition-delay: 0;
+}
+.blog .list li:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.blog .list li:nth-child(3) {
+  transition-delay: 0.6s;
 }
 .blog .list li a {
   display: block;
@@ -242,11 +302,25 @@ header.on .gnb li:hover a {
 .contact {
   display: flex;
 }
+.contact.on .con_title {
+  transform: translateX(0);
+  opacity: 1;
+}
 .contact .con_title {
   flex: 1 1 0;
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: 1s;
+}
+.contact.on .formBox {
+  transform: translateY(0);
+  opacity: 1;
 }
 .contact .formBox {
   flex: 3 3 0;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: 1s;
 }
 fieldset {
   display: flex;
@@ -287,7 +361,7 @@ fieldset textarea {
 }
 
 iframe {
-  padding: 100px 0;
+  padding: 100px 0 0;
   display: block;
 }
 
@@ -324,10 +398,123 @@ footer p {
   border-radius: 20%;
   opacity: 0;
   transition: 0.5s;
+  font-size: 14px;
 }
 #top.on {
   opacity: 1;
 }
 #top a {
   color: #fff;
+}
+
+@media screen and (max-width: 860px) {
+  .con_title {
+    text-align: center;
+    margin: 40px 0;
+  }
+  .weare {
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  .weare .con_title {
+    width: 100%;
+    margin: 40px 0 20px;
+  }
+  .weare p {
+    width: 100%;
+    border-left: none;
+    padding: 0 5% 30px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .weare .list {
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .weare .list li {
+    width: 50%;
+    text-align: center;
+    padding: 0 2%;
+    box-sizing: border-box;
+    flex: none;
+    margin-bottom: 40px;
+  }
+  .work .list li {
+    width: 50%;
+  }
+  .blog {
+    text-align: left;
+    display: block;
+  }
+  .blog .con_title {
+    margin-top: 0;
+  }
+  .blog .list {
+    margin: 0 3%;
+  }
+  .contact {
+    display: block;
+  }
+  .contact .formBox {
+    margin: 0 3%;
+  }
+
+  @media screen and (max-width: 560px) {
+    header nav {
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+      transition: 1s;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+    header nav.on {
+      height: 240px;
+      visibility: visible;
+    }
+    .gnb {
+      display: flex;
+      flex-flow: column wrap;
+    }
+    .gnb li {
+      flex: none;
+      width: 100%;
+      background-color: rgba(103, 118, 202, 0.9);
+      text-align: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .gnb li a {
+      color: #fff;
+    }
+    .gnb li:hover a {
+      color: aquamarine;
+    }
+    .toggle {
+      display: block;
+    }
+
+    .weare .list li {
+      width: 100%;
+    }
+    .work .list li {
+      width: 100%;
+    }
+    .blog .list {
+      display: block;
+    }
+    .blog .list li {
+      width: 90%;
+      margin: 0 5% 30px;
+    }
+    .blog .list li:first-child {
+      margin-left: 5%;
+    }
+    fieldset {
+      display: block;
+    }
+  }
 }
