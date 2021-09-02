@@ -1,0 +1,408 @@
+* {
+  box-sizing: border-box;
+}
+
+/*
+  -webkit- 로 시작하면 접두어 크롬, 사파리에 적용
+  -ms- 로 시작하면 모질라계열(파이어폭스)등에서 동작
+*/
+
+body,
+html {
+  min-width: 330px;
+  /* 가로사이즈가 너무 작아지는 것 방지*/
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  color: #272727;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+h2 {
+  font-size: 2.625em;
+  font-weight: 700;
+  word-break: keep-all;
+}
+
+h3 {
+  font-size: 2.25em;
+}
+
+h4 {
+  font-size: 1.75em;
+}
+
+p {
+  line-height: 1.5;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button:active,
+button:hover,
+button:focus {
+  outline: 0;
+}
+
+/* header */
+.header-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  z-index: 999;
+  height: 4.875em;
+}
+.active.header-wrapper {
+  background-color: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+.header-contents {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100vh;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.active .title,
+.active .nav-bar {
+  color: #000;
+}
+
+.title {
+  color: #fff;
+  font-weight: bold;
+  line-height: 4.875em;
+}
+.nav-bar {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  color: #fff;
+  width: 70%;
+}
+
+.nav-bar ul {
+  display: flex;
+  text-align: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+.nav-bar li {
+  width: 20%;
+  font-weight: bold;
+  line-height: 4.875em;
+}
+
+/* slider 이미지 슬라이더 */
+.slider {
+  position: relative;
+  height: 100vh;
+  color: #fff;
+}
+.slider-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url(../img/bg.jpg) no-repeat center / cover;
+}
+
+.slider-content {
+  position: relative;
+  height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.copy {
+  text-align: center;
+  font-size: 5.25em;
+  font-weight: bold;
+  line-height: 100px;
+  padding-top: 160px;
+}
+.copy span {
+  display: block;
+  animation: ani 10s ease infinite;
+}
+.btn {
+  width: 200px;
+  height: 48px;
+  border: 1px solid #fff;
+  display: block;
+  text-align: center;
+  line-height: 48px;
+  position: absolute;
+  left: 50%;
+  bottom: 150px;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.btn:hover {
+  opacity: 0.7;
+  background: #fff;
+  color: #000;
+}
+
+@keyframes ani {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+.main-wrapper > section {
+  /* 컨텐츠 3개 박스 공통 CSS */
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding: 100px 30px;
+  overflow: hidden;
+}
+.section-content {
+  /* 컨텐츠 .inner */
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* section-1 자기소개 */
+.section1 {
+  height: 100vh;
+  background-color: #fff;
+}
+.section1 .section-content {
+  display: flex;
+}
+
+.active.section1 .left {
+  transform: translateX(0);
+  opacity: 1;
+}
+.active.section1 .right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.left,
+.right {
+  flex: 1 1 0;
+}
+
+.left {
+  text-align: left;
+  transform: translateX(-100px);
+  opacity: 0;
+  transition: 1s;
+}
+.left h3 {
+  font-size: 1.5em;
+  margin: 0 0 30px;
+  padding: 5px 10px 8px;
+  background-color: crimson;
+  color: #fff;
+} /* 1.5em = 24px */
+.left h2 {
+  font-size: 2em;
+  margin: 10px 0;
+  color: crimson;
+}
+.left p {
+  font-size: 1.125em;
+  margin: 40px 0;
+  line-height: 1.8;
+  color: #555;
+} /* 1.125em = 18px */
+.left p strong {
+  color: crimson;
+  font-weight: bold;
+}
+
+.right {
+  text-align: right;
+  transform: translateX(100px);
+  opacity: 0;
+  transition: 1s;
+}
+.right img {
+  height: 500px;
+}
+
+/* section-2 포트폴리오 */
+.section2 {
+  height: 100vh;
+  background-color: #fff;
+}
+.section2 h2 {
+  transition: 0.7s;
+  margin-top: -100px;
+  opacity: 0;
+}
+.active.section2 h2 {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.section2 .imgbox {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.active.section2 .imgbox li {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.imgbox li {
+  width: 31%;
+  transform: translateY(100px);
+  opacity: 0;
+}
+.imgbox li a {
+  display: block;
+  overflow: hidden;
+}
+.imgbox li img {
+  width: 100%;
+  transition: 0.3s;
+}
+.imgbox li img:hover {
+  transform: scale(1.1);
+}
+.imgbox li h4 {
+  font-size: 1.125em;
+  margin: 15px 0;
+} /* 18px = 1.125em */
+
+.imgbox li:nth-child(1) {
+  transition: 0.7s 0;
+}
+.imgbox li:nth-child(2) {
+  transition: 0.7s 0.3s;
+}
+.imgbox li:nth-child(3) {
+  transition: 0.7s 0.6s;
+}
+
+/* section-3 스킬 */
+.section3 {
+  background-color: #4e54c8;
+  /* margin-top: 100px; */
+  background-image: linear-gradient(to right bottom, #8f94fb, #4e54c8);
+}
+.section3 h2 {
+  color: #fff;
+  margin: 0 auto 50px;
+}
+
+.section3 .skillbox {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+.section3 ul {
+  width: 40%;
+  text-align: left;
+  margin-top: 36px;
+}
+.section3 ul.left {
+  opacity: 1;
+}
+.section3 ul.right {
+  opacity: 1;
+}
+
+.section3 ul li {
+  color: #fff;
+}
+.section3 ul li:nth-of-type(2n-1) {
+  line-height: 28px;
+  font-size: 1.5em;
+} /* 홀수 */
+.section3 ul li:nth-of-type(2n) {
+  margin: 10px 0 28px;
+} /*짝수 */
+
+.score {
+  height: 16px;
+  border-radius: 20px;
+  background-color: #fff;
+  display: block;
+  transition: 1s;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.active .score {
+  transform: scaleX(1);
+}
+
+.html {
+  width: 95%;
+}
+.jq {
+  width: 70%;
+}
+.java {
+  width: 80%;
+}
+.sp {
+  width: 50%;
+}
+
+/* footer */
+.footer-wrapper {
+  background-color: #272727;
+  color: #ddd;
+  height: 120px;
+  text-align: center;
+}
+.footer-wrapper p {
+  line-height: 100px;
+}
+
+@media screen and (max-width: 620px) {
+  html,
+  body {
+    font-size: 18px;
+    /* 1em -> html  기본 폰트사이즈의 배수 */
+  }
+}

@@ -25,7 +25,7 @@
             </div>
 
             <div class="menubox">
-              <ul>
+              <ul class="loginBox">
                 <li><a href="#">로그인</a></li>
                 <li><a href="#">회원가입</a></li>
               </ul>
@@ -79,24 +79,24 @@
         <div class="main_slider">
           <div class="swiper">
             <ul class="swiper-wrapper">
-              <li class="imglist01">
-                <div class="swiper-slide">
+              <li class="imglist01 swiper-slide">
+                <div>
                   <a href="#"
                     ><img src="img/img_slidecontents01.png" alt=""
                   /></a>
                   <p class="roll_txt">BE TOURISI FOR BETTER LIFE</p>
                 </div>
               </li>
-              <li class="imglist02">
-                <div class="swiper-slide">
+              <li class="imglist02 swiper-slide">
+                <div>
                   <a href="#"
                     ><img src="img/img_slidecontents02.png" alt=""
                   /></a>
                   <p class="roll_txt">BE TOURISI FOR BETTER LIFE</p>
                 </div>
               </li>
-              <li class="imglist03">
-                <div class="swiper-slide">
+              <li class="imglist03 swiper-slide">
+                <div>
                   <a href="#"
                     ><img src="img/img_slidecontents03.png" alt=""
                   /></a>
@@ -104,6 +104,9 @@
                 </div>
               </li>
             </ul>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
         <div class="mobile_slider">
@@ -260,6 +263,16 @@
       });
       $('.modal').click(function (e) {
         e.stopPropagation();
+      });
+
+      // pc 메뉴
+      $('.gnb>li').on({
+        mouseenter: function () {
+          $(this).children('.submenubg').show();
+        },
+        mouseleave: function () {
+          $(this).children('.submenubg').hide();
+        },
       });
     </script>
   </body>

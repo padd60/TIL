@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- META -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/vegas.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!--JS-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vegas.js"></script>
+
+    <title>front</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header-wrapper">
+      <div class="header-contents">
+        <h1 class="title">LOGO</h1>
+        <nav class="nav-bar">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#skills">Skills</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- div:slider  슬라이더 -->
+    <div class="slider">
+      <div class="slider-bg"></div>
+      <div class="slider-content">
+        <h1 class="copy">
+          <span>Web Front</span>
+          <span>포트폴리오 샘플</span>
+        </h1>
+        <a href="" class="btn">More</a>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main-wrapper">
+      <!-- section-1 : 자기소개 -->
+      <section class="section1" id="about">
+        <div class="section-content">
+          <div class="left">
+            <h3>About</h3>
+            <h2>제목</h2>
+            <h2>소제목</h2>
+            <p>소개글</p>
+            <p><strong>키워드1 :</strong> 문장1</p>
+            <p><strong>키워드2 :</strong> 문장2</p>
+          </div>
+          <div class="right">
+            <img src="img/about2.jpg" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <!-- section-2 : 포트폴리오 -->
+      <section class="section2" id="portfolio">
+        <div class="section-content">
+          <h2>Portfolio</h2>
+          <ul class="imgbox">
+            <li>
+              <a href="#"><img src="img/img02.jpg" alt="" /></a>
+              <h4>웹사이트 제목01</h4>
+            </li>
+            <li>
+              <a href="#"><img src="img/img04.jpg" alt="" /></a>
+              <h4>웹사이트 제목02</h4>
+            </li>
+            <li>
+              <a href="#"><img src="img/img06.jpg" alt="" /></a>
+              <h4>웹사이트 제목03</h4>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- section-3 : 보유 기술 역량 -->
+      <section class="section3" id="skills">
+        <div class="section-content">
+          <h2>SKills</h2>
+          <div class="skillbox">
+            <ul>
+              <li>HTML5/css</li>
+              <li><span class="score html"></span></li>
+              <li>javascript/jQuery</li>
+              <li><span class="score jq"></span></li>
+            </ul>
+            <ul>
+              <li>java</li>
+              <li><span class="score java"></span></li>
+              <li>spring</li>
+              <li><span class="score sp"></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- footer-->
+    <div class="footer-wrapper">
+      <p>Copyright 2021 webdi All Right Reserved.</p>
+      <!-- copyright 저작권, 판권 / all right reserved 무단 전제와 복제를 금함 -->
+    </div>
+
+    <!-- script -->
+    <script type="text/javascript" charset="utf-8">
+      // vegas 	영상 플러그인
+      $(function () {
+        $('.slider').vegas({
+          delay: 10000, // 지연시간
+          cover: true,
+          overlay: './img/01.png',
+          align: 'center',
+          slides: [
+            {
+              video: {
+                src: ['./video/cave.mp4'],
+                loop: false,
+                mute: true,
+              },
+            },
+            {
+              video: {
+                src: ['./video/ink.mp4'],
+                loop: false,
+                mute: true,
+              },
+            },
+          ],
+          //transition: 'slideLeft2'
+          //transition: [
+          //    'slideUp',' fade', 'zoomOut', 'swirlLeft' // 순차대로가 아닌 랜덤하게 움직임을 지정합니다.
+          //]
+          ainmation: ['kenburnsUP'],
+        });
+      });
+
+      // 스크롤 애니메이션
+      $(window).scroll(function () {
+        let st = $(window).scrollTop();
+        console.log(st);
+        let boxHeight = $('.header-contents').outerHeight();
+
+        if (st > boxHeight) {
+          $('.header-wrapper').addClass('active');
+        } else {
+          $('.header-wrapper').removeClass('active');
+        }
+
+        $('.main-wrapper > section').each(function (idx, object) {
+          if (st > $(this).offset().top - 400) {
+            $(this).addClass('active');
+          } else {
+            $(this).removeClass('active');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
