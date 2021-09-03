@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>부트스트랩</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+      .container {
+        border: 1px solid red;
+        background-color: yellow;
+        font-size: 42px;
+      }
+      .container-fluid {
+        border: 1px solid red;
+        background-color: skyblue;
+        font-size: 42px;
+      }
+      div[class^='col'] {
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- col-sm- 은 화면너비 576px 이하에서 단이 떨어짐 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6">A</div>
+        <div
+          class="col-lg-3 col-md-4 col-sm-6"
+          style="background-color: orange"
+        >
+          B
+        </div>
+        <div
+          class="col-lg-6 col-md-4 col-sm-12"
+          style="background-color: olive"
+        >
+          C
+        </div>
+      </div>
+    </div>
+
+    <!-- col-md- 은 화면너비 768px 이하에서 단이 떨어짐 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">col-md-4</div>
+        <div class="col-md-4">col-md-4</div>
+        <div class="col-md-4">col-md-4</div>
+      </div>
+    </div>
+  </body>
+</html>
