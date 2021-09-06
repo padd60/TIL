@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그리드</title>
+    <style>
+      #wrap {
+        background-color: blue;
+        padding: 10px;
+        width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        /* grid-template-columns: auto auto auto auto;
+        grid-template-rows: 100px 100px; */
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 100px);
+        /* column-gap: 10px;
+        row-gap: 20px; */
+        gap: 20px 10px;
+        /* gap: 수직 수평 */
+      }
+      #wrap > div {
+        border: 1px solid red;
+        background-color: skyblue;
+      }
+      /* grid는 표를 짤 때 편리함 */
+    </style>
+  </head>
+  <body>
+    <!-- 4 x 2 표 그리기 -->
+    <div id="wrap">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+    </div>
+  </body>
+</html>

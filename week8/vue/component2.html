@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue 컴포넌트</title>
+  </head>
+  <body>
+    <div id="app">
+      <button>등록</button>
+      <my-com></my-com>
+      <!-- 커스텀 태그로 부착 지점 -> <div> 지역 검포넌트 </div> -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      let cmp = {
+        template: '<div> 지역 컴포넌트 등록되었음 </div>',
+      };
+
+      new Vue({
+        el: '#app',
+        // 인스턴스 내부에 지역 컴포넌트 생성
+        components: {
+          // '컴포넌트 이름': 컴포넌트 내용
+          //  보통 변수로 담아서 등록함
+          'my-com': cmp,
+        },
+      });
+    </script>
+  </body>
+</html>

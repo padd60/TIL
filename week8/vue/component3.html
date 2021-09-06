@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue 컴포넌트</title>
+  </head>
+  <body>
+    <div id="app">
+      <button>등록</button>
+      <my-global-com></my-global-com>
+      <my-local-com></my-local-com>
+    </div>
+    <div id="app2">
+      <button>등록</button>
+      <my-global-com></my-global-com>
+      <my-local-com></my-local-com>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      Vue.component('my-global-com', {
+        template: '<div> 전역 컴포넌트 등록되었음 </div>',
+      });
+
+      // 지역 컴포넌트 탬플릿은 변수에 담아 내용 등록
+      let cmp = {
+        template: '<div> 지역 컴포넌트 등록되었음 </div>',
+      };
+
+      new Vue({
+        el: '#app',
+        components: {
+          'my-local-com': cmp,
+        },
+      });
+
+      new Vue({
+        el: '#app2',
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue 데이터 입력</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>첫번째 인스턴스</h3>
+      <my-com v-bind:propsdata="message"></my-com>
+      <!-- v-bind:props 속성에 등록된 이름 = '상위 인스턴스의 데이터 속성이름' -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      Vue.component('my-com', {
+        props: ['propsdata'],
+        template: '<p> 전역 컴포넌트 {{ propsdata }} 등록 !</p>',
+      });
+
+      new Vue({
+        el: '#app',
+        data: {
+          message: '안녕하세요',
+          text: '1234',
+          num: 0,
+          img: '1.jpg',
+        },
+      });
+    </script>
+  </body>
+</html>

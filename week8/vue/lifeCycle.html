@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue 기본 문법</title>
+  </head>
+  <body>
+    <div id="app">{{ message }}</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        // 인스턴스 생성
+        el: '#app', // 부착지점
+        data: {
+          // 변수들을 관리하는 곳
+          message: 'Hellow Vue!',
+        },
+        beforeCreate: function () {
+          console.log('beforeCreate');
+        },
+        created: function () {
+          console.log('created');
+        },
+        mounted: function () {
+          console.log('mounted');
+          this.message = '반갑습니다.';
+        },
+        updated: function () {
+          console.log('updated');
+        },
+      });
+    </script>
+  </body>
+</html>

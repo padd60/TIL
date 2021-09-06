@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그리드 표 짜기</title>
+    <style>
+      #wrap {
+        background-color: blue;
+        padding: 10px;
+        width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px;
+      }
+      #wrap > div {
+        border: 1px solid red;
+        background-color: skyblue;
+      }
+      #wrap > div:nth-child(1) {
+        /* grid-column: 1/4; */
+        grid-area: 1/1/2/4;
+        /* grid-area: 세로 시작 / 가로 시작 / 세로 끝 / 가로 끝 */
+      }
+      #wrap > div:nth-child(2) {
+        grid-row: 2/4;
+      }
+      #wrap > div:nth-child(5) {
+        grid-column: 2/4;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div>header</div>
+      <div>menu</div>
+      <div>main</div>
+      <div>right</div>
+      <div>footer</div>
+    </div>
+  </body>
+</html>
