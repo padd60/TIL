@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>뷰 갤러리 실습</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .title {
+        text-align: center;
+        margin: 10px 0;
+      }
+      .list {
+        list-style: none;
+      }
+      .list li {
+        float: left;
+        width: 31%;
+        padding: 10px;
+        margin: 0 1% 40px;
+        border: 5px solid #ddd;
+        text-align: center;
+      }
+      .list li h2 {
+        font-size: 18px;
+        color: #555;
+      }
+      .list li .imgbox {
+        margin: 10px 0;
+      }
+      .list li .imgbox img {
+        width: 100%;
+      }
+      .list li p {
+        font-size: 12px;
+      }
+      .modal {
+        width: 500px;
+        text-align: center;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 30px;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+      }
+      .modal h2 {
+        margin: 10px 0;
+      }
+      .modal img {
+        width: 100%;
+      }
+      .modal button {
+        background-color: #333;
+        padding: 8px 20px;
+        border: none;
+        color: #ddd;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">상품 갤러리</h1>
+    <div id="app">
+      <ul class="list">
+        <template v-for="(item, idx) in items">
+          <li v-bind:class="item.class" v-on:click="popup(idx)">
+            <h2>{{item.title + '-' + idx}}</h2>
+            <div class="imgbox">
+              <img :src="item.imgUrl" />
+            </div>
+            <p>{{item.subcopy}}</p>
+          </li>
+        </template>
+      </ul>
+      <div class="modal" v-if="showModal">
+        <h2>{{items[index].title}}</h2>
+        <img :src="items[index].imgUrl" />
+        <button v-on:click="showModal=false">X 닫기</button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          title: '제목입니다.',
+          showModal: false,
+          index: null,
+          class: 'test',
+          items: [
+            {
+              class: 'p01',
+              title: '베너 01번',
+              imgUrl: 'images/pmb1.jpg',
+              subcopy: '오늘의 할인 상품은 01번입니다.',
+            },
+            {
+              class: 'p02',
+              title: '베너 02번',
+              imgUrl: 'images/pmb2.jpg',
+              subcopy: '오늘의 할인 상품은 02번입니다.',
+            },
+            {
+              class: 'p03',
+              title: '베너 03번',
+              imgUrl: 'images/pmb3.jpg',
+              subcopy: '오늘의 할인 상품은 03번입니다.',
+            },
+            {
+              class: 'p04',
+              title: '베너 04번',
+              imgUrl: 'images/pmb4.jpg',
+              subcopy: '오늘의 할인 상품은 04번입니다.',
+            },
+            {
+              class: 'p05',
+              title: '베너 05번',
+              imgUrl: 'images/pmb5.jpg',
+              subcopy: '오늘의 할인 상품은 05번입니다.',
+            },
+            {
+              class: 'p06',
+              title: '베너 06번',
+              imgUrl: 'images/pmb6.jpg',
+              subcopy: '오늘의 할인 상품은 06번입니다.',
+            },
+          ],
+        },
+        methods: {
+          popup: function (idx) {
+            this.showModal = true;
+            this.index = idx;
+            console.log(this.index);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

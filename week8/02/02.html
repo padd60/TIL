@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복습2</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>{{title}}</h3>
+      <my_com v-bind:data="title"></my_com>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      Vue.component('my_com', {
+        props: ['data'],
+        template: '<p>{{data}} - 전역 컴포넌트 등록</p>',
+      });
+
+      new Vue({
+        el: '#app',
+        data: {
+          title: '뷰 2일차',
+        },
+      });
+    </script>
+  </body>
+</html>

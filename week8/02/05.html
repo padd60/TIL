@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>디렉티브 v-if, v-for, v-model</title>
+    <style>
+      #red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <a v-if="flag">출력</a>
+      <ul>
+        <!-- v-for="단수데이터 받아오는 매개변수명 in 배열명" -->
+        <li v-for="system in systems">{{system}}</li>
+      </ul>
+      <p v-show="check">출력</p>
+      <h5 :id="uid">뷰 디렉티브 예제</h5>
+      <!-- v-bind: 축약형 : -->
+      <input type="text" v-model="inputTxt" />
+      <button v-on:click="popAlert">경고창 출력</button>
+      <input type="checkbox" v-model="check" />
+      <p>{{inputTxt}}</p>
+      <button @click="plus">{{num}} click!</button>
+      <!-- v-on: 축약형 @ -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          flag: false,
+          uid: 'red',
+          systems: ['a-test', 'b-test', 'c-test'],
+          inputTxt: 'test',
+          check: true,
+          num: 0,
+        },
+        methods: {
+          popAlert: function () {
+            return alert('경고창 출력!');
+          },
+          plus: function () {
+            this.num++;
+            console.log(this.num);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

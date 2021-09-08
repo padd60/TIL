@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복습</title>
+    <!-- 뷰는 상위에서 하위로만 데이터 전달하는 기본 통신 규칙을 따른다.
+        같은 레벨의 컴포넌트간의 통신은 공통 상위 컴포넌트로 이벤트를 전달한 후에 공통 상위컴포넌트에서 하위 컴포넌트에 props를 내려보내 전달-->
+  </head>
+  <body>
+    <div id="app">
+      <h3>{{ message }}</h3>
+      <my-local_1 v-bind:data="message2"></my-local_1>
+      <my-local_2></my-local_2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      let cmp1 = {
+        props: ['data'],
+        template: '<div>지역컴포넌트 1 {{data}}</div>',
+      };
+      let cmp2 = {
+        template: '<div>지역컴포넌트 2</div>',
+      };
+      new Vue({
+        el: '#app',
+        components: {
+          'my-local_1': cmp1,
+          'my-local_2': cmp2,
+        },
+        data: {
+          message: '첫번째 인스턴스 등록',
+          message2: '안녕하세요',
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .popup {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{userName}}씨 안녕하세요</h1>
+      <input type="text" v-model="userName" />
+      <hr />
+      <p @click="open">오늘의 날씨 : {{weather}}</p>
+      <hr />
+      <a :href="hrefUrl" target="_blank">
+        <img :src="imgUrl" :alt="imgAlt" />
+      </a>
+      <div :class="popup" v-if="show" v-on:click="close">
+        <p>{{message}}</p>
+      </div>
+      <h2>items 배열 리스트로 출력하기</h2>
+      <ul>
+        <li v-for="item in items">{{item}}</li>
+      </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          userName: '',
+          weather: '비가옵니다.',
+          hrefUrl: 'https://www.naver.com',
+          imgUrl: 'https://picsum.photos/400',
+          imgAlt: '랜덤이미지',
+          message: '오늘의 날씨는 비가 내립니다.',
+          popup: '',
+          show: true,
+          popup: 'popup',
+          items: ['바나나', '딸기', '수박', '키위'],
+        },
+        methods: {
+          close: function () {
+            this.show = false;
+          },
+          open: function () {
+            this.show = true;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
