@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.naver","c":"HelloWorld3","l":"HelloWorld3()","url":"%3Cinit%3E()"},{"p":"com.naver","c":"HelloWorld3","l":"main(String[])","url":"main(java.lang.String[])"},{"p":"com.naver","c":"HelloWorld3","l":"sum(int, int)","url":"sum(int,int)"}]

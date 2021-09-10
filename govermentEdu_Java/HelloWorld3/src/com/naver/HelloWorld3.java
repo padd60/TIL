@@ -8,6 +8,10 @@ package com.naver;
 	 */
 
 public class HelloWorld3 {
+	public static int sum(int n, int m) {
+		return n+m;
+	}
+	
 	/**
 	 * 프로그램의 시작점, 자동으로 호출
 	 * 
@@ -15,8 +19,15 @@ public class HelloWorld3 {
 	 */
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.print("Hello World!");
+		int i=20;
+		int s;
+		char a;
+//		s = sum(i,10);
+//		System.out.println(s);
+		
+		System.out.println(sum(i,10));
+		
+//		System.out.print("Hello World!");
 	}
 
 }
