@@ -1,0 +1,28 @@
+package javaEx;
+
+import java.util.Scanner;
+
+public class scoreAvg04 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("이름, 국어, 영어, 수학 점수를 순서대로 입력하세요.");
+		System.out.println("exit를 입력하면 종료됩니다.");
+		while(true) {
+			String text = scanner.nextLine();
+			if(text.equals("exit")) {
+				break;
+			}
+
+			String name = scanner.next();
+			int ko = scanner.nextInt();
+			int en = scanner.nextInt();
+			int math = scanner.nextInt();
+			System.out.println(name + "학생의 평균점수는 " + (ko+en+math)/3 + "입니다.");
+			
+		}
+		System.out.print("종료합니다...");
+		scanner.close();
+	}
+}
