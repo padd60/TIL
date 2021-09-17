@@ -53,12 +53,8 @@ public class MainClass {
 		System.out.println("마우스에 " + tm.Touch);
 		tm.mouseMove("touch");
 		
+		m = new TouchMouse();
 		TouchMouse tm2 = (TouchMouse)m;
-		// 이부분 오류가 나는데 한번만 봐주실 수 있을까요?
-		// Exception in thread "main" java.lang.ClassCastException: 
-		// class Mouse cannot be cast to class TouchMouse 
-		// (Mouse and TouchMouse are in unnamed module of loader 'app')
-		// at MainClass.main(MainClass.java:56)
 		tm2.leftButton = "test";
 		System.out.print(tm2.leftButton);
 	}
