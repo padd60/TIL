@@ -1,62 +1,42 @@
 import java.util.Scanner;
 
 public class mainClass {
+	static Scanner scanner = new Scanner(System.in);
 	public static String user() {
-		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("총 정답숫자 세자리 중 첫번째 숫자를 입력하세요.(1 ~ 9)");
-		String userNum1 = scanner.nextLine();
+		String userNum1 = scanner.next();
 		while(userNum1.length() > 1) {
 			System.out.println("한자리 숫자만 입력해주세요.(1 ~ 9)");
-			userNum1 = scanner.nextLine();
+			userNum1 = scanner.next();
 		}
 		System.out.println("총 정답숫자 세자리 중 두번째 숫자를 입력하세요.(1 ~ 9)");
-		String userNum2 = scanner.nextLine();
+		String userNum2 = scanner.next();
 		while(userNum2.length() > 1) {
 			System.out.println("한자리 숫자만 입력해주세요.(1 ~ 9)");
-			userNum2 = scanner.nextLine();
+			userNum2 = scanner.next();
 		}
 		while(userNum2.equals(userNum1)) {				
 			System.out.println("중복된 숫자는 입력하실 수 없습니다. 다른 숫자를 입력해주세요.(1 ~ 9)");
-			userNum2 = scanner.nextLine();
+			userNum2 = scanner.next();
 		}
 		
 		System.out.println("총 정답숫자 세자리 중 세번째 숫자를 입력하세요.(1 ~ 9)");
-		String userNum3 = scanner.nextLine();
+		String userNum3 = scanner.next();
 		while(userNum3.length() > 1) {
 			System.out.println("한자리 숫자만 입력해주세요.(1 ~ 9)");
-			userNum3 = scanner.nextLine();
+			userNum3 = scanner.next();
 		}
 		while(userNum3.equals(userNum2) || userNum3.equals(userNum1)) {				
 			System.out.println("중복된 숫자는 입력하실 수 없습니다. 다른 숫자를 입력해주세요.(1 ~ 9)");
-			userNum3 = scanner.nextLine();
+			userNum3 = scanner.next();
 		}
 		
 		String userNum = userNum1+ " " + userNum2 + " " + userNum3;
 		System.out.println("입력하신 정답은 " + userNum + "입니다.");
 		
-		scanner.close();
-
 		return userNum;
 		
-	}
-	
-	public static void play() {
-		Scanner scanner = new Scanner(System.in);
-		
-		System.out.println("게임을 시작하시겠습니까?(y/n)");
-		String start = scanner.nextLine();
-		
-		if(start.equals("y")) {
-			user();
-		} else if(start.equals("n")) {
-			System.out.println("게임을 종료합니다...");
-		} else {
-			System.out.println("y 또는 n으로만 대답해주십시요.");
-			play();
-		}
-		
-		scanner.close();
 	}
 	
 	public static String computer() {
@@ -120,12 +100,10 @@ public class mainClass {
 
 	}
 	
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		
-		while(true) {			
+	public static void main(String[] args) {		
+		while(true) {				
 			System.out.println("게임을 시작하시겠습니까? (y/n)");
-			String start = scanner.nextLine();	
+			String start = scanner.next();	
 			
 			if(start.equals("y")) {
 				run();
@@ -134,11 +112,9 @@ public class mainClass {
 			} else {
 				System.out.println("다시 입력해주세요...");
 			}
-		}
-		scanner.close();
-		
+		}		
 		System.out.println("게임을 종료합니다...");
 		
-
+		scanner.close();
 	}
 }
