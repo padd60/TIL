@@ -65,7 +65,7 @@ public class mainClass {
 			
 			String cn = computer();
 			
-			System.out.println("정답은: " + cn);
+			while(true) {
 			
 			String un = user();
 			
@@ -91,13 +91,15 @@ public class mainClass {
 					
 				}
 			}
-			
-			if(strike == 3) {
-				System.out.println("정답입니다.");
-			}else {
-				System.out.println(ball + "볼 " + strike + "스트라이크입니다.");
-			}
+					
+				if(strike == 3) {
+					System.out.println("정답입니다.");
+					break;
+				}else {
+					System.out.println(ball + "볼 " + strike + "스트라이크입니다.");
+				}
 
+			}
 	}
 	
 	public static void main(String[] args) {		
