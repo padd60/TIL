@@ -39,6 +39,7 @@ public class ToolBarEx extends JFrame{
 			
 		});
 		toolBar.add(btnNew);
+		btnNew.setToolTipText("NEW");
 		toolBar.add(new JButton(new ImageIcon("images/open.jpg")));
 		toolBar.addSeparator();
 		toolBar.add(new JButton(new ImageIcon("images/save.jpg")));
