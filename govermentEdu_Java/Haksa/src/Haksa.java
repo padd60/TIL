@@ -1,6 +1,11 @@
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -139,6 +144,44 @@ public class Haksa extends JFrame{
 		
 		this.btnSelect = new JButton("목록");
 		this.add(btnSelect);
+		this.btnSelect.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try { 
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampledb", "root","58545256");
+					System.out.println("연결 성공");
+					
+					Statement stmt = conn.createStatement();
+					
+					//insert
+					//stmt.executeUpdate("insert into student values('1234567', '왕건', '국문학과')");
+					
+					//update
+					//stmt.executeUpdate("update student set name='홍길동' where id = '1234567'");
+					
+					//delete
+					//stmt.executeUpdate("delete from student where id = '1234567'");
+					
+					ResultSet rs = stmt.executeQuery("select * from student order by name");
+					while(rs.next()) {
+						System.out.println(rs.getString("id")); 
+						System.out.println(rs.getString("name")); 
+						System.out.println(rs.getString("dept"));
+					}
+					rs.close();
+					stmt.close();
+					conn.close();
+				} catch (ClassNotFoundException e1) { e1.printStackTrace();
+				} catch (SQLException e1) {
+					System.out.println("연결 실패");
+					e1.printStackTrace();
+				}
+				
+			}
+			
+		});
 
 		this.btnUpdate = new JButton("수정");
 		this.add(btnUpdate);
