@@ -74,7 +74,7 @@ class LoginDialog extends JDialog{
 	}
 }
 
-public class Haksa extends JFrame{
+public class Haksa2 extends JFrame{
 	JTextField txtId = null;
 	JTextField txtName = null;
 	JTextField txtDepartment = null;
@@ -95,7 +95,9 @@ public class Haksa extends JFrame{
 	DefaultTableModel model=null; // 테이블의 데이터
 	JTable table=null;
 	
-	public Haksa() {
+
+	
+	public Haksa2() {
 		this.setTitle("학사관리프로그램");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -134,15 +136,17 @@ public class Haksa extends JFrame{
 						
 //						taList.append(rs.getString("id") + '\t' + rs.getString("name") + '\t' + rs.getString("dept") + '\n');
 						
-						String [] row = new String[3];
+						String [] row = new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 						
 						txtId.setText(rs.getString("id"));
 						txtName.setText(rs.getString("name"));
 						txtDepartment.setText(rs.getString("dept"));
+						txtAddress.setText(rs.getString("address"));
 						}
 					rs.close();
 					stmt.close();
@@ -169,7 +173,7 @@ public class Haksa extends JFrame{
 		this.txtAddress = new JTextField(22);
 		this.add(txtAddress);
 		
-		String[] colname= {"학번", "이름", "학과"};
+		String[] colname= {"학번", "이름", "학과", "주소"};
 		this.model=new DefaultTableModel(colname,0);
 		this.table=new JTable(model); // model과 table 바인딩
 		table.setPreferredScrollableViewportSize(new Dimension(300,250)); //table 크기
@@ -185,7 +189,8 @@ public class Haksa extends JFrame{
 				model=(DefaultTableModel)table.getModel();
 				txtId.setText((String)model.getValueAt(table.getSelectedRow(), 0)); // 학번
 				txtName.setText((String)model.getValueAt(table.getSelectedRow(), 1)); // 이름
-				txtDepartment.setText((String)model.getValueAt(table.getSelectedRow(), 2)); // 학
+				txtDepartment.setText((String)model.getValueAt(table.getSelectedRow(), 2)); // 학과
+				txtAddress.setText((String)model.getValueAt(table.getSelectedRow(), 3)); // 주소
 			} 
 
 			@Override
@@ -217,7 +222,7 @@ public class Haksa extends JFrame{
 					Statement stmt = conn.createStatement();
 					
 					//insert
-					stmt.executeUpdate("insert into student values('"+ txtId.getText() +"', '"+ txtName.getText() +"', '"+ txtDepartment.getText() +"')");
+					stmt.executeUpdate("insert into student values('"+ txtId.getText() +"', '"+ txtName.getText() +"', '"+ txtDepartment.getText() + "', '" + txtAddress.getText() + "')");
 					
 					//update
 					//stmt.executeUpdate("update student set name='홍길동' where id = '1234567'");
@@ -236,10 +241,11 @@ public class Haksa extends JFrame{
 						
 //						taList.append(rs.getString("id") + '\t' + rs.getString("name") + '\t' + rs.getString("dept") + '\n');
 						
-						String [] row = new String[3];
+						String [] row = new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 					}
 					rs.close();
@@ -251,7 +257,7 @@ public class Haksa extends JFrame{
 					e1.printStackTrace();
 				}
 				
-				JTextField [] check = {txtId, txtName, txtDepartment};
+				JTextField [] check = {txtId, txtName, txtDepartment, txtAddress};
 				boolean flag = false;
 				
 				for(int i = 0; i < check.length; i++) {
@@ -299,10 +305,11 @@ public class Haksa extends JFrame{
 //						System.out.println(rs.getString("dept"));						
 //						taList.append(rs.getString("id") + '\t' + rs.getString("name") + '\t' + rs.getString("dept") + '\n');
 						
-						String [] row = new String[3];
+						String [] row = new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 						
 					}
@@ -333,7 +340,7 @@ public class Haksa extends JFrame{
 					Statement stmt = conn.createStatement();
 					
 					//update
-					stmt.executeUpdate("update student set name='"+ txtName.getText() +"', dept='"+ txtDepartment.getText() +"' where id = '"+ txtId.getText() +"'");
+					stmt.executeUpdate("update student set name='"+ txtName.getText() +"', dept='"+ txtDepartment.getText() + "', address='"+ txtAddress.getText() +"' where id = '"+ txtId.getText() +"'");
 					
 					//delete
 					//stmt.executeUpdate("delete from student where id = '1234567'");
@@ -348,10 +355,11 @@ public class Haksa extends JFrame{
 						
 //						taList.append(rs.getString("id") + '\t' + rs.getString("name") + '\t' + rs.getString("dept") + '\n');
 					
-						String [] row = new String[3];
+						String [] row = new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 						
 					}
@@ -397,10 +405,11 @@ public class Haksa extends JFrame{
 							
 //							taList.append(rs.getString("id") + '\t' + rs.getString("name") + '\t' + rs.getString("dept") + '\n');
 						
-							String [] row = new String[3];
+							String [] row = new String[4];
 							row[0]=rs.getString("id");
 							row[1]=rs.getString("name");
 							row[2]=rs.getString("dept");
+							row[3]=rs.getString("address");
 							model.addRow(row);
 						
 						
@@ -408,6 +417,7 @@ public class Haksa extends JFrame{
 						txtId.setText("");
 						txtName.setText("");
 						txtDepartment.setText("");
+						txtAddress.setText("");
 						rs.close();
 						stmt.close();
 						conn.close();
@@ -429,24 +439,35 @@ public class Haksa extends JFrame{
 	}
 	
 	private void createMenu() {
+		//menu
 		JMenuBar mb = new JMenuBar();
-		JMenu Menu = new JMenu("Menu");
-		JMenuItem openItem = new JMenuItem("Login");
+		JMenu menu1 = new JMenu("회원정보");		
+		JMenu menu2 = new JMenu("학생관리");
+		JMenu menu3 = new JMenu("도서관리");
+		JMenuItem openLogin = new JMenuItem("Login");
+		JMenuItem miStudent = new JMenuItem("학생정보");
+		JMenuItem miBookRent = new JMenuItem("도서대출");
 		
-		openItem.addActionListener(new ActionListener() {
+		openLogin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				login.setVisible(true);
 			}
 		
 		});
-		Menu.add(openItem);
-		mb.add(Menu);
+		menu1.add(openLogin);
+		menu2.add(miStudent);
+		menu3.add(miBookRent);
+		
+		mb.add(menu1);
+		mb.add(menu2);
+		mb.add(menu3);
+		
 		setJMenuBar(mb);
 	}
 	
 	public static void main(String[] args) {
-		new Haksa();
+		new Haksa2();
 	}
 
 }
