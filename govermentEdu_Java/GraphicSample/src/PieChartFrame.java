@@ -50,7 +50,7 @@ public class PieChartFrame extends JFrame {
 		
 		private class MyActionListener implements ActionListener {
 			@Override
-			public void actionPerformed(ActionEvent e) { // <Enter> Ű ó��
+			public void actionPerformed(ActionEvent e) { 
 				JTextField t = (JTextField)e.getSource();
 				int n;
 				try {
