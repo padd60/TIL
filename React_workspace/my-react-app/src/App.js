@@ -22,4 +22,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; // 밖에서 접근하기 위해서 적는 코드 자바의 public과 비슷

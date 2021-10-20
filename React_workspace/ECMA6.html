@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECMAScript6</title>
+    <script>
+      // 클래스 생성 및 인스턴스 생성
+      class Car {
+        constructor(name) {
+          this.brand = name;
+        }
+        present() {
+          return 'I have a ' + this.brand;
+        }
+      }
+
+      myCar = new Car('Ford');
+      document.write(myCar.present());
+
+      // 클래스 상속
+      class Model extends Car {
+        constructor(name, mod) {
+          super(name);
+          this.model = mod;
+        }
+
+        show() {
+          return this.present() + ', it is a ' + this.model;
+        }
+      }
+      newcar = new Model('Ford', 'Mustang');
+      document.write(newcar.show());
+
+      // 변수
+      let a = 10;
+      a = 20;
+      console.log(a);
+
+      const b = 30;
+      // b = 40; 에러 발생 const 상수로 수정 불가능
+
+      // map은 for문 대신 사용하고 배열을 리턴함 = 반환결과가 배열임
+      const myArray = ['apple', 'banana', 'orange'];
+      const myList = myArray.map((item) => item + '과일');
+      console.log(myList);
+
+      // forEach도 for문 대신 사용하나 반환값이 배열의 개별 요소이기 때문에 사용빈도가 떨어짐
+      myArray.forEach((item) => console.log(item + '과일'));
+      // 반환값이 배열이 아니기때문에 변수에 담아 사용하지 않아도 출력가능함
+    </script>
+  </head>
+  <body>
+    <p id="demo"></p>
+
+    <script>
+      // 애로우 함수 (람다식)
+      hello = (val) => 'Hello' + val;
+      // hello = function(val) { return 'Hello' + val; } 과 같은 코드임
+      // hello = val => 'Hello' + val; 파라미터의 괄호는 생략해도 무방함
+      document.getElementById('demo').innerHTML = hello('World');
+    </script>
+  </body>
+</html>
