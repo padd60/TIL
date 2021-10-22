@@ -18,9 +18,21 @@ class PhoneForm extends Component {
     });
   };
 
+  handleSumit = (e) => {
+    // 페이지 리로딩 방지
+    e.preventDefault();
+    // 상태값을 onCreate 를 통하여 부모에게 전달
+    this.props.onCreate(this.state);
+    // 상태 초기화
+    this.setState({
+      name: '',
+      phone: '',
+    });
+  };
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSumit}>
         <input
           placeholder="이름"
           value={this.state.name}
@@ -33,6 +45,7 @@ class PhoneForm extends Component {
           onChange={this.handleChange}
           name="phone" // handleChange 메서드에서 e.target.name에 의해 불러지는 값
         ></input>
+        <button type="submit">등록</button>
         <div>
           {this.state.name} {this.state.phone}
         </div>
