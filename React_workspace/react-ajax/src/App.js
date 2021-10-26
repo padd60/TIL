@@ -1,7 +1,7 @@
-import AjaxTest3 from './AjaxTest3';
+import AjaxTest4 from './AjaxTest4';
 import './App.css';
 
 function App() {
-  return <AjaxTest3 />;
+  return <AjaxTest4 />;
 }
 export default App;
