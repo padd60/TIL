@@ -88,12 +88,21 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.container:hover .checkmark {
   background-color: #ccc;
 }
 
+#allCheck.active .checkmark{
+  background-color: #2196F3;
+}
+
+#allCheck.active .checkmark:after{
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+}
+
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.checkBoxes input.active+.checkmark {
   background-color: #2196F3;
 }
 
@@ -109,7 +118,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.container input.active+.checkmark:after {
   display: block;
   border: solid #fff;
   border-width: 0 3px 3px 0;
@@ -129,14 +138,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 </style>
-<title>Insert title here</title>
+<title>COUPANG_LOGIN</title>
 </head>
 <body>
 <div style="width: 460px; margin: 0 auto;">
-<form method="post" action="createAccount.jsp" >
-  <div style="text-align: center;">
-	<c:url value="images/coupang.png" var="logo"></c:url>
-  	<img alt="logo" src="${logo}" width="100%" >
+<form method="post" action="#" >
+  <div style="margin: 50px auto 10px; width: 200px;">
+  	<img alt="logo" src="images/logo-coupang.png" width="100%" >
   </div>
   <h4>회원정보를 입력해주세요</h4>
   <div class="input-container">
@@ -165,12 +173,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
   </div>
   <hr>
   <h4>쿠팡 서비스약관에 동의해주세요</h4>
-  <label class="container"><b>모두 동의합니다.</b>
-  <input type="checkbox">
+  <label class="container" id="allCheck"><b>모두 동의합니다.</b>
   <span class="checkmark"></span>
   </label>
   <p style="margin-left: 35px; font-size: 12px; color: #666;">동의에는 필수 및 선택 목적(광고성 정보 수신 포함)에 대한 동의가 포함되어 있으며, 선택 목적의 동의를 거부하시는 경우에도 서비스 이용이 가능합니다.</p>
-  <div style="padding: 20px 10px; margin: 20px auto; border: 1px solid #ccc">
+  <div class="checkBoxes" style="padding: 20px 10px; margin: 20px auto; border: 1px solid #ccc">
   <label class="container" style="font-size: 14px">[필수] 만 14세 이상입니다
   <input type="checkbox">
   <span class="checkmark"></span>
@@ -213,10 +220,62 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <span class="checkmark"></span>
   </label>
   </div>
+  
   </div>
   <button type="submit" class="btn" style="font-size: 18px;"><b>동의하고 가입하기</b></button>
   <p style="color: #666; font-size: 10px; text-align: center;">©Coupang Corp. All rights reserved.</p>
 </form>
+<script type="text/javascript">
+	let flag = false;
+	let allCheck = document.querySelector("#allCheck")
+	let checkBox = document.querySelectorAll(".checkBoxes input");
+	
+	allCheck.addEventListener("click", ()=>{
+		let active = allCheck.getAttribute("class");
+		if(active == "container active"){			
+			allCheck.setAttribute("class", "container");
+		}else{
+			allCheck.setAttribute("class", "container active");
+		}
+	});
+	
+	for(let i = 0; i < checkBox.length; i++){
+		checkBox[i].addEventListener("click", (e)=>{
+			let target = e.target
+			let active = target.getAttribute("class");
+			
+			if(active == "active"){			
+				target.removeAttribute("class");
+			}else{
+				target.setAttribute("class", "active");
+			}
+		})
+	}
+	
+	allCheck.addEventListener("click", (e)=>{	
+		if(!flag){
+			for(let i = 0; i < checkBox.length; i++){
+				checkBox[i].setAttribute("class", "active")
+			}
+			for(let i = 0; i < checkBox.length; i++){
+				checkBox[i].setAttribute("checked", "true");
+			}
+			flag = true;
+			
+		}else{
+			for(let i = 0; i < checkBox.length; i++){
+				checkBox[i].removeAttribute("class");
+			}
+			for(let i = 0; i < checkBox.length; i++){
+				checkBox[i].removeAttribute("checked");
+			}
+			flag = false;
+		}
+		console.log(flag);
+	})
+	
+	
+</script>
 </div>
 </body>
 </html>
