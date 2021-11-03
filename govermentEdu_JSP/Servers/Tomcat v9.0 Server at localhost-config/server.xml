@@ -163,12 +163,9 @@
       <Context docBase="EX08" path="/EX08" reloadable="true" source="org.eclipse.jst.jee.server:EX08"/>
       <Context docBase="CoupangUserAccount" path="/CoupangUserAccount" reloadable="true" source="org.eclipse.jst.jee.server:CoupangUserAccount"/>
       <Context docBase="EX09" path="/EX09" reloadable="true" source="org.eclipse.jst.jee.server:EX09">
-      	  <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
-               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-               username="root" password="58545256" driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://localhost:3306/SCOTT"/>
+      	  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/myDB" password="58545256" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/SCOTT" username="root"/>
       </Context>
-      </Host>
+      <Context docBase="EX10" path="/EX10" reloadable="true" source="org.eclipse.jst.jee.server:EX10"/></Host>
     </Engine>
   </Service>
 </Server>
