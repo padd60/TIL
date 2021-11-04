@@ -165,7 +165,10 @@
       <Context docBase="EX09" path="/EX09" reloadable="true" source="org.eclipse.jst.jee.server:EX09">
       	  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/myDB" password="58545256" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/SCOTT" username="root"/>
       </Context>
-      <Context docBase="EX10" path="/EX10" reloadable="true" source="org.eclipse.jst.jee.server:EX10"/></Host>
+      <Context docBase="EX10" path="/EX10" reloadable="true" source="org.eclipse.jst.jee.server:EX10">
+      	  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/myDB" password="58545256" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/SCOTT" username="root"/>
+      </Context>
+      </Host>
     </Engine>
   </Service>
 </Server>
