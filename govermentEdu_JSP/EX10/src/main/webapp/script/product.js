@@ -16,3 +16,12 @@ function productCheck(){
 	}
 	return true;
 }
+
+function deleteCheck(){
+	if (confirm("정말로 삭제하시겠습니까?")) {
+	  console.log("삭제");
+	  return true;
+	}
+	console.log("삭제취소");
+	return false;
+}
