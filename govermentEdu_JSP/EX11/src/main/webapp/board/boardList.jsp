@@ -33,6 +33,8 @@
 	</tr>
 	</c:forEach>
 </table>
+<hr>
+<jsp:include page="/board/paging.jsp"></jsp:include>
 </div>
 </body>
 </html>
