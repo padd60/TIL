@@ -10,6 +10,9 @@ import com.saeyan.controller.action.BoardUpdateFormAction;
 import com.saeyan.controller.action.BoardViewAction;
 import com.saeyan.controller.action.BoardWriteAction;
 import com.saeyan.controller.action.BoardWriteFormAction;
+import com.saeyan.controller.action.ReplyDeleteAction;
+import com.saeyan.controller.action.ReplyUpdateAction;
+import com.saeyan.controller.action.ReplyWriteAction;
 
 public class ActionFactory {
 	private ActionFactory() {
@@ -46,6 +49,12 @@ public class ActionFactory {
 			action = new BoardUpdateAction();
 		} else if(command.equals("board_delete")) {
 			action = new BoardDeleteAction();
+		} else if(command.equals("reply_write")) {
+			action = new ReplyWriteAction();
+		} else if(command.equals("reply_update")) {
+			action = new ReplyUpdateAction();
+		} else if(command.equals("reply_delete")) {
+			action = new ReplyDeleteAction();
 		}
 		
 		return action;

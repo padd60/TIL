@@ -34,3 +34,40 @@ function passCheck(){
 	}
 	return true;
 }
+
+function replyCheck(){
+	if(document.frm2.name.value.length == 0){
+		alert("작성자를 입력하세요.")
+		document.frm2.name.focus();
+		return false;
+	}
+	if(document.frm2.password.value.length == 0){
+		alert("비밀번호를 입력하세요.")
+		document.frm2.password.focus();
+		return false;
+	}
+	if(document.frm2.content.value.length == 0){
+		alert("내용을 입력하세요.")
+		document.frm2.content.focus();
+		return false;
+	}
+	return true;
+}
+
+function passwordCheck1(){
+	if(document.frm3.password.value.length == 0){
+		alert("비밀번호를 입력하세요.")
+		document.frm3.password.focus();
+		return false;
+	}
+	return true;
+}
+
+function passwordCheck2(){
+	if(document.frm4.password.value.length == 0){
+		alert("비밀번호를 입력하세요.")
+		document.frm4.password.focus();
+		return false;
+	}
+	return true;
+}

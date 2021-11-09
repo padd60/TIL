@@ -44,4 +44,14 @@ public class DBManager {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void close2(Connection conn, Statement stmt, Statement stmt2) {
+		try {
+			stmt2.close();
+			stmt.close();
+			conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
