@@ -24,8 +24,8 @@ public class BoardDAO {
 	}
 	
 	public List<BoardVO> selectAllBoards(int pageno){
-//		String sql = "select * from board where num >= ? order by num desc limit 10";
-		String sql = "select * from (select *, @num:=@num+1 as rownum from board, (select @num:=0) as r order by num desc) as a where rownum >=? limit 10";
+		String sql = "select * from board order by num desc limit ?,10";
+//		String sql = "select * from (select *, @num:=@num+1 as rownum from board, (select @num:=0) as r order by num desc) as a where rownum >=? limit 10";
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		Connection conn = null;
 		PreparedStatement pstmt=null;
@@ -34,7 +34,11 @@ public class BoardDAO {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, (pageno-1)*10+1);
+			if(pageno == 1) {
+				pstmt.setInt(1, (pageno-1));
+			} else {
+				pstmt.setInt(1, (pageno-1)*10);				
+			}
 			
 			rs = pstmt.executeQuery();
 			
@@ -199,21 +203,16 @@ public class BoardDAO {
 	
 	public void deleteBoard(String num) {
 		String sql = "delete from board where num=?";
-		String sql2 = "alter table board auto_increment = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		PreparedStatement pstmt2 = null;
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt2 = conn.prepareStatement(sql2);
 			
 			pstmt.setString(1, num);
-			pstmt2.setInt(1, Integer.parseInt(num));
 			
 			pstmt.executeUpdate();
-			pstmt2.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -327,21 +326,16 @@ public class BoardDAO {
 	//댓글 삭제 delete
 	public void deleteReply(String no) {
 		String sql = "delete from reply where no=?";
-//		String sql2 = "alter table reply auto_increment = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-//		PreparedStatement pstmt2 = null;
 		try {
 			conn = DBManager.getConnection();
 			pstmt = conn.prepareStatement(sql);
-//			pstmt2 = conn.prepareStatement(sql2);
 			
 			pstmt.setString(1, no);
-//			pstmt2.setInt(1, Integer.parseInt(no));
 			
 			pstmt.executeUpdate();
-//			pstmt2.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

@@ -31,9 +31,9 @@ public class ReplyDeleteAction implements Action{
 			
 			bDao.deleteReply(no);
 			
-			url = "BoardServlet?command=board_view&num="+ pNum +"&check=true";
+			url = "BoardServlet?command=board_view&num="+ pNum +"&del=true";
 		} else {
-			url = "BoardServlet?command=board_view&num="+ pNum +"&check=false";
+			url = "BoardServlet?command=board_view&num="+ pNum +"&del=false";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);

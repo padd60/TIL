@@ -1,3 +1,41 @@
+window.onload = function(){
+	let check = document.getElementById("check");
+	console.log(check);
+	if(check.getAttribute("value") == "false"){
+		alert("비밀번호가 틀렸습니다.")
+	} else if(check.getAttribute("value") == "true"){
+		alert("수정되었습니다.")
+	}
+	
+	let del = document.getElementById("del");
+	console.log(del);
+	if(del.getAttribute("value") == "false"){
+		alert("비밀번호가 틀렸습니다.")
+	} else if(del.getAttribute("value") == "true"){
+		alert("삭제되었습니다.")
+	}
+	
+	let replyUpdate = document.querySelectorAll(".replyUpdate");
+	for(let i = 0; i < replyUpdate.length; i++){
+		replyUpdate[i].addEventListener("click", function(e){
+			let target = e.target;
+			let value = target.getAttribute("value");
+			let re_update = document.getElementById("re_update");
+			re_update.setAttribute("value", value);
+		})
+	}
+	
+	let replyDelete = document.querySelectorAll(".replyDelete");
+	for(let i = 0; i < replyDelete.length; i++){
+		replyDelete[i].addEventListener("click", function(e){
+			let target = e.target;
+			let value = target.getAttribute("value");
+			let re_delete = document.getElementById("re_delete");
+			re_delete.setAttribute("value", value);
+		})
+	}
+}
+
 function boardCheck(){
 	if(document.frm.name.value.length == 0){
 		alert("작성자를 입력하세요.")
@@ -71,3 +109,4 @@ function passwordCheck2(){
 	}
 	return true;
 }
+

@@ -14,6 +14,7 @@
 </head>
 <body>
 <input id="check" type="hidden" value="${param.check}">
+<input id="del" type="hidden" value="${param.del}">
 <div id="wrap" align="center">
 <h1> 게시글 상세보기 </h1>
 	<table>
@@ -107,7 +108,7 @@
 	<form action="BoardServlet" name="frm3" method="post">
     <input type="hidden" name="pNum" value="${board.num}">
    	<input type="hidden" name="command" value="reply_update">
-	<input id="re_update" type="hidden" name="no">
+	<input id="re_update" type="hidden" name="no" value="">
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">댓글 수정</h4>
@@ -160,34 +161,5 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-let check = document.getElementById("check");
-console.log(check);
-if(check.getAttribute("value") == "false"){
-	alert("비밀번호가 틀렸습니다.")
-} else if(check.getAttribute("value") == "true"){
-	alert("수정되었습니다.")
-}
-
-let replyUpdate = document.querySelectorAll(".replyUpdate");
-for(let i = 0; i < replyUpdate.length; i++){
-	replyUpdate[i].addEventListener("click", function(e){
-		let target = e.target;
-		let value = target.getAttribute("value");
-		let re_update = document.getElementById("re_update");
-		re_update.setAttribute("value", value);
-	})
-}
-
-let replyDelete = document.querySelectorAll(".replyDelete");
-for(let i = 0; i < replyDelete.length; i++){
-	replyDelete[i].addEventListener("click", function(e){
-		let target = e.target;
-		let value = target.getAttribute("value");
-		let re_delete = document.getElementById("re_delete");
-		re_delete.setAttribute("value", value);
-	})
-}
-</script>
 </body>
 </html>
