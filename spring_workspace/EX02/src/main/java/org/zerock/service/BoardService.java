@@ -17,5 +17,9 @@ public interface BoardService {
 	// 글목록 
 //	public List<BoardVO> getList();
 	
+	// 범위지정 글목록
 	public List<BoardVO> getList(Criteria cri);
+	
+	// 전체 쪽수
+	public int getTotal(Criteria cri);
 }

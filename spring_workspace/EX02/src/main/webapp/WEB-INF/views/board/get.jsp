@@ -33,12 +33,31 @@
 									<label>Writer</label><input class="form-control" name="writer" value='<c:out value="${board.writer}"/>' readonly>
 								</div>
 								<button data-oper="modify" class="btn btn-primary" onclick="location.href='/board/modify?bno=<c:out value="${board.bno}"/>'">수정</button>		
-								<button data-oper="list" class="btn btn-info" onclick="location.href='/board/list'">목록</button>		
+								<button data-oper="list" class="btn btn-info">목록</button>		
 								
-								<%-- <form id="openForm" action="/board/modify" method="get">
+								<form id="operForm" action="/board/modify" method="get">
 									<input type="hidden" id="bno" name="bno" value='<c:out value="${board.bno}"/>'>
-								</form>	 --%>					
+                            		<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+                            		<input type="hidden" name="pageNum" value='<c:out value="${cri.amount}"/>'>								
+								</form>
                             <!-- /.table-responsive -->
+                            <script type="text/javascript">
+                            	$(document).ready(function(){
+                            		
+                            		let operForm = $("#operForm");
+                            		
+                            		$("button[data-oper='modify']").on("click", (e)=>{
+                            			operForm.attr("action", "/board/modify").submit();
+                            		});
+                            		
+                            		$("button[data-oper='list']").on("click", (e)=>{
+                            			operForm.find("#bno").remove();
+                            			operForm.attr("action", "/board/list");
+                            			operForm.submit();
+                            		});
+                            		
+                            	});
+                            </script>
                         </div>
                         <!-- /.panel-body -->
                     </div>

@@ -41,7 +41,10 @@
 								</div>
 								<button data-oper="modify" class="btn btn-primary">수정</button>		
 								<button data-oper="remove" class="btn btn-danger">삭제</button>	
-								<button data-oper="list" class="btn btn-info">목록</button>		
+								<button data-oper="list" class="btn btn-info">목록</button>	
+								<!-- 추가부분 -->
+								<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }"/>'>
+								<input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
 							</form>									
                             <!-- /.table-responsive -->
                         </div>
@@ -61,8 +64,15 @@
                         			formObj.attr("action", "/board/remove");
                         		} else if(operation === 'list'){
                         			// 목록으로 이동
-                        			self.location = "/board/list";
-                        			return;
+									formObj.attr("action", "/board/list").attr("method", "get");
+                        			// hidden tag 복제
+                        			let pageNumTag = $("input[name='pageNum']").clone();
+                        			let amountTag = $("input[name='amount']").clone();
+                        			formObj.empty();
+                        			
+                        			// 다시 hidden tag 추가
+                        			formObj.append(pageNumTag);
+                        			formObj.append(amountTag);
                         		}
                         		formObj.submit();
                         	})
