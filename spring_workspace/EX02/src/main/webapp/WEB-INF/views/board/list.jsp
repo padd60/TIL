@@ -18,6 +18,16 @@
                         <div class="panel-heading">
                             글목록
                             <button id="regBtn" type="button" class="btn btn-primary btn-xs pull-right">글등록</button>
+                            <div class="dropdown pull-right" style="margin: 0 10px;">
+							  <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">페이지 당 글갯수(기본 10개씩)
+							  <span class="caret"></span></button>
+							  <ul class="dropdown-menu">
+							    <li><a href="list?pageNum=1&amount=5&type=&keyword=">5개씩</a></li>
+							    <li><a href="list?pageNum=1&amount=10&type=&keyword=">10개씩</a></li>
+							    <li><a href="list?pageNum=1&amount=15&type=&keyword=">15개씩</a></li>
+							    <li><a href="list?pageNum=1&amount=20&type=&keyword=">20개씩</a></li>
+							  </ul>
+							</div>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
