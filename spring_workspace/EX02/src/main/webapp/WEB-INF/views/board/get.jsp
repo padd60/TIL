@@ -61,20 +61,13 @@
 	            		<div class="panel-body">
 	            			<ul class="chat">
 	            				<!-- start reply -->
-	            				<li class="left clearfix" data-rno='12'>
-	            					<div>
-	            						<div class="header">
-	            							<strong class="primary-font">user00</strong>
-	            							<small class="pull-right text-muted">2021-12-01 13:13</small>
-	            						</div>
-	            						<p>Good job!</p>
-	            					</div>
-	            				</li>
 	            				<!-- end reply -->
 	            			</ul>
 	            			<!-- ./ end ul -->
 	            		</div>
 	            		<!-- /.panel .chat-panel -->
+	            		<div class="panel-footer">
+	            		</div>
 	            	</div>
             	</div>
             	<!-- ./ end row -->
@@ -139,7 +132,20 @@
             		showList(1);
             		
             		function showList(page){
-            			replyService.getList({bno: bnoValue, page: page|| 1 }, function(list){
+            			console.log("show List" + page);
+            			replyService.getList({bno: bnoValue, page: page|| 1 }, 
+            		function(replyCnt, list){
+            				
+            				console.log("replyCnt : " + replyCnt);
+            				console.log("list : " + list);
+            				console.log(list);
+            				console.log(typeof page);
+            				
+            				if(page == 0){
+            					pageNum = Math.ceil(replyCnt/10);
+            					showList(pageNum);
+            					return;
+            				}
             				
             				let str="";
             				
@@ -157,6 +163,8 @@
             				}
             				
             				replyUL.html(str);
+            				
+            				showReplyPage(replyCnt);
             			});
             		} // end function
             	
@@ -190,10 +198,10 @@
             		replyService.add(reply, function(result){
             			alert(result);
             			
-            			modal.find("find").val("");
+            			modal.find("input").val("");
             			modal.modal("hide");
             			
-            			showList(1);
+            			showList(0);
             		});
             	});
             	
@@ -224,7 +232,7 @@
             		
             			alert(result);
             			modal.modal("hide");
-            			showList(1);
+            			showList(pageNum);
             			
             		})
             	});
@@ -237,10 +245,67 @@
             			
             			alert(result);
             			modal.modal("hide");
-            			showList(1);
+            			showList(pageNum);
             			
             		})
             	})
+            	
+            	let pageNum = 1;
+            	let replyPageFooter = $(".panel-footer");
+            	
+            	function showReplyPage(replyCnt){
+            		
+            		let endNum = Math.ceil(pageNum / 10.0)*10;
+            		let startNum = endNum - 9;
+            		
+            		let prev = startNum != 1;
+            		let next = false;
+            		
+            		if(endNum * 10 >= replyCnt){
+            			endNum = Math.ceil(replyCnt/10.0);
+            		}
+            		
+            		if(endNum * 10 < replyCnt){
+            			next = true;
+            		}
+            		
+            		let str = "<ul class='pagination pull-right'>";
+            		
+            		if(prev){
+            			str += "<li class='page-item'><a class='page-link' href='"+ (startNum - 1) +"'>"+이전+"</a></li>";
+            		}
+            		
+            		for(let i = startNum; i <= endNum; i++){
+            			let active = pageNum == i ? "active" : "";
+            			
+            			str += "<li class='page-item "+ active +" '><a class='page-link' href='"+ i +"'>"+ i +"</a></li>";
+            			
+            		}
+            		
+            		if(next){
+            			str += "<li class='page-item'><a class='page-link' href='"+(endNum + 1)+"'>다음</a></li>"
+            		}
+            		
+            		str += "</ul></div>";
+            		
+            		console.log(str);
+            		
+            		replyPageFooter.html(str);
+            		
+            	}
+            	
+            	replyPageFooter.on("click", "li a", function(e){
+            		e.preventDefault();
+            		
+            		let targetPageNum = $(this).attr("href");
+            		
+            		console.log("targetPageNum: " + targetPageNum);
+            		
+            		pageNum = targetPageNum;
+            		
+            		showList(pageNum);
+            	})
+            	
             </script>
             
             

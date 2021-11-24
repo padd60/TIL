@@ -20,6 +20,10 @@
 	</update>
 	
 	<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVO">
-		select rno, bno, reply, replyer, replyDate, updateDate from tbl_reply where bno=#{bno} order by rno asc
+		select rno, bno, reply, replyer, replyDate, updateDate from tbl_reply limit ${(cri.pageNum-1)*cri.amount}, #{cri.amount};
+	</select>
+	
+	<select id="getCountByBno" resultType="int">
+		select count(rno) from tbl_reply where bno = #{bno}
 	</select>
  </mapper>
