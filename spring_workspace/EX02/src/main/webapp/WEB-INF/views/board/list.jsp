@@ -47,7 +47,7 @@
                                    			<td><c:out value="${board.bno}"/></td>
                                    			<td>
                                    			<a class='move' href='<c:out value="${board.bno}"/>'>                                   			
-                                   				<c:out value="${board.title}"/>
+                                   				<c:out value="${board.title}"/><b class="replyCnt">[ <c:out value="${board.replyCnt}"></c:out> ]</b>
                                    			</a>
                                    			</td>
                                    			<td><c:out value="${board.writer}"/></td>
@@ -158,6 +158,7 @@
                             			
                             			console.log('click');
                             			
+                            			actionForm.attr("action", "/board/list");
                             			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
                             			actionForm.submit();
                             		})
@@ -189,7 +190,17 @@
                             			searchForm.find("input[name='pageNum']").val("1");
                             			
                             			searchForm.submit();
-                            		})
+                            		});
+                            		
+	                          		let replyCnt = $(".replyCnt");
+	                          		
+	                          		console.log(replyCnt);
+	                          		
+	                          		replyCnt.each((index, item)=>{
+	                          			console.log($(item).html());
+	                          
+	                          			$(item).html() == "[ 0 ]"? $(item).html("") : $(item).html()
+	                          		})
                             	})
                             </script>
                         </div>
