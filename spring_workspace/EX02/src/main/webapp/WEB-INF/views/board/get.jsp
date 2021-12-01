@@ -5,6 +5,65 @@
     
 <%@ include file="../includes/header.jsp" %>
 
+			<div class="bigPictureWrapper">
+				<div class="bigPicture">
+				</div>
+			</div>
+			<style>
+			
+				.uploadResult{
+					width : 100%;
+					background-color : gray;
+				}
+				
+				.uploadResult ul{
+					display : flex;
+					flex-flow : row;
+					justify-content: center;
+					align-items: center;
+				}
+				
+				.uploadResult ul li{
+					list-style: none;
+					padding: 10px;
+			
+				}
+				
+				.uploadResult ul li a{
+					display: flex;
+					flex-flow: column;
+					align-items: center;
+				}
+				
+				.uploadResult ul li img{
+					width: 100px;
+				}
+				
+				.bigPictureWrapper{
+					position: absolute;
+					display: none;
+					justify-content: center;
+					align-items: center;
+					top: 0%;
+					width: 100%;
+					height: 100%;
+					background-color: gray;
+					z-index: 100;
+					background: rgba(255,255,255,0.5);
+				}
+				
+				.bigPicture{
+					position: relative;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				
+				.bigPicture img{
+					width: 600px;
+				}
+			</style>
+
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Board Read Page</h1>
@@ -48,6 +107,35 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+            
+			<!-- 새로 추가한 부분 -->
+            <div class="row">
+            	<div class="col-lg-12">
+            		<div class="panel panel-default">
+	            		<div class="panel-heading">File Attach</div>
+	            		<!-- /. panel-heading -->
+	            		
+	            		<div class="panel-body">
+		            		<div class="form-group uploadDiv">
+		            			<input type="file" name="uploadFile" multiple>
+		            		</div>
+	            		
+		            		<div class="uploadResult">
+		            			<ul>
+		            			
+		            			</ul>
+		            		</div>
+	            		
+	            		</div>
+	            		<!-- end panel body -->
+	            		
+            		</div>
+            		<!-- end panel-default -->
+            	</div>
+            	<!-- end col -->
+            </div>
+            <!-- end row -->
+            
             <div class="row">
             	<div class="col-lg-12">
             	<!-- /.panel -->
@@ -306,7 +394,75 @@
             		showList(pageNum);
             	})
             	
+            	
+            	$(".uploadResult").on("click", "li", function(e){
+            		console.log("view image");
+            		
+            		let liObj = $(this);
+            		
+            		let path = encodeURIComponent(liObj.data("path")+"/"+liObj.data("uuid")+"_"+liObj.data("filename"));
+            		
+            		if(liObj.data("type")){
+            			showImage(path.replace(new RegExp(/\\/g),"/"));
+            		}else{
+            			self.location = "/download?fileName="+path;
+            		}
+            		
+            	});
+            	
+            	function showImage(fileCallPath){
+            		alert(fileCallPath);
+            		
+            		$(".bigPictureWrapper").css("display", "flex").show();
+            		
+            		$(".bigPicture")
+            		.html("<img src='/display?fileName="+fileCallPath+"'>")
+            		.animate({width:'100%', height: '100%'}, 1000);
+            	}
+            	
+            	$(".bigPictureWrapper").on("click", function(e){
+            		$(".bigPicture").animate({width:'0%', height: '0%'}, 1000);
+            		setTimeout(function(){
+                		$('.bigPictureWrapper').hide();
+                	}, 1000);
+            	});
             </script>
+            <script type="text/javascript">
+				$(document).ready(function(){
+					(function(){
+						
+						let bno = '<c:out value="${board.bno}"/>';
+						
+						$.getJSON("/board/getAttachList", {bno: bno}, function(arr){
+							console.log(arr);
+							
+							let str = "";
+							
+							$(arr).each(function(i, attach){
+								
+								//image type
+								if(attach.fileType){
+									let fileCallPath = encodeURIComponent(attach.uploadPath+"/s_"+attach.uuid+"_"+attach.fileName);
+									
+									str += "<li data-path='"+ attach.uploadPath +"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.image+"'><div>";
+									str += "<img src='/display?fileName="+ fileCallPath +"'>";
+									str += "</div>";
+									str += "</li>";
+								} else {
+									
+									str += "<li data-path='"+ attach.uploadPath +"' data-uuid='"+attach.uuid+"' data-filename='"+attach.fileName+"' data-type='"+attach.image+"'><div>";
+									str += "<span>"+attach.fileName+"</span><br/>";
+									str += "<img src='/resources/img/noun_attach.png'>";
+									str += "</div>";
+									str += "</li>";
+								}
+							});
+							
+							$(".uploadResult ul").html(str);
+						})
+					})();
+				})
+			</script>
             
             
 <%@include file="../includes/footer.jsp"%>

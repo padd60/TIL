@@ -84,7 +84,34 @@
 								<div class="form-group">
 									<label>Writer</label><input class="form-control" name="writer">
 								</div>
-								<button class="btn btn-default">등록</button>		
+								<!-- 새로 추가한 부분 -->
+					            <div class="row">
+					            	<div class="col-lg-12">
+					            		<div class="panel panel-default">
+						            		<div class="panel-heading">File Attach</div>
+						            		<!-- /. panel-heading -->
+						            		
+						            		<div class="panel-body">
+							            		<div class="form-group uploadDiv">
+							            			<input type="file" name="uploadFile" multiple>
+							            		</div>
+						            		
+							            		<div class="uploadResult">
+							            			<ul>
+							            			
+							            			</ul>
+							            		</div>
+						            		
+						            		</div>
+						            		<!-- end panel body -->
+						            		
+					            		</div>
+					            		<!-- end panel-default -->
+					            	</div>
+					            	<!-- end col -->
+					            </div>
+					            <!-- end row -->
+								<button type="submit" class="btn btn-default">등록</button>		
 								<button class="btn btn-default">취소</button>											
 							</form>
                             <!-- /.table-responsive -->
@@ -97,33 +124,7 @@
             </div>
             <!-- /. row -->
             
-            <!-- 새로 추가한 부분 -->
-            <div class="row">
-            	<div class="col-lg-12">
-            		<div class="panel panel-default">
-	            		<div class="panel-heading">File Attach</div>
-	            		<!-- /. panel-heading -->
-	            		
-	            		<div class="panel-body">
-		            		<div class="form-group uploadDiv">
-		            			<input type="file" name="uploadFile" multiple>
-		            		</div>
-	            		
-		            		<div class="uploadResult">
-		            			<ul>
-		            			
-		            			</ul>
-		            		</div>
-	            		
-	            		</div>
-	            		<!-- end panel body -->
-	            		
-            		</div>
-            		<!-- end panel-default -->
-            	</div>
-            	<!-- end col -->
-            </div>
-            <!-- end row -->
+
             
             <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
             <script type="text/javascript">
@@ -131,11 +132,29 @@
 				
 				let formObj = $("form[role='form']");
 				
+				
 				$("button[type='submit']").on("click", function(e){
 					
 					e.preventDefault();
 					
 					console.log("submit clicked");
+					
+					let str = "";
+					
+					$(".uploadResult ul li").each(function(i, obj){
+						let jobj = $(obj);
+						
+						console.dir(jobj);
+						
+						str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+jobj.data("filename")+"'>";
+						str += "<input type='hidden' name='attachList["+i+"].uuid' value='"+jobj.data("uuid")+"'>";
+						str += "<input type='hidden' name='attachList["+i+"].uploadPath' value='"+jobj.data("path")+"'>";
+						str += "<input type='hidden' name='attachList["+i+"].fileType' value='"+jobj.data("type")+"'>";
+					});
+					
+					
+					
+					formObj.append(str).submit();
 					
 				});
 				
@@ -206,7 +225,9 @@
 							
 							let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
 							
-							str += "<li><div>";
+							str += "<li data-path='"+ obj.uploadPath +"'";
+							str += "data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.image+"'"
+							str += "><div>";
 							str += "<span>"+ obj.fileName +"</span>";
 							str += "<button type='button' data-file='"+ fileCallPath +"' data-type='image' class='btn btn-warning btn-circle'><i class='fa fa-times'></i></button><br>";
 							str += "<img src='/display?fileName="+ fileCallPath +"'>";
@@ -218,7 +239,8 @@
 							
 							let fileLink = fileCallPath.replace(new RegExp(/\\/g), "/");
 							
-							str += "<li><div>";
+							str += "<li "
+							str += " data-path='"+ obj.uploadPath +"' data-uuid='"+obj.uuid+"' data-filename='"+obj.fileName+"' data-type='"+obj.image+"'><div>";
 							str += "<span> " + obj.fileName + "</span>";
 							str += "<button type='button' data-file='"+ fileCallPath +"' data-type='file' class='btn btn-warning btn-circle'><i class='fa fa-times'></i></button><br>";
 							str += "<img src='/resources/img/noun_attach.png'>";
