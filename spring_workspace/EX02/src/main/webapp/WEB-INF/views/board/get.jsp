@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix='sec' %>
     
 <%@ include file="../includes/header.jsp" %>
 
@@ -91,7 +92,19 @@
 								<div class="form-group">
 									<label>Writer</label><input class="form-control" name="writer" value='<c:out value="${board.writer}"/>' readonly>
 								</div>
+								
+								<sec:authentication property="principal" var="pinfo"/>
+								
+								<sec:authorize access="isAuthenticated()">
+								
+								<c:if test="${pinfo.username eq board.writer}">
+								
 								<button data-oper="modify" class="btn btn-primary" onclick="location.href='/board/modify?bno=<c:out value="${board.bno}"/>'">수정</button>		
+								
+								</c:if>
+								
+								</sec:authorize>
+								
 								<button data-oper="list" class="btn btn-info">목록</button>		
 								
 								<form id="operForm" action="/board/modify" method="get">
@@ -142,7 +155,9 @@
 	            	<div class="panel panel-default">
 	            		<div class="panel-heading">
 	            			<i class="fa fa-comments fa-fw"></i> Reply
-	            			<button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
+	            			<sec:authorize access="isAuthenticated()">	            			
+	            				<button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button>
+	            			</sec:authorize>
 	            		</div>
 	            		
 	            		<!-- /.panel-heading -->
@@ -177,7 +192,7 @@
             				</div>
             				<div class="form-group">
             					<label>Replyer</label>
-            					<input class="form-control" name="replyer" value="replyer">
+            					<input class="form-control" name="replyer" value="replyer" readonly="readonly">
             				</div>
             				<div class="form-group">
             					<label>Reply Date</label>
@@ -185,8 +200,20 @@
             				</div>            				
             			</div>
             			<div class="modal-footer">
+            			
+							<sec:authentication property="principal" var="pinfo"/>
+							
+							<sec:authorize access="isAuthenticated()">
+							
+							<c:if test="${pinfo.username eq board.writer}">
+							
             				<button id="modalModBtn" type="button" class="btn btn-warning">수정</button>
             				<button id="modalRemoveBtn" type="button" class="btn btn-danger">삭제</button>
+							
+							</c:if>
+							
+							</sec:authorize>
+							
             				<button id="modalRegisterBtn" type="button" class="btn btn-primary" data-dismiss="modal">등록</button>
             				<button id="modalCloseBtn" type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
             			</div>
@@ -265,9 +292,21 @@
             	let modalRemoveBtn = $('#modalRemoveBtn');
             	let modalRegisterBtn = $('#modalRegisterBtn');
             	
+            	let replyer = null;
+            	
+            	<sec:authorize access="isAuthenticated()">
+            	
+            		replyer = '<sec:authentication property="principal.username"/>';
+            	
+            	</sec:authorize>
+            	
+        		var csrfHeaderName="${_csrf.headerName}";
+        		var csrfTokenValue="${_csrf.token}";
+            	
             	$("#addReplyBtn").on("click", function(e){
             		
             		modal.find("input").val();
+            		modal.find("input[name='replyer']").val(replyer);
             		modalInputReplyDate.closest("div").hide();
             		modal.find("button[id !='modalCloseBtn']").hide();
             		
@@ -276,6 +315,11 @@
             		$(".modal").modal("show");
             		
             	});
+            	
+            	//Ajax spring security header
+            	$(document).ajaxSend(function(e, xhr, options){
+            		xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+            	})
             	
             	modalRegisterBtn.on("click", function(e){
             		let reply = {
@@ -313,8 +357,10 @@
             	})
             	
             	modalModBtn.on("click", function(e){
+            		
+            		let originalReplyer = modalInputReplyer.val();
             	
-            		let reply = {rno:modal.data("rno"), reply: modalInputReply.val()};
+            		let reply = {rno:modal.data("rno"), reply: modalInputReply.val(), replyer: originalReplyer};
             		
             		replyService.update(reply, function(result){
             		
@@ -329,7 +375,9 @@
             	
             		let rno = modal.data("rno");
             		
-            		replyService.remove(rno, function(result){
+            		let originalReplyer = modalInputReplyer.val();
+            		
+            		replyService.remove(rno, originalReplyer,  function(result){
             			
             			alert(result);
             			modal.modal("hide");

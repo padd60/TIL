@@ -2,13 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix='sec' %>
     
 <%@ include file="../includes/header.jsp" %>
 <style>
 
 	.uploadResult{
 		width : 100%;
+		min-height : 100px;
 		background-color : gray;
+		color : white;
 	}
 	
 	.uploadResult ul{
@@ -76,13 +79,14 @@
                         <div class="panel-body">
 							<form action="/board/register" method="post" role="form">
 								<div class="form-group">
-									<label>Title</label><input class="form-control" name="title">
+									<label>Title</label><input id="title" class="form-control" name="title">
 								</div>
 								<div class="form-group">
-									<label>Content</label><textarea rows="3" class="form-control" name="content"></textarea>
+									<label>Content</label><textarea id="content" rows="3" class="form-control" name="content"></textarea>
 								</div>
 								<div class="form-group">
-									<label>Writer</label><input class="form-control" name="writer">
+									<label>Writer</label><input class="form-control" name="writer"
+										value='<sec:authentication property="principal.username"/>' readonly="readonly">
 								</div>
 								<!-- 새로 추가한 부분 -->
 					            <div class="row">
@@ -97,6 +101,7 @@
 							            		</div>
 						            		
 							            		<div class="uploadResult">
+							            		이곳에 파일을 넣어주세요!
 							            			<ul>
 							            			
 							            			</ul>
@@ -111,8 +116,9 @@
 					            	<!-- end col -->
 					            </div>
 					            <!-- end row -->
+								<input type='hidden' name="${_csrf.parameterName}" value="${_csrf.token}">							
 								<button type="submit" class="btn btn-default">등록</button>		
-								<button class="btn btn-default">취소</button>											
+								<button data-oper="list" class="btn btn-default">취소</button>				
 							</form>
                             <!-- /.table-responsive -->
                         </div>
@@ -130,6 +136,13 @@
             <script type="text/javascript">
 			$(document).ready(function(e){
 				
+				
+				
+        		$("button[data-oper='list']").on("click", (e)=>{
+        			e.preventDefault();
+        			window.location.href="/board/list";
+        		});
+				
 				let formObj = $("form[role='form']");
 				
 				
@@ -138,6 +151,16 @@
 					e.preventDefault();
 					
 					console.log("submit clicked");
+					
+					if($("#title").val() == null || $("#title").val() == ""){
+						alert("제목을 입력해주세요!")
+						return;
+					}
+					
+					if($("#content").val() == null || $("#content").val() == ""){
+						alert("내용을 입력해주세요!")
+						return;
+					}
 					
 					let str = "";
 					
@@ -198,6 +221,9 @@
 						processData: false,
 						contentType: false,
 						data: formData,
+						beforeSend: function(xhr){
+							xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+						},
 						type: 'POST',
 						dataType: 'json',
 						success: function(result){
@@ -252,6 +278,9 @@
 					uploadUL.append(str);
 				}
 				
+        		var csrfHeaderName="${_csrf.headerName}";
+        		var csrfTokenValue="${_csrf.token}";
+        		
 				$(".uploadResult").on("click", "button", function(e){
 					
 					console.log("delete file");
@@ -264,11 +293,60 @@
 					$.ajax({
 						url: '/deleteFile',
 						data: {fileName: targetFile, type: type},
+						beforeSend: function(xhr){
+							xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+						},
 						dataType: 'text',
 						type: 'POST',
 						success: function(result){
 							alert(result);
 							targetLi.remove();
+						}
+					});
+					
+				});
+				
+				//파일 드래그시 새창으로 열리는것 방지
+				$(".uploadResult").on("dragenter dragover",function(event){
+					//기본이벤트취소.새창이 열리는 것 방지
+					event.preventDefault();
+				});
+				
+				//파일 드롭시 새창으로 열리는것 방지. 파일업로드
+				$(".uploadResult").on("drop",function(event){
+					//기본이벤트취소.새창이 열리는 것 방지
+					event.preventDefault();
+					
+					//FormData객체 생성. form태그에 대응하는 객체
+					var formData=new FormData();
+					
+					//drop했을 때 파일의 목록을 구함
+					var files=event.originalEvent.dataTransfer.files;
+
+					for(var i=0;i<files.length;i++){
+						var file=files[i];
+						console.log(file);
+						//파일확장자,size체크
+						if(!checkExtension(files[i].name,files[i].size)){
+							return; //중지
+						}
+						formData.append("uploadFile",files[i]);
+					}
+
+					$.ajax({
+						url: "/uploadAjaxAction",
+						processData: false, //QueryString(uploadAjaxAction?name=hkd)을 생성하지 않고 
+						contentType: false, //multipart/form-data형식으로 보냄
+						beforeSend: function(xhr){
+							xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+						},							
+						data: formData,  //formData전송
+						type: "POST",
+						dataType: "json",
+						success: function(result){
+							console.log(result);
+							
+							showUploadResult(result);//파일명출력								
 						}
 					});
 					

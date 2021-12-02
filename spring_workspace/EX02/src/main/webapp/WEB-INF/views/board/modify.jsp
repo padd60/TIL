@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix='sec' %>
     
 <%@ include file="../includes/header.jsp" %>
 			<div class="bigPictureWrapper">
@@ -12,7 +13,9 @@
 			
 				.uploadResult{
 					width : 100%;
+					min-height : 100px;
 					background-color : gray;
+					color : white;
 				}
 				
 				.uploadResult ul{
@@ -97,8 +100,21 @@
 								<div class="form-group">
 									<label>Update Date</label><input class="form-control" name="updateDate" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${board.updateDate}"/>' readonly>
 								</div>
+								<input type='hidden' name="${_csrf.parameterName}" value="${_csrf.token}">
+								
+								<sec:authentication property="principal" var="pinfo"/>
+								
+								<sec:authorize access="isAuthenticated()">
+								
+								<c:if test="${pinfo.username eq board.writer}">
+								
 								<button type="" data-oper="modify" class="btn btn-primary">수정</button>		
 								<button data-oper="remove" class="btn btn-danger">삭제</button>	
+								
+								</c:if>
+								
+								</sec:authorize>
+								
 								<button data-oper="list" class="btn btn-info">목록</button>	
 								<!-- 추가부분 -->
 								<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }"/>'>
@@ -117,6 +133,7 @@
 							            		</div>
 						            		
 							            		<div class="uploadResult">
+							            		이곳에 파일을 넣어주세요!
 							            			<ul>
 							            			
 							            			</ul>
@@ -274,6 +291,9 @@
 										contentType: false,
 										data: formData,
 										type: 'POST',
+										beforeSend: function(xhr){
+											xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+										},
 										dataType: 'json',
 										success: function(result){
 											console.log(result);
@@ -326,6 +346,56 @@
 									
 									uploadUL.append(str);
 								}
+								
+				        		//첨부파일업로드
+				        		var csrfHeaderName="${_csrf.headerName}";
+				        		var csrfTokenValue="${_csrf.token}";
+				        		
+								//파일 드래그시 새창으로 열리는것 방지
+								$(".uploadResult").on("dragenter dragover",function(event){
+									//기본이벤트취소.새창이 열리는 것 방지
+									event.preventDefault();
+								});
+								
+								//파일 드롭시 새창으로 열리는것 방지. 파일업로드
+								$(".uploadResult").on("drop",function(event){
+									//기본이벤트취소.새창이 열리는 것 방지
+									event.preventDefault();
+									
+									//FormData객체 생성. form태그에 대응하는 객체
+									var formData=new FormData();
+									
+									//drop했을 때 파일의 목록을 구함
+									var files=event.originalEvent.dataTransfer.files;
+
+									for(var i=0;i<files.length;i++){
+										var file=files[i];
+										console.log(file);
+										//파일확장자,size체크
+										if(!checkExtension(files[i].name,files[i].size)){
+											return; //중지
+										}
+										formData.append("uploadFile",files[i]);
+									}
+
+									$.ajax({
+										url: "/uploadAjaxAction",
+										processData: false, //QueryString(uploadAjaxAction?name=hkd)을 생성하지 않고 
+										contentType: false, //multipart/form-data형식으로 보냄
+										beforeSend: function(xhr){
+											xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+										},							
+										data: formData,  //formData전송
+										type: "POST",
+										dataType: "json",
+										success: function(result){
+											console.log(result);
+											
+											showUploadResult(result);//파일명출력								
+										}
+									});
+									
+								});
 							})
 						</script>
                         <!-- /.panel-body -->
