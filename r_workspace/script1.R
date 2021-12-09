@@ -440,3 +440,212 @@ devtools::install_github('haven-jeon/KoNLP')
 Sys.setenv("JAVA_HOME"='/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home')
 dyn.load('/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home/lib/server/libjvm.dylib')
 
+Sys.setenv("JAVA_HOME" = '/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home')
+
+
+#-------------------------------------------------------------
+#여기부터 텍스트 마이닝 및 워드 클라우드 코드
+
+library(KoNLP)
+extractNoun('이 영화 정말 재미있다')
+install.packages("memoise")
+library(dplyr)
+useNIADic()
+txt <- readLines("hiphop.txt")
+library(readxl)
+head(txt)
+install.packages("stringr")
+library(stringr)
+txt <- str_replace_all(txt, "\\W", " ")
+extractNoun("대한민국 만세")
+extractNoun("대한민국의 영토는 한반도와 그 부속도서로 한다")
+
+nouns <- extractNoun(txt)
+wordcount <- table(unlist(nouns))
+df_word <- as.data.frame(wordcount, stringsAsFactors = F)
+df_word <- rename(df_word,
+                  word = Var1,
+                  freq = Freq)
+df_word <- filter(df_word, nchar(word) >= 2)
+top_20 <- df_word %>% arrange(desc(freq)) %>% head(20)
+top_20
+
+
+install.packages("wordcloud")
+library(wordcloud)
+library(RColorBrewer)
+pal <- brewer.pal(8,"Dark2")
+set.seed(1234)
+wordcloud(words = df_word$word,
+          freq = df_word$freq,
+          min.freq = 2,
+          max.words = 200,
+          random.order = F,
+          rot.per = .1,
+          family="AppleGothic",
+          scale = c(4, 0.3), colors = pal)
+
+
+pal <- brewer.pal(9,"Blues")[5:9]
+set.seed(1234)
+wordcloud(words = df_word$word,
+          freq = df_word$freq,
+          min.freq = 2,
+          max.words = 200,
+          random.order = F,
+          rot.per = .1,
+          family="AppleGothic",
+          scale = c(4, 0.3), colors = pal)
+
+
+twitter <- readLines("kim_president.txt")
+
+twitter <- str_replace_all(twitter, "\\W", " ")
+head(twitter)
+nouns <- extractNoun(twitter)
+wordcount <- table(unlist(nouns))
+df_word <- as.data.frame(wordcount, stringsAsFactors = F)
+df_word <- rename(df_word, word = Var1,
+                  freq = Freq)
+df_word <- filter(df_word, nchar(word) >= 2)
+top20 <- df_word %>%
+  arrange(desc(freq)) %>% head(20)
+top20
+library(ggplot2)
+order <- arrange(top20, freq)$word
+ggplot(data = top20, aes(x = word, y = freq)) +
+  ylim(0, 2500) + geom_col() + coord_flip() +
+  scale_x_discrete(limit = order) + 
+  geom_text(aes(label = freq), hjust = -0.3)
+
+pal <- brewer.pal(8,"Dark2")
+set.seed(1234)
+wordcloud(words = df_word$word,
+          freq = df_word$freq,
+          min.freq = 10,
+          max.words = 200,
+          random.order = F,
+          rot.per = .1,
+          family="AppleGothic",
+          scale = c(6, 0.2), colors = pal)
+#-------------------------------------------------------------
+# 데이터시각화
+install.packages("ggiraph")
+install.packages("ggiraphExtra")
+library(ggplot2)
+library(ggiraph)
+library(ggiraphExtra)
+str(USArrests)
+head(USArrests)
+library(tibble)
+crime <- rownames_to_column(USArrests, var = "state")
+crime$state <- tolower(crime$state)
+str(crime)
+library(ggplot2)
+states_map <- map_data("state") 
+str(states_map)
+
+install.packages("stringi")
+devtools::install_github("cardiomoon/kormaps2014")
+
+library(kormaps2014)
+korpop1
+ggChoropleth(data = korpop1, aes(fill = pop,
+                                 map_id = code,
+                                 tooltip = name),
+             map = kormap1, interactive = T)
+tbc
+
+ggChoropleth(data = tbc, aes(fill = NewPts,
+                             map_id = code,
+                             tooltip = name),
+             map = kormap1,
+             interactive = T)
+
+install.packages("plotly")
+library(plotly)
+library(ggplot2)
+p <- ggplot(data = mpg, aes(x = displ, y = highway, col = drv)) + geom_point()
+ggplotly(p)
+
+p <- ggplot(data = diamonds, aes(x = cut, fill = clarity)) + geom_bar(position = "dodge")
+ggplotly(p)
+
+install.packages("dygraphs")
+library(dygraphs)
+economics <- ggplot2::economics
+head(economics)
+library(xts)
+eco <- xts(economics$unemploy, order.by = economics$date)
+head(eco)
+dygraph(eco)
+dygraph(eco) %>% dyRangeSelector()
+eco_a <- xts(economics$psavert, order.by = economics$date)
+eco_b <- xts(economics$unemploy/1000, order.by = economics$date)
+eco2 <- cbind(eco_a, eco_b)
+colnames(eco2) <- c("psavert",
+                    "unemploy")
+head(eco2) 
+dygraph(eco2) %>% dyRangeSelector()
+mpg <- as.data.frame(ggplot2::mpg)
+library(dplyr)
+mpg_diff <- mpg %>%
+  select(class, cty) %>%
+  filter(class %in% c("compact", "suv"))
+head(mpg_diff)
+table(mpg_diff$class)
+t.test(data = mpg_diff, cty ~ class, var.equal = T)
+
+mpg_diff2 <- mpg %>% select(fl, cty) %>%
+  filter(fl %in% c("r", "p"))
+
+table(mpg_diff2$fl)
+
+t.test(data = mpg_diff2, cty ~ fl, var.equal = T)
+
+
+head(mtcars)
+car_cor <- cor(mtcars)
+round(car_cor, 2)
+
+install.packages("corrplot")
+library(corrplot)
+corrplot(car_cor)
+corrplot(car_cor, method = "number")
+
+col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+
+corrplot(car_cor,
+         method = "color", 
+         col = col(200), 
+         type = "lower",
+         order = "hclust", 
+         addCoef.col = "black", 
+         tl.col = "black", 
+         tl.srt = 45,
+         diag=F)
+
+
+################################################
+
+exam <- read.csv("csv_exam.csv")
+exam
+exam[]
+exam[1,]
+exam[1,1]
+exam[1,'science']
+exam[,'science']
+exam[,c('class','math','science')]
+exam[exam$math >= 50, "english"]
+exam[exam$math >= 50, c("english", "science")]
+
+exam$tot <- (exam$math + exam$english + exam$science)/3
+aggregate(data=exam[exam$math >= 50 & exam$english >= 80,], tot~class, mean)
+
+mpg <- ggplot2::mpg
+x <- boxplot(mpg$cty)
+
+x$stats[,1]
+
+x
+
