@@ -437,10 +437,9 @@ remotes::install_github('haven-jeon/KoNLP', upgrade = "never", INSTALL_opts=c("-
 install.packages('devtools')
 devtools::install_github('haven-jeon/KoNLP')
 
-Sys.setenv("JAVA_HOME"='/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home')
+Sys.setenv("JAVA_HOME"='/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home')
 dyn.load('/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home/lib/server/libjvm.dylib')
 
-Sys.setenv("JAVA_HOME" = '/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home')
 
 
 #-------------------------------------------------------------
