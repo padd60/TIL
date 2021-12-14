@@ -34,4 +34,24 @@ print(kn.score(test_input, test_target))
 
 print(kn.predict(test_input))
 
-print(kn.predict([[25, 150]]))
+# print(kn.predict([[25, 150]]))
+
+mean = np.mean(train_input, axis=0)
+std = np.std(train_input, axis=0)
+
+train_scaled = (train_input - mean)/std
+
+kn.fit(train_scaled, train_target)
+
+test_scaled = (test_input - mean) / std
+
+kn.score(test_scaled, test_target)
+print(kn.score(test_scaled, test_target))
+
+new = ([25, 150] - mean) / std
+
+print(mean)
+print(std)
+print(train_scaled)
+
+print(kn.predict([new]))
