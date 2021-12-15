@@ -425,7 +425,7 @@ install.packages("KoNLP")
 
 remotes::install_github('haven-jeon/KoNLP', upgrade = "never", INSTALL_opts=c("--no-multiarch"))
 install.packages('devtools')
-devtools::install_github('haven-jeon/KoNLP')
+devtools::install_github('haven-jeon/KoNLP', force = TRUE)
 library(KoNLP)
 library(rJava)
 update.packages()
@@ -437,7 +437,7 @@ remotes::install_github('haven-jeon/KoNLP', upgrade = "never", INSTALL_opts=c("-
 install.packages('devtools')
 devtools::install_github('haven-jeon/KoNLP')
 
-Sys.setenv("JAVA_HOME"='/Library/Java/JavaVirtualMachines/jdk-17.0.1.jdk/Contents/Home')
+Sys.setenv("JAVA_HOME"='/Library/Java/JavaVirtualMachines/jdk1.8.0_301.jdk/Contents/Home')
 dyn.load('/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home/lib/server/libjvm.dylib')
 
 
